@@ -23,7 +23,7 @@ var Root = function Root() {
   //     <App />
   //   </HashRouter>
   // </Provider>
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Deez Nuts Go Here");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "LightCycle Is Up And Running");
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);

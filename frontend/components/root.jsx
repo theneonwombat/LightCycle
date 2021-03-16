@@ -10,7 +10,7 @@ const Root = () => {
   //     <App />
   //   </HashRouter>
   // </Provider>
-  return <div>Deez Nuts Go Here</div>
+  return <div>LightCycle Is Up And Running</div>
 };
 
 export default Root;
