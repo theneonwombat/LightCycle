@@ -5,7 +5,7 @@ class Api::PlayersController < ApplicationController
 
     if @player.save
       login!(@player)
-      render 'api/player/show'
+      render :show
     else
       render json: @player.errors.full_messages, status: 422
     end
@@ -14,7 +14,7 @@ class Api::PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:playername, :password, :email)
+    params.require(:player).permit(:playername, :password) #removed email
   end
 
 end

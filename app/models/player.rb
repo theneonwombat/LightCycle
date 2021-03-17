@@ -19,7 +19,7 @@ class Player < ApplicationRecord
   end
 
   def self.find_by_credentials(playername, password)
-    player = player.find_by(playername: playername)
+    player = Player.find_by(playername: playername)
 
     if player && player.check_password?(password)
       player

@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
 
     if @player
       login!(@player)
-      render "api/players/show"
+      render :show
     else
       render json: ["Invalid playername or password"], status: 401
     end
@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
     @player = current_player
     if @player
       logout!
-      render "api/players/show"
+      render :show
     else
       render json: ["Impossible, nobody signed in"], status: 404
     end

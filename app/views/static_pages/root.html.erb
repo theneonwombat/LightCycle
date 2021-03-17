@@ -1,1 +1,8 @@
+<% if logged_in? %>
+  <script id="bootstrap-current-player" type="text/javascript">
+  	window.currentPlayer = <%= render("api/players/player.json.jbuilder",
+  		player: current_player).html_safe %>
+  </script>
+<% end %>
+
 <div id="root">ThErE's A pR0bLeM...</div>

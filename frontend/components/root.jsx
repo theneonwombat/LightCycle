@@ -1,16 +1,15 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
-// import { HashRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'; 
+import { HashRouter } from 'react-router-dom';
 
-// import App from './app';
+import App from './App';
 
-const Root = () => {
-  // <Provider store={store}>
-  //   <HashRouter>
-  //     <App />
-  //   </HashRouter>
-  // </Provider>
-  return <div>LightCycle Is Up And Running</div>
-};
+const Root = ({store}) => (
+  <Provider store={store}>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Provider>
+);
 
 export default Root;

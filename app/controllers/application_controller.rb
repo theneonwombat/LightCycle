@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  helper_method :logged_in?, :current_player
+
   def login!(player)
     session[:session_token] = player.reset_session_token!
   end
@@ -15,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_player
-    @current_player ||= player.find_by(session_token: session[:session_token])
+    @current_player ||= Player.find_by(session_token: session[:session_token])
   end
 
 end
