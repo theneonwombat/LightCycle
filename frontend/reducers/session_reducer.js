@@ -1,20 +1,22 @@
 import {
-  RECIEVE_CURRENT_PLAYER, 
+  RECEIVE_CURRENT_PLAYER, 
   LOGOUT_CURRENT_PLAYER,
-} from '../actions/session';
+} from '../actions/session_actions';
 
 const _nullSession = {
-  currentUser: null,
+  id: null,
 };
 
-export default (state = _nullSession, action) => {
+const sessionReducer = (state = _nullSession, action) => {
   Object.freeze(state);
   switch (action.type) {
-    case RECIEVE_CURRENT_PLAYER:
-      return Object.assign({}, { currentPlayer: action.player })
+    case RECEIVE_CURRENT_PLAYER:
+      return Object.assign({}, { id: action.currentPlayer.id })
     case LOGOUT_CURRENT_PLAYER:
       return _nullSession;
     default:
       return state;
   }
 }
+
+export default sessionReducer;

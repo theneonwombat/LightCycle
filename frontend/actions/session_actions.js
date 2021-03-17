@@ -1,13 +1,13 @@
-import * as APIUtil from '../utils/session';
+import * as APIUtil from '../utils/session_api_util';
 
-export const RECIEVE_CURRENT_PLAYER = "RECIEVE_CURRENT_PLAYER";
+export const RECEIVE_CURRENT_PLAYER = "RECEIVE_CURRENT_PLAYER";
 export const LOGOUT_CURRENT_PLAYER = "LOGOUT_CURRENT_PLAYER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
-const recieveCurrentPlayer = player => {
+const receiveCurrentPlayer = player => {
   return {
-    type: RECIEVE_CURRENT_PLAYER,
-    player
+    type: RECEIVE_CURRENT_PLAYER,
+    currentPlayer
   }
 };
 
@@ -25,7 +25,7 @@ export const receiveErrors = errors => ({
 export const signup = player => dispatch => {
   return APIUtil.signup(player)
   .then(
-    player => dispatch(recieveCurrentPlayer(player)),
+    player => dispatch(receiveCurrentPlayer(player)),
     err => dispatch(receiveErrors(err.responseJSON))
   )
 };
@@ -33,7 +33,7 @@ export const signup = player => dispatch => {
 export const login = player => dispatch => {
   return APIUtil.login(player)
   .then(
-    player => dispatch(recieveCurrentPlayer(player)),
+    player => dispatch(receiveCurrentPlayer(player)),
     err => dispatch(receiveErrors(err.responseJSON))
   )
 };
