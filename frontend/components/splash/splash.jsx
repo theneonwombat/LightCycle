@@ -5,9 +5,9 @@ import { Link, NavLink } from 'react-router-dom';
 const Splash = () => (
   <div className="splash">
 
-    <h1 className="splash-title">Oh Hey There</h1>
+    <h1 className="splash-title">The #4 app for biking places</h1>
     
-    <h2 className="splash-subtitle">didn't see you come in</h2>
+    {/* <h2 className="splash-subtitle">didn't see you come in...</h2> */}
 
     <div className="splash-content">
 
@@ -16,12 +16,15 @@ const Splash = () => (
       </div>
 
       <div className="splash-right">
-        <button>Button 1</button>
-        <button>Button 2</button>
-        <button>Button 3</button>
-        {/* <NavLink>Button A</NavLink>
-        <NavLink>Button B</NavLink>
-        <NavLink>Button C</NavLink> */}
+        <div className="splash-button-div">
+          {/* <button className="splash-button">Button 1</button>
+          <button className="splash-button">Button 2</button>
+          <button className="splash-button">Button 3</button> */}
+          <Link className="splash-button">Button A</Link>
+          <Link className="splash-button">Button B</Link>
+          <Link className="splash-button">Button C</Link>
+          <p className="button-subtitle">there's a little bit of text on the bottom</p>
+        </div>
       </div>
 
     </div>

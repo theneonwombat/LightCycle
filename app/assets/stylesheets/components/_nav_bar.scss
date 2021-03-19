@@ -1,5 +1,4 @@
 
-
 .simple-nav {
   background: white;
   display: flex;
@@ -8,19 +7,18 @@
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
+  border-bottom: solid 1px #f0f0f5;
 }
 
 .nav-logo {
   color: $deep-orange;
   font-size: 21px;
   font-family: sans-serif;
-  font-weight: 900;
+  font-weight: 999;
   margin-left: 20px;
 }
 
 .simple-button {
-  background: $deep-orange;
-  color: $white;
   height: auto;
   font-size: 12px;
   padding: 6px 16px;
@@ -30,5 +28,19 @@
   font-size: 12px;
   font-family: sans-serif;
   font-weight: 666;
+  border: solid 1px #f0f0f5;
 }
 
+.login-button {
+  background-color: white;
+  color: rgb(29, 29, 29);
+}
+
+.signup-button {
+  background: $deep-orange;
+  color: $white;
+}
+
+.sigimple-button :hover {
+  background-color: cyan;
+}
