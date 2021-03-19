@@ -4,8 +4,8 @@ export const RECEIVE_CURRENT_PLAYER = "RECEIVE_CURRENT_PLAYER";
 export const LOGOUT_CURRENT_PLAYER = "LOGOUT_CURRENT_PLAYER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 
+//synch
 const receiveCurrentPlayer = currentPlayer => {
-  debugger
   return {
     type: RECEIVE_CURRENT_PLAYER,
     currentPlayer
@@ -23,6 +23,7 @@ export const receiveErrors = errors => ({
   errors
 });
 
+//asynch
 export const signup = player => dispatch => {
   return APIUtil.signup(player)
   .then(
@@ -32,7 +33,6 @@ export const signup = player => dispatch => {
 };
 
 export const login = player => dispatch => {
-  // debugger
   return APIUtil.login(player)
   .then(
     player  => dispatch(receiveCurrentPlayer(player)),

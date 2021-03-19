@@ -6,7 +6,7 @@ import SessionForm from './session_form';
 const mSTP = ({ errors }) => {
   return {
     errors: errors.session,
-    formType: 'Enter the Fight',
+    formType: 'Sign Up',
   };
 };
 

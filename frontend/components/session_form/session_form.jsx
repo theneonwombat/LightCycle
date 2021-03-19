@@ -41,41 +41,52 @@ class SessionForm extends React.Component {
 
 
     return (
+
       <div className="login-form-container">
+        <img className="login-image" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website/backgrounds/cycling-01-94d1179262c99c878605a57a746e426866497d2ed406c8b98d006dc8139c4524.jpg" alt="" />
 
+        <h1 className="form-type" >{this.props.formType}</h1>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-
-          <h1>{this.props.formType}</h1>
+          
+          <br/>
 
           <div className="error-box">{this.renderErrors()}</div>
 
           <div className="login-form">
 
             <br/>
-            <label>Playername:
+
+            <div className="flex-div">
               <input type="text"
                 value={this.state.playername}
                 onChange={this.update('playername')}
                 className="login-input"
-              />
-            </label>
+                placeholder="playername"
+                />
+            </div>
 
             <br/>
-            <label>Password:
+
+            <div className="flex-div">
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
-              />
-            </label>
+                placeholder="password"
+                />
+              </div>
 
             <br/>
+            <div className="flex-div">
             <button className="session-submit" >{this.props.formType}</button>
+            </div>
+            
           </div>
 
         </form>
 
       </div>
+    
     );
   }
 }
