@@ -3,6 +3,7 @@ import * as APIUtil from '../utils/session_api_util';
 export const RECEIVE_CURRENT_PLAYER = "RECEIVE_CURRENT_PLAYER";
 export const LOGOUT_CURRENT_PLAYER = "LOGOUT_CURRENT_PLAYER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 //synch
 const receiveCurrentPlayer = currentPlayer => {
@@ -21,6 +22,10 @@ const logoutCurrentPlayer = () => {
 export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_SESSION_ERRORS,
 });
 
 //asynch
