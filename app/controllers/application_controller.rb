@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_player
-    return nil unless session[:session_token]
+    return nil unless session[:session_token] #heroko crashes without this line. why!?
     @current_player ||= Player.find_by(session_token: session[:session_token])
   end
 
