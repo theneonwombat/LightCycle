@@ -1,18 +1,20 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 
-import GreetingContainer from "./greeting/greeting_container";
 import SignupFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
+import NavBarContainer from './nav/nav_container';
+import Splash from './splash/splash';
 
 const App = () => (
+  
   <div>
-    <h1>LightCycle Is Up And Running</h1>
-    <GreetingContainer />
-    <br/>
-    <Route path="/login" component={LoginFormContainer} />
-    <Route path="/signup" component={SignupFormContainer} />
+    <Route path="/" component={NavBarContainer} />
+    <Route exact path="/splash" component={Splash} />
+    <Route exact path="/login" component={LoginFormContainer} />
+    <Route exact path="/signup" component={SignupFormContainer} />
   </div>
+  
 );
 
 export default App;
