@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = ({currentPlayer, currentPage, logout}) => {
@@ -12,10 +11,8 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         LightCycle
       </Link>
 
-      <div className="simple-button">
-        <NavLink 
-        className="login-button" 
-        to="/login">Log In</NavLink>
+      <div className="login-button">
+        <NavLink to="/login">Log In</NavLink>
       </div>
 
     </div>
@@ -29,10 +26,8 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         LightCycle
       </Link>
 
-      <div className="simple-button">
-        <NavLink 
-        className="signup-button" 
-        to="/signup">Sign Up</NavLink>
+      <div className="signup-button">
+        <NavLink to="/signup">Sign Up</NavLink>
       </div>
 
     </div>
@@ -47,7 +42,7 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
 
       {/* dropdowns go here */}
 
-      <div className="logout-button">
+      <div className="signout-button">
         <button onClick={logout}>
           Sign Out
         </button>

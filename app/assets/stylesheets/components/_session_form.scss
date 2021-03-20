@@ -5,8 +5,8 @@
 
 .login-image {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  height: 108%;
+  width: 108%;
   object-fit: cover;
   z-index: -1;
 }
@@ -22,7 +22,7 @@
 .form-type {
   width: 300px;
   padding: 20px 50px;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0,0,0,0.85);
   color: white;
   border-radius: 3px;
   font-size: 34px;
@@ -33,20 +33,22 @@
   margin: auto;
 }
 
-.error-box {
+.actually-errors {
   width: auto;
   text-align: center;
   color: white;
   background-color: red;
-  font-size: 12px;
+  font-size: 14px;
   font-family: sans-serif;
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
 
 .login-form-box {
-  background: $middle-gray;
+  background: rgba(0,0,0,0.7);
   margin: auto;
   width: 400px;
-  height: 500px;
+  height: 400px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
@@ -55,21 +57,36 @@
   background-color: $noen-blue;
   margin: auto;
   height: 30px;
-  padding: 5px;
+  width: 300px;
   border-radius: 6px;
+  background: rgba(0,0,0,0.5);
   border: 1px solid #666;
+  color: #CCC;
+
+  //for glow on focus
+  transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+}
+
+.login-input:focus {
+  box-shadow: 0 0 5px #CCC;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #CCC;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .session-submit {
   background: $deep-orange;
   color: $white;
-  height: auto;
-  font-size: 12px;
-  padding: 6px 16px;
-  min-height: unset;
+  text-align: center;
+  height: 40px;
+  width: 300px;
+  border-radius: 3px;
+  font-size: 14px;
   line-height: normal;
-  border-radius: 4px;
-  font-size: 12px;
   font-family: sans-serif;
-  font-weight: 666;
+  font-weight: 700;
 }

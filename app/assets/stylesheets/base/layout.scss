@@ -12,6 +12,10 @@ body {
   justify-content: center;
 }
 
+::selection {
+  background: $deep-orange;
+}
+
 // button {
 // 	background-color: $light-blue;
 // 	border-color: $dark-blue;

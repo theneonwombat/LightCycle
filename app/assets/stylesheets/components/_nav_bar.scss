@@ -18,7 +18,7 @@
   margin-left: 20px;
 }
 
-.simple-button {
+.login-button {
   height: auto;
   font-size: 12px;
   padding: 6px 16px;
@@ -29,18 +29,58 @@
   font-family: sans-serif;
   font-weight: 666;
   border: solid 1px #f0f0f5;
-}
-
-.login-button {
   background-color: white;
   color: rgb(29, 29, 29);
 }
 
 .signup-button {
+  height: auto;
+  font-size: 12px;
+  padding: 6px 16px;
+  min-height: unset;
+  line-height: normal;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 666;
   background: $deep-orange;
   color: $white;
 }
 
-.sigimple-button :hover {
-  background-color: cyan;
+.signup-button:hover {
+  background-color: #d34600;
+}
+
+.login-button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+//temp complex nav shit
+.complex-nav {
+  background: white;
+  display: flex;
+  padding: 0 16px;
+  height: 58px;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: solid 1px #f0f0f5;
+}
+
+.signout-button {
+  height: auto;
+  font-size: 12px;
+  padding: 6px 16px;
+  min-height: unset;
+  line-height: normal;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 666;
+  background: $deep-orange;
+  color: $white;
+}
+
+.signout-button:hover {
+  background-color: #d34600;
 }

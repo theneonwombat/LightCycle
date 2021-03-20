@@ -24,8 +24,8 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return(
-      <ul>
+    return (this.props.errors.length > 0) ? (
+      <ul className="actually-errors">
 
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
@@ -34,6 +34,14 @@ class SessionForm extends React.Component {
         ))}
 
       </ul>
+    ): null;
+  }
+
+  pickBackground() {
+    return (this.props.formType === 'Log In') ? (
+      <img className="login-image" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website/backgrounds/cycling-01-94d1179262c99c878605a57a746e426866497d2ed406c8b98d006dc8139c4524.jpg" alt="" />
+      ) : (
+      <img className="login-image" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website/backgrounds/running-02-7b3e3e1e9e262cd1e9f4275c393559643c8ebcd09dd3fab0be325c1ffa763069.jpg" alt="" />
     );
   }
 
@@ -43,14 +51,17 @@ class SessionForm extends React.Component {
     return (
 
       <div className="login-form-container">
-        <img className="login-image" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website/backgrounds/cycling-01-94d1179262c99c878605a57a746e426866497d2ed406c8b98d006dc8139c4524.jpg" alt="" />
+        {this.pickBackground()}
 
         <h1 className="form-type" >{this.props.formType}</h1>
         <form onSubmit={this.handleSubmit} className="login-form-box">
           
           <br/>
 
-          <div className="error-box">{this.renderErrors()}</div>
+          <div 
+            className="error-box">
+            {this.renderErrors()}
+          </div>
 
           <div className="login-form">
 
