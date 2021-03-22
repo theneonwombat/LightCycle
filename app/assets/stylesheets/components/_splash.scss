@@ -59,6 +59,18 @@
   border: 1px solid black;
 }
 
+.splash-demo-button {
+  background-color: $deep-orange;
+  color: $white;
+  font-size: 18px;
+  border: 1px solid $deep-orange;
+}
+
+.splash-demo-button:hover {
+  background-color: #d34600;
+  border: 1px solid $deep-orange;
+}
+
 .button-subtitle {
   text-align: center;
   font-size: 12px;

@@ -54,10 +54,9 @@
 }
 
 .login-input {
-  background-color: $noen-blue;
   margin: auto;
   height: 30px;
-  width: 300px;
+  width: 280px;
   border-radius: 6px;
   background: rgba(0,0,0,0.5);
   border: 1px solid #666;
@@ -66,13 +65,13 @@
   //for glow on focus
   transition: all 0.30s ease-in-out;
   outline: none;
-  padding: 3px 0px 3px 3px;
+  padding: 3px 10px 3px 10px;
   margin: 5px 1px 3px 0px;
 }
 
 .login-input:focus {
   box-shadow: 0 0 5px #CCC;
-  padding: 3px 0px 3px 3px;
+  padding: 3px 10px 3px 10px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #CCC;
   background-color: rgba(255, 255, 255, 0.25);
@@ -89,4 +88,18 @@
   line-height: normal;
   font-family: sans-serif;
   font-weight: 700;
+}
+
+.form-demo-button {
+  background: $deep-orange;
+  color: $white;
+  text-align: center;
+  height: 40px;
+  width: 300px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: normal;
+  font-family: sans-serif;
+  font-weight: 700;
+  margin-top: 30px;
 }

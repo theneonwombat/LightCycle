@@ -1,4 +1,5 @@
 import React from 'react';
+import { login } from '../../actions/session_actions'
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentWillUnmount() {
@@ -25,6 +27,12 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const player = Object.assign({}, this.state);
     this.props.processForm(player);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    const player = { playername: 'tron', password: 'fortheuser'}
+    dispatch(login(player));
   }
 
   renderErrors() {
@@ -93,9 +101,14 @@ class SessionForm extends React.Component {
 
             <br/>
             <div className="flex-div">
-            <button className="session-submit" >{this.props.formType}</button>
+              <button className="session-submit" >{this.props.formType}</button>
             </div>
             
+            <br/>
+            <div className="flex-div" >
+              <button className="form-demo-button" onClick={this.demoLogin} >Demo</button>
+            </div>
+        
           </div>
 
         </form>
