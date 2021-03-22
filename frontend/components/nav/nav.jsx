@@ -11,9 +11,9 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         LightCycle
       </Link>
 
-      <div className="login-button">
-        <NavLink to="/login">Log In</NavLink>
-      </div>
+      
+      <NavLink className="login-button" to="/login">Log In</NavLink>
+      
 
     </div>
   );
@@ -26,9 +26,9 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         LightCycle
       </Link>
 
-      <div className="signup-button">
-        <NavLink to="/signup">Sign Up</NavLink>
-      </div>
+      
+      <NavLink className="signup-button" to="/signup">Sign Up</NavLink>
+      
 
     </div>
   )

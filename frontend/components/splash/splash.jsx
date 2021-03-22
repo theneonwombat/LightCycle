@@ -18,9 +18,9 @@ const Splash = () => {
 
         <div className="splash-right">
           <div className="splash-button-div">
-            <Link to="/" className="splash-button">Button A</Link>
-            <Link to="/" className="splash-button">Button B</Link>
-            <Link to="/" className="splash-button">Button C</Link>
+            <Link to="/" className="splash-button">Login</Link>
+            <Link to="/" className="splash-button">Signup</Link>
+            <Link to="/" className="splash-button">Demo</Link>
             <p className="button-subtitle">there's a little bit of text on the bottom</p>
           </div>
         </div>
