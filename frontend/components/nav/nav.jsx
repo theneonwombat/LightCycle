@@ -40,6 +40,8 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         LightCycle
       </Link>
 
+
+      <h3 className="welcome" >Welcome, {currentPlayer.playername}!</h3>
       {/* dropdowns go here */}
 
       <div className="signout-button">
