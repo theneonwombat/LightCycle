@@ -10,28 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_221009) do
+ActiveRecord::Schema.define(version: 2021_03_25_203602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
     t.integer "player_id", null: false
-    t.string "name"
-    t.float "distance"
+    t.string "course_name"
+    t.string "distance"
+    t.string "time"
+    t.string "pins_object"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["player_id"], name: "index_courses_on_player_id"
-  end
-
-  create_table "pins", force: :cascade do |t|
-    t.float "lat", null: false
-    t.float "lng", null: false
-    t.integer "course_id", null: false
-    t.integer "ord"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_pins_on_course_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -40,8 +32,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_221009) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playername"], name: "index_players_on_playername", unique: true
-    t.index ["session_token"], name: "index_players_on_session_token", unique: true
   end
 
 end

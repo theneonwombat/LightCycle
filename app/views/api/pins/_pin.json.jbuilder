@@ -1,1 +1,0 @@
-json.extract! pin, :id, :lat, :lng, :course_id, :ord

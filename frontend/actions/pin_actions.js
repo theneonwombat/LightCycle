@@ -1,4 +1,4 @@
-import * as APIUtil from '../utils/pin_api_util';
+// import * as APIUtil from '../utils/pin_api_util';
 
 export const RECEIVE_PINS = 'RECEIVE_PINS';
 
