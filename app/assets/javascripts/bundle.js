@@ -103,6 +103,37 @@ function _setPrototypeOf(o, p) {
 
 /***/ }),
 
+/***/ "./frontend/actions/pin_actions.js":
+/*!*****************************************!*\
+  !*** ./frontend/actions/pin_actions.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_PINS": () => (/* binding */ RECEIVE_PINS),
+/* harmony export */   "receivePins": () => (/* binding */ receivePins),
+/* harmony export */   "fetchPins": () => (/* binding */ fetchPins)
+/* harmony export */ });
+// import * as APIUtil from '../utils/pin_api_util';
+var RECEIVE_PINS = 'RECEIVE_PINS';
+var receivePins = function receivePins(pins) {
+  return {
+    type: RECEIVE_PINS,
+    pins: pins
+  };
+};
+var fetchPins = function fetchPins() {
+  return function (dispatch) {
+    return APIUtil.fetchPins().then(function (pins) {
+      return dispatch(receivePins(pins));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -196,11 +227,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
-/* harmony import */ var _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/dashboard */ "./frontend/components/dashboard/dashboard.jsx");
+/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
 
 
 
@@ -229,15 +260,11 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     exact: true,
     path: "/dashboard",
-    component: _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_7__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
-    exact: true,
-    path: "/",
-    component: _dashboard_dashboard__WEBPACK_IMPORTED_MODULE_7__.default
+    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__.default
   }));
 };
 
@@ -245,10 +272,10 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./frontend/components/dashboard/dashboard.jsx":
-/*!*****************************************************!*\
-  !*** ./frontend/components/dashboard/dashboard.jsx ***!
-  \*****************************************************/
+/***/ "./frontend/components/course/course_form.jsx":
+/*!****************************************************!*\
+  !*** ./frontend/components/course/course_form.jsx ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -257,12 +284,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function () {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "temp-dash"
-  }, "LOGGED IN, DASHBOARD WILL GO HERE");
-});
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var CourseForm = /*#__PURE__*/function (_React$Component) {
+  _inherits(CourseForm, _React$Component);
+
+  var _super = _createSuper(CourseForm);
+
+  function CourseForm(props) {
+    var _this;
+
+    _classCallCheck(this, CourseForm);
+
+    _this = _super.call(this, props);
+    _this.state = _this.props.course;
+    _this.pins = JSON.parse(_this.props.course.pins_object).pins;
+    _this.travelMode = 'BICYCLING';
+    _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
+    _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CourseForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var centerLat;
+      var centerLng;
+
+      if (this.pins[0] === undefined) {
+        centerLat = 40.673842;
+        centerLng = -73.970083;
+      } else {
+        centerLat = parseFloat(this.pins[0].lat);
+        centerLng = parseFloat(this.pins[0].lng);
+      }
+
+      ;
+      var mapOptions = {
+        center: {
+          lat: centerLat,
+          lng: centerLng
+        },
+        zoom: 12
+      };
+      this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
+      var directionsService = new google.maps.DirectionsService();
+      var directionsRenderer = new google.maps.DirectionsRenderer({
+        polylineOptions: {
+          strokeColor: "#FC4C02"
+        },
+        suppressBicyclingLayer: true,
+        suppressInfoWindows: true,
+        suppressMarkers: true
+      });
+      directionsRenderer.setMap(this.map);
+      google.maps.event.addListener(this.map, 'click', function (event) {
+        _this2.placeMarker(event.latLng);
+
+        _this2.updateCourse(directionsService, directionsRenderer);
+      });
+      window.googleMap = this.map;
+    } ////////////////////////////////////////////////////////////////
+
+  }, {
+    key: "updateCourse",
+    value: function updateCourse(dS, dR) {
+      var _this3 = this;
+
+      var waypoints = this.pins.slice(1, this.pins.length - 1).map(function (pin) {
+        return {
+          location: pin.position,
+          stopover: false
+        };
+      }) || [];
+
+      if (this.pins.length > 1) {
+        dS.route({
+          origin: this.pins[0].position,
+          waypoints: waypoints,
+          destination: this.pins[this.pins.length - 1].position,
+          travelMode: this.travelMode
+        }, function (response, status) {
+          if (status === 'OK') {
+            dR.setDirections(response);
+            var distance = response.routes[0].legs[0].distance.text;
+
+            _this3.setState({
+              distance: distance
+            });
+
+            var time = response.routes[0].legs[0].duration.text;
+
+            _this3.setState({
+              time: time
+            });
+          }
+        });
+      }
+    }
+  }, {
+    key: "placeMarker",
+    value: function placeMarker(location) {
+      var customIcon;
+      var pin = new google.maps.Marker({
+        position: location,
+        map: this.map // icon: customIcon,
+
+      });
+      var pinLat = pin.getPosition().lat();
+      var pinLng = pin.getPosition().lng(); // this.routeData.path.push({lat: pinLat, lng: pinLng})
+
+      this.pins.push(pin);
+    }
+  }, {
+    key: "render",
+    value: //////////////////////////////////////////////////////////////////
+    function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "course-form-page"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "map-headder"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "course-name"
+      }, this.state.course_name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "map-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "the-map",
+        id: "the-map"
+      }, "MAP")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "course-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "read-out"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, " DISTANCE:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "distance-display"
+      }, this.state.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, " ESTIMATED TIME:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "time-display"
+      }, this.state.time)))));
+    }
+  }]);
+
+  return CourseForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CourseForm);
+
+/***/ }),
+
+/***/ "./frontend/components/course/new_course_container.js":
+/*!************************************************************!*\
+  !*** ./frontend/components/course/new_course_container.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _course_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course_form */ "./frontend/components/course/course_form.jsx");
+
+
+
+var mSTP = function mSTP(_ref) {
+  var session = _ref.session;
+  return {
+    formType: 'Create New Course',
+    course: {
+      player_id: session.id,
+      course_name: 'New Course',
+      distance: '',
+      time: '',
+      pins_object: '{"pins":[]}'
+    }
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    action: 'placeholder'
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_course_form__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -1024,7 +1252,7 @@ var Protected = function Protected(_ref2) {
     exact: exact,
     render: function render(props) {
       return loggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Component, props) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Redirect, {
-        to: "/splash"
+        to: "/login"
       });
     }
   });
@@ -37709,15 +37937,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_pin_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/pin_actions */ "./frontend/actions/pin_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
+ //TESTING IMPORTS
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  //bootstrapping
   var store;
 
   if (window.currentPlayer) {
@@ -37737,7 +37967,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   window.getState = store.getState;
-  window.dispatch = store.dispatch; //TESTING ABOVE
+  window.dispatch = store.dispatch;
+  window.fetchPins = _actions_pin_actions__WEBPACK_IMPORTED_MODULE_4__.fetchPins; //TESTING ABOVE
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__.default, {

@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Root from './components/root';
 import configureStore from './store/store';
-import { login } from './actions/session_actions';
+
+//TESTING IMPORTS
+import {fetchPins} from './actions/pin_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
+  
+  //bootstrapping
   let store;
-
   if (window.currentPlayer) {
     const preloadedState = {
       session: { id: window.currentPlayer.id },
@@ -23,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //TESTING BELOW
   window.getState = store.getState
   window.dispatch = store.dispatch
+  window.fetchPins = fetchPins
   //TESTING ABOVE
   
   const root = document.getElementById('root');
