@@ -24,6 +24,7 @@ This stack utilizes:
 ![Routes](https://github.com/theneonwombat/LightCycle/blob/main/app/assets/images/google_map_route.png)
 
 ```javascript
+
 updateCourse(dS, dR) {
   let waypoints = this.pins.slice(1, this.pins.length - 1 )
   .map(pin => ({location: pin.position, stopover: false})) || [];
@@ -48,4 +49,5 @@ updateCourse(dS, dR) {
     })
   }
 }
+
 ```
