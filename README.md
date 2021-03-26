@@ -1,24 +1,25 @@
-# README
+# LightCycle
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[LightCycle](https://light-cycle.herokuapp.com/) is a clone of Strava, a popular fitness tracker. The app allows users to map bike ride routes. It also keeps track of several metics on these rides, to allow the rider to see their progress.
 
-Things you may want to cover:
+# Technologies
 
-* Ruby version
+This stack utilizes:
 
-* System dependencies
+- Ruby on Rails
 
-* Configuration
+- React
 
-* Database creation
+- Redux
 
-* Database initialization
+- PostgreSQL database
 
-* How to run the test suite
+- Google Maps API
 
-* Services (job queues, cache servers, search engines, etc.)
+- Google Directions API
 
-* Deployment instructions
+# Features
+## Courses
 
-* ...
+!(https://github.com/theneonwombat/LightCycle/app/assets/images/google_map_route.png)
+

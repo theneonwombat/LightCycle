@@ -2,15 +2,17 @@ import React from 'react';
 
 class CourseForm extends React.Component {
   constructor(props) {
-    super(props);
 
-    this.state = this.props.course;
-    this.pins = JSON.parse(this.props.course.pins_object).pins;
+    super(props);
+    debugger
+    this.state = props.course;
+    this.pins = JSON.parse(props.course.pins_object).pins;
 
     this.travelMode = 'BICYCLING';
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
+
   }
 
   componentDidMount() {

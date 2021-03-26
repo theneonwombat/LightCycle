@@ -321,8 +321,9 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CourseForm);
 
     _this = _super.call(this, props);
-    _this.state = _this.props.course;
-    _this.pins = JSON.parse(_this.props.course.pins_object).pins;
+    debugger;
+    _this.state = props.course;
+    _this.pins = JSON.parse(props.course.pins_object).pins;
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
