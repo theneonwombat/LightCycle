@@ -21,5 +21,5 @@ This stack utilizes:
 # Features
 ## Courses
 
-!(https://github.com/theneonwombat/LightCycle/app/assets/images/google_map_route.png)
+![Routes](https://github.com/theneonwombat/LightCycle/app/assets/images/google_map_route.png)
 
