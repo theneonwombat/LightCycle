@@ -6,6 +6,7 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 //synch
+
 const receiveCurrentPlayer = currentPlayer => {
   return {
     type: RECEIVE_CURRENT_PLAYER,
@@ -29,6 +30,7 @@ export const clearErrors = () => ({
 });
 
 //asynch
+
 export const signup = player => dispatch => {
   return APIUtil.signup(player)
   .then(

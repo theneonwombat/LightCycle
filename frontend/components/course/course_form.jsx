@@ -4,7 +4,7 @@ class CourseForm extends React.Component {
   constructor(props) {
 
     super(props);
-    debugger
+    
     this.state = props.course;
     this.pins = JSON.parse(props.course.pins_object).pins;
 
@@ -12,6 +12,7 @@ class CourseForm extends React.Component {
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
+    this.handlesubmit = this.handlesubmit.bind(this);
 
   }
 
@@ -47,7 +48,7 @@ class CourseForm extends React.Component {
     google.maps.event.addListener(this.map, 'click', (event) => {
       this.placeMarker(event.latLng);
       this.updateCourse(directionsService, directionsRenderer);
-    });  
+    });
     
     window.googleMap = this.map;
   }
@@ -56,13 +57,15 @@ class CourseForm extends React.Component {
 
   updateCourse(dS, dR) {
     let waypoints = this.pins.slice(1, this.pins.length - 1 )
-    .map(pin => ({location: pin.position, stopover: false})) || [];
+    .map(pin => ({
+      location: pin, 
+      stopover: false})) || [];
 
     if(this.pins.length > 1) {
       dS.route({
-        origin: this.pins[0].position,
+        origin: this.pins[0],
         waypoints: waypoints,
-        destination: this.pins[this.pins.length - 1].position,
+        destination: this.pins[this.pins.length - 1],
         travelMode: this.travelMode
       }, (response, status) => {
         if (status === 'OK') {
@@ -79,6 +82,10 @@ class CourseForm extends React.Component {
     }
   }
 
+  // shouldComponentUpdate() {
+
+  // }
+
   placeMarker(location) {
     let customIcon;
 
@@ -90,16 +97,28 @@ class CourseForm extends React.Component {
 
     let pinLat = pin.getPosition().lat();
     let pinLng = pin.getPosition().lng();
-    // this.routeData.path.push({lat: pinLat, lng: pinLng})
-    this.pins.push(pin)
+
+    this.pins.push({ lat: pinLat, lng: pinLng })
+    // this.pins.push(location)
+
   };
+
+  handlesubmit(e) {
+    e.preventDefault();
+
+    const pinsString = JSON.stringify({ pins: this.pins });
+    this.setState({ pins_object: pinsString })
+    
+    const course = Object.assign({}, this.state);
+    this.props.processForm(course);
+  }
 
   //////////////////////////////////////////////////////////////////
   
   render() {
-
+    
     return(
-      <div className='course-form-page'>
+      <form className='course-form-page' onSubmit={this.handlesubmit} >
 
         <div className="map-headder" >
           <div className="course-name" >{this.state.course_name}</div>
@@ -124,9 +143,12 @@ class CourseForm extends React.Component {
             </label>
             
           </div>
+          
         </div>
+        
+        <button className="submit-button" >SAVE COURSE</button>
 
-      </div>
+      </form>
     )
   }
 }

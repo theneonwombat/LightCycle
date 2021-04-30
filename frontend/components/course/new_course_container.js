@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import CourseForm from './course_form';
+import { createCourse } from '../../utils/course_util'
 
 const mSTP = ({ session }) => {
   return {
@@ -16,7 +17,7 @@ const mSTP = ({ session }) => {
 
 const mDTP = dispatch => {
   return{
-    action: 'placeholder'
+    processForm: (course) => dispatch(createCourse(course))
   }
 };
 

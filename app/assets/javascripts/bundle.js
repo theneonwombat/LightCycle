@@ -321,12 +321,12 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CourseForm);
 
     _this = _super.call(this, props);
-    debugger;
     _this.state = props.course;
     _this.pins = JSON.parse(props.course.pins_object).pins;
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
+    _this.handlesubmit = _this.handlesubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -380,16 +380,16 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
 
       var waypoints = this.pins.slice(1, this.pins.length - 1).map(function (pin) {
         return {
-          location: pin.position,
+          location: pin,
           stopover: false
         };
       }) || [];
 
       if (this.pins.length > 1) {
         dS.route({
-          origin: this.pins[0].position,
+          origin: this.pins[0],
           waypoints: waypoints,
-          destination: this.pins[this.pins.length - 1].position,
+          destination: this.pins[this.pins.length - 1],
           travelMode: this.travelMode
         }, function (response, status) {
           if (status === 'OK') {
@@ -408,7 +408,9 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
           }
         });
       }
-    }
+    } // shouldComponentUpdate() {
+    // }
+
   }, {
     key: "placeMarker",
     value: function placeMarker(location) {
@@ -419,16 +421,32 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
 
       });
       var pinLat = pin.getPosition().lat();
-      var pinLng = pin.getPosition().lng(); // this.routeData.path.push({lat: pinLat, lng: pinLng})
-
-      this.pins.push(pin);
+      var pinLng = pin.getPosition().lng();
+      this.pins.push({
+        lat: pinLat,
+        lng: pinLng
+      }); // this.pins.push(location)
     }
   }, {
+    key: "handlesubmit",
+    value: function handlesubmit(e) {
+      e.preventDefault();
+      var pinsString = JSON.stringify({
+        pins: this.pins
+      });
+      this.setState({
+        pins_object: pinsString
+      });
+      var course = Object.assign({}, this.state);
+      this.props.processForm(course);
+    } //////////////////////////////////////////////////////////////////
+
+  }, {
     key: "render",
-    value: //////////////////////////////////////////////////////////////////
-    function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "course-form-page"
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+        className: "course-form-page",
+        onSubmit: this.handlesubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "map-headder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -446,7 +464,9 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
         className: "distance-display"
       }, this.state.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, " ESTIMATED TIME:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "time-display"
-      }, this.state.time)))));
+      }, this.state.time)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        className: "submit-button"
+      }, "SAVE COURSE"));
     }
   }]);
 
@@ -470,6 +490,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _course_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course_form */ "./frontend/components/course/course_form.jsx");
+/* harmony import */ var _utils_course_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/course_util */ "./frontend/utils/course_util.js");
+
 
 
 
@@ -489,7 +511,9 @@ var mSTP = function mSTP(_ref) {
 
 var mDTP = function mDTP(dispatch) {
   return {
-    action: 'placeholder'
+    processForm: function processForm(course) {
+      return dispatch((0,_utils_course_util__WEBPACK_IMPORTED_MODULE_2__.createCourse)(course));
+    }
   };
 };
 
@@ -1228,6 +1252,29 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/utils/course_util.js":
+/*!***************************************!*\
+  !*** ./frontend/utils/course_util.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createCourse": () => (/* binding */ createCourse)
+/* harmony export */ });
+var createCourse = function createCourse(course) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/courses',
+    data: {
+      course: course
+    }
+  });
+};
 
 /***/ }),
 
