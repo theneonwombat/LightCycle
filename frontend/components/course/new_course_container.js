@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CourseForm from './course_form';
-import { createCourse } from '../../utils/course_util'
+import { createCourse } from '../../actions/course_actions'
 
 const mSTP = ({ session }) => {
   return {

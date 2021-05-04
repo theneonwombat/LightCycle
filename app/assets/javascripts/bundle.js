@@ -103,6 +103,16 @@ function _setPrototypeOf(o, p) {
 
 /***/ }),
 
+/***/ "./frontend/actions/course_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/course_actions.js ***!
+  \********************************************/
+/***/ (() => {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/aleccaro/Desktop/full_stack/LightCycle/frontend/actions/course_actions.js: Identifier 'fetchCourse' has already been declared (39:13)\n\n\u001b[0m \u001b[90m 37 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 38 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 39 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mconst\u001b[39m fetchCourse \u001b[33m=\u001b[39m (postId) \u001b[33m=>\u001b[39m dispatch \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 40 |\u001b[39m   \u001b[36mreturn\u001b[39m(\u001b[0m\n\u001b[0m \u001b[90m 41 |\u001b[39m     \u001b[33mPostApiUtil\u001b[39m\u001b[33m.\u001b[39mfetchPost(postId)\u001b[0m\n\u001b[0m \u001b[90m 42 |\u001b[39m     \u001b[33m.\u001b[39mthen((post) \u001b[33m=>\u001b[39m dispatch(receivePost(post)))\u001b[0m\n    at Object._raise (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:775:17)\n    at Object.raiseWithData (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:768:17)\n    at Object.raise (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:736:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:1452:12)\n    at ScopeHandler.declareName (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:1418:12)\n    at Object.checkLVal (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:10224:24)\n    at Object.parseVarId (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:12898:10)\n    at Object.parseVar (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:12873:12)\n    at Object.parseVarStatement (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:12690:10)\n    at Object.parseStatementContent (/Users/aleccaro/Desktop/full_stack/LightCycle/node_modules/@babel/parser/lib/index.js:12282:21)");
+
+/***/ }),
+
 /***/ "./frontend/actions/pin_actions.js":
 /*!*****************************************!*\
   !*** ./frontend/actions/pin_actions.js ***!
@@ -426,6 +436,8 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
         lat: pinLat,
         lng: pinLng
       }); // this.pins.push(location)
+
+      debugger;
     }
   }, {
     key: "handlesubmit",
@@ -437,6 +449,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       this.setState({
         pins_object: pinsString
       });
+      debugger;
       var course = Object.assign({}, this.state);
       this.props.processForm(course);
     } //////////////////////////////////////////////////////////////////
@@ -490,7 +503,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _course_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course_form */ "./frontend/components/course/course_form.jsx");
-/* harmony import */ var _utils_course_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/course_util */ "./frontend/utils/course_util.js");
+/* harmony import */ var _actions_course_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/course_actions */ "./frontend/actions/course_actions.js");
 
 
 
@@ -512,7 +525,7 @@ var mSTP = function mSTP(_ref) {
 var mDTP = function mDTP(dispatch) {
   return {
     processForm: function processForm(course) {
-      return dispatch((0,_utils_course_util__WEBPACK_IMPORTED_MODULE_2__.createCourse)(course));
+      return dispatch((0,_actions_course_actions__WEBPACK_IMPORTED_MODULE_2__.createCourse)(course));
     }
   };
 };
@@ -1252,29 +1265,6 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);
-
-/***/ }),
-
-/***/ "./frontend/utils/course_util.js":
-/*!***************************************!*\
-  !*** ./frontend/utils/course_util.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createCourse": () => (/* binding */ createCourse)
-/* harmony export */ });
-var createCourse = function createCourse(course) {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/courses',
-    data: {
-      course: course
-    }
-  });
-};
 
 /***/ }),
 

@@ -1,1 +1,1 @@
-json.extract! @course, :player_id, :id, :course_name, :distance, :time, :course_data, :created_at
+json.extract! @course, :player_id, :id, :course_name, :distance, :time, :pins_object, :created_at
