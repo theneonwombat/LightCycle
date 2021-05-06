@@ -7,9 +7,7 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import Splash from './splash/splash';
 import NewCourseContainer from './course/new_course_container';
-
-
-import Dashboard from './dashboard/dashboard'
+import DashboardContainer from './dashboard/dashboard_container'
 
 const App = () => (
   <div>
@@ -17,12 +15,10 @@ const App = () => (
     <Route path="/" component={NavBarContainer} />
     <AuthRoute exact path="/" component={Splash} />
     <AuthRoute exact path="/splash" component={Splash} />
-    {/* <AuthRoute exact path="/" component={Splash}>
-      <Redirect to='/splash' />
-    </AuthRoute> */}
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
-    <ProtectedRoute exact path="/dashboard" component={NewCourseContainer} />
+    <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
+    <ProtectedRoute exact path="/course/new" component={NewCourseContainer} />
   </div>
   
 );

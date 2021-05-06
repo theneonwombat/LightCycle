@@ -29,7 +29,7 @@ const removeCourse = (courseId) => {
 
 // asynch
 
-export const fetchCourse = () => dispatch => {
+export const fetchCourses = () => dispatch => {
   return(
     CourseApiUtil.fetchCourses()
     .then((courses) => dispatch(receiveAllCourses(courses)))

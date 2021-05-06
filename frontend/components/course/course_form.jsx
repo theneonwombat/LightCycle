@@ -100,17 +100,17 @@ class CourseForm extends React.Component {
 
     this.pins.push({ lat: pinLat, lng: pinLng })
     // this.pins.push(location)
-    debugger
   };
 
   handlesubmit(e) {
     e.preventDefault();
     
+    let course;
     const pinsString = JSON.stringify({ pins: this.pins });
-    this.setState({ pins_object: pinsString })
-    debugger
-    const course = Object.assign({}, this.state);
-    this.props.processForm(course);
+    this.setState({ pins_object: pinsString }, 
+      () => {course = Object.assign({}, this.state);
+      this.props.processForm(course);
+    });
   }
 
   //////////////////////////////////////////////////////////////////

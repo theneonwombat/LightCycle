@@ -1,8 +1,8 @@
 class Api::CoursesController < ApplicationController
   
-  # def index
-  #   @courses = Course.all
-  # end
+  def index
+    @courses = Course.all
+  end
 
   def show
     @course = Course.find(params[:id])
@@ -10,7 +10,7 @@ class Api::CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    debugger
+    
     if @course.save
       render :show
     else

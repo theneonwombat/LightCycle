@@ -2,16 +2,11 @@ import { connect } from 'react-redux';
 import CourseForm from './course_form';
 import { createCourse } from '../../actions/courses_actions'
 
-const mSTP = ({ session }) => {
+const mSTP = (state, ownProps) => {
+  debugger
   return {
-    formType: 'Create New Course',
-    course: {
-      player_id: session.id,
-      course_name: 'New Course',
-      distance: '',
-      time: '',
-      pins_object: '{"pins":[]}'
-    }
+    formType: 'Edit Course',
+    course: state.posts[ownProps.match.params.courseId]
   };
 };
 

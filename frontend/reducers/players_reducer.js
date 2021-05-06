@@ -1,6 +1,6 @@
 import { RECEIVE_CURRENT_PLAYER } from "../actions/session_actions";
 
-const playersReducer = ( state = {}, action ) => {
+const PlayersReducer = ( state = {}, action ) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_PLAYER:
@@ -10,4 +10,4 @@ const playersReducer = ( state = {}, action ) => {
   }
 }
 
-export default playersReducer;
+export default PlayersReducer;
