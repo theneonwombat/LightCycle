@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CourseForm extends React.Component {
+class CourseShow extends React.Component {
   constructor(props) {
 
     super(props);
@@ -12,12 +12,11 @@ class CourseForm extends React.Component {
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
-    this.handlesubmit = this.handlesubmit.bind(this);
 
   }
 
   componentDidMount() {
-
+    
     let centerLat;
     let centerLng;
     
@@ -44,12 +43,11 @@ class CourseForm extends React.Component {
       suppressMarkers: true,
     })
     directionsRenderer.setMap(this.map);
-  
-    google.maps.event.addListener(this.map, 'click', (event) => {
-      this.placeMarker(event.latLng);
-      this.updateCourse(directionsService, directionsRenderer);
-    });
+
+    this.pins.forEach( pin => 
+      this.placeMarker(pin));
     
+    this.updateCourse(directionsService, directionsRenderer);
     window.googleMap = this.map;
   }
 
@@ -91,44 +89,17 @@ class CourseForm extends React.Component {
       // icon: customIcon,
     })
 
-    let pinLat = pin.getPosition().lat();
-    let pinLng = pin.getPosition().lng();
-
-    this.pins.push({ lat: pinLat, lng: pinLng })
-    // this.pins.push(location)
   };
 
-  handleChange(field){
-    return (e) => this.setState({[field]: e.target.value})
-  }
-
-  handlesubmit(e) {
-    e.preventDefault();
-    
-    let course;
-    const pinsString = JSON.stringify({ pins: this.pins });
-
-    //create a static map, set it to the state below
-
-    this.setState({ pins_object: pinsString }, () => {
-      course = Object.assign({}, this.state);
-      this.props.processForm(course);
-    });
-  }
 
   //////////////////////////////////////////////////////////////////
   
   render() {
     
     return(
-      <form className='course-form-page' onSubmit={this.handlesubmit} >
+      <div className='course-form-page' onSubmit={this.handlesubmit} >
 
-        <div className="map-headder" >
-          <input type="text" 
-          className="course-name" 
-          value={this.state.course_name} 
-          onChange={this.handleChange("course_name")} />
-        </div>
+        <h1>{this.state.course_name}</h1>
 
         <div className="map-div" >
           <div className='the-map' id='the-map'>
@@ -152,11 +123,10 @@ class CourseForm extends React.Component {
           
         </div>
         
-        <button className="submit-button" >SAVE COURSE</button>
 
-      </form>
+      </div>
     )
   }
 }
 
-export default CourseForm;
+export default CourseShow;

@@ -10,6 +10,7 @@ const mSTP = ({ session }) => {
       course_name: 'New Course',
       distance: '',
       time: '',
+      // static_map: '',
       pins_object: '{"pins":[]}'
     }
   };

@@ -6,16 +6,13 @@ import { Link } from 'react-router-dom';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    debugger
   }
 
   componentDidMount() {
     this.props.fetchCourses()
-    debugger
   }
 
   render(){
-    debugger
     return(
       <div>
         <ul>
