@@ -653,19 +653,12 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
       debugger;
       this.props.fetchCourse(this.props.courseId).then(function () {
         debugger;
+
+        _this2.setState(_this2.props.course);
+
         _this2.pins = JSON.parse(_this2.props.course.pins_object).pins;
-        var centerLat;
-        var centerLng;
-
-        if (_this2.pins[0] === undefined) {
-          centerLat = 40.673842;
-          centerLng = -73.970083;
-        } else {
-          centerLat = parseFloat(_this2.pins[0].lat);
-          centerLng = parseFloat(_this2.pins[0].lng);
-        }
-
-        ;
+        var centerLat = parseFloat(_this2.pins[0].lat);
+        var centerLng = parseFloat(_this2.pins[0].lng);
         var mapOptions = {
           center: {
             lat: centerLat,

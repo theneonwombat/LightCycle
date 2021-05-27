@@ -22,19 +22,13 @@ class CourseShow extends React.Component {
     this.props.fetchCourse(this.props.courseId)
     .then( () => {
     debugger
+    this.setState(this.props.course)
     this.pins = JSON.parse(this.props.course.pins_object).pins;
 
-    let centerLat;
-    let centerLng;
-    
-    if (this.pins[0] === undefined){
-      centerLat = 40.673842;
-      centerLng = -73.970083;
-    } else {
-      centerLat = parseFloat(this.pins[0].lat);
-      centerLng = parseFloat(this.pins[0].lng);
-    };
 
+    let centerLat = parseFloat(this.pins[0].lat);
+    let centerLng = parseFloat(this.pins[0].lng);
+    
     const mapOptions = {
       center: { lat: centerLat, lng: centerLng }, 
       zoom: 12,
