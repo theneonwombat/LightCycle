@@ -6,7 +6,8 @@ class CourseShow extends React.Component {
     super(props);
     
     this.state = props.course;
-    this.pins = JSON.parse(props.course.pins_object).pins;
+    // this.pins = JSON.parse(props.course.pins_object).pins;
+    debugger
 
     this.travelMode = 'BICYCLING';
 
@@ -17,6 +18,12 @@ class CourseShow extends React.Component {
 
   componentDidMount() {
     
+    debugger
+    this.props.fetchCourse(this.props.courseId)
+    .then( () => {
+    debugger
+    this.pins = JSON.parse(this.props.course.pins_object).pins;
+
     let centerLat;
     let centerLng;
     
@@ -49,11 +56,14 @@ class CourseShow extends React.Component {
     
     this.updateCourse(directionsService, directionsRenderer);
     window.googleMap = this.map;
+
+    })
   }
 
   ////////////////////////////////////////////////////////////////
 
   updateCourse(dS, dR) {
+    debugger
     let waypoints = this.pins.slice(1, this.pins.length - 1 )
     .map(pin => ({
       location: pin, 
@@ -66,17 +76,13 @@ class CourseShow extends React.Component {
         destination: this.pins[this.pins.length - 1],
         travelMode: this.travelMode
       }, (response, status) => {
-        if (status === 'OK') {
+          if (status === 'OK') {
 
-          dR.setDirections(response);
+            dR.setDirections(response);
 
-          let distance = response.routes[0].legs[0].distance.text;
-          this.setState({distance: distance});
-
-          let time = response.routes[0].legs[0].duration.text;
-          this.setState({time: time});
+          }
         }
-      })
+      )
     }
   }
 
@@ -96,8 +102,12 @@ class CourseShow extends React.Component {
   
   render() {
     
+    debugger
+    if (!this.state) {
+      return <h1>LOADING...</h1>
+    }
     return(
-      <div className='course-form-page' onSubmit={this.handlesubmit} >
+      <div className='course-show-page'>
 
         <h1>{this.state.course_name}</h1>
 

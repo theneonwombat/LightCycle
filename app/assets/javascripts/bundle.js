@@ -636,8 +636,9 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CourseShow);
 
     _this = _super.call(this, props);
-    _this.state = props.course;
-    _this.pins = JSON.parse(props.course.pins_object).pins;
+    _this.state = props.course; // this.pins = JSON.parse(props.course.pins_object).pins;
+
+    debugger;
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
@@ -649,48 +650,55 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var centerLat;
-      var centerLng;
+      debugger;
+      this.props.fetchCourse(this.props.courseId).then(function () {
+        debugger;
+        _this2.pins = JSON.parse(_this2.props.course.pins_object).pins;
+        var centerLat;
+        var centerLng;
 
-      if (this.pins[0] === undefined) {
-        centerLat = 40.673842;
-        centerLng = -73.970083;
-      } else {
-        centerLat = parseFloat(this.pins[0].lat);
-        centerLng = parseFloat(this.pins[0].lng);
-      }
+        if (_this2.pins[0] === undefined) {
+          centerLat = 40.673842;
+          centerLng = -73.970083;
+        } else {
+          centerLat = parseFloat(_this2.pins[0].lat);
+          centerLng = parseFloat(_this2.pins[0].lng);
+        }
 
-      ;
-      var mapOptions = {
-        center: {
-          lat: centerLat,
-          lng: centerLng
-        },
-        zoom: 12
-      };
-      this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
-      var directionsService = new google.maps.DirectionsService();
-      var directionsRenderer = new google.maps.DirectionsRenderer({
-        polylineOptions: {
-          strokeColor: "#FC4C02"
-        },
-        suppressBicyclingLayer: true,
-        suppressInfoWindows: true,
-        suppressMarkers: true
+        ;
+        var mapOptions = {
+          center: {
+            lat: centerLat,
+            lng: centerLng
+          },
+          zoom: 12
+        };
+        _this2.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRenderer = new google.maps.DirectionsRenderer({
+          polylineOptions: {
+            strokeColor: "#FC4C02"
+          },
+          suppressBicyclingLayer: true,
+          suppressInfoWindows: true,
+          suppressMarkers: true
+        });
+        directionsRenderer.setMap(_this2.map);
+
+        _this2.pins.forEach(function (pin) {
+          return _this2.placeMarker(pin);
+        });
+
+        _this2.updateCourse(directionsService, directionsRenderer);
+
+        window.googleMap = _this2.map;
       });
-      directionsRenderer.setMap(this.map);
-      this.pins.forEach(function (pin) {
-        return _this2.placeMarker(pin);
-      });
-      this.updateCourse(directionsService, directionsRenderer);
-      window.googleMap = this.map;
     } ////////////////////////////////////////////////////////////////
 
   }, {
     key: "updateCourse",
     value: function updateCourse(dS, dR) {
-      var _this3 = this;
-
+      debugger;
       var waypoints = this.pins.slice(1, this.pins.length - 1).map(function (pin) {
         return {
           location: pin,
@@ -707,17 +715,6 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
         }, function (response, status) {
           if (status === 'OK') {
             dR.setDirections(response);
-            var distance = response.routes[0].legs[0].distance.text;
-
-            _this3.setState({
-              distance: distance
-            });
-
-            var time = response.routes[0].legs[0].duration.text;
-
-            _this3.setState({
-              time: time
-            });
           }
         });
       }
@@ -736,9 +733,14 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: //////////////////////////////////////////////////////////////////
     function render() {
+      debugger;
+
+      if (!this.state) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "LOADING...");
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "course-form-page",
-        onSubmit: this.handlesubmit
+        className: "course-show-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.state.course_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "map-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
