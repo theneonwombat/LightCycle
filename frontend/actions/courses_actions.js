@@ -58,6 +58,7 @@ export const updateCourse = (course) => dispatch => {
 }
 
 export const deleteCourse = (courseId) => dispatch => {
+  debugger
   return(
     CourseApiUtil.deleteCourse(courseId)
     .then((course) => dispatch(removeCourse(course.id)))

@@ -14,10 +14,11 @@ class CourseForm extends React.Component {
     this.placeMarker = this.placeMarker.bind(this);
     this.handlesubmit = this.handlesubmit.bind(this);
 
+    debugger
   }
 
   componentDidMount() {
-
+    debugger
     let centerLat;
     let centerLng;
     
@@ -49,7 +50,9 @@ class CourseForm extends React.Component {
       this.placeMarker(event.latLng);
       this.updateCourse(directionsService, directionsRenderer);
     });
-    
+
+    this.updateCourse(directionsService, directionsRenderer);
+    debugger
     window.googleMap = this.map;
   }
 
@@ -112,8 +115,10 @@ class CourseForm extends React.Component {
 
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
-      this.props.processForm(course);
+      this.props.processForm(course)
+        .then(this.props.history.push("/dashboard"));
     });
+
   }
 
   //////////////////////////////////////////////////////////////////
@@ -152,7 +157,7 @@ class CourseForm extends React.Component {
           
         </div>
         
-        <button className="submit-button" >SAVE COURSE</button>
+        <button id="submit-button" >SAVE COURSE</button>
 
       </form>
     )

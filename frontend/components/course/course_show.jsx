@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CourseShow extends React.Component {
   constructor(props) {
@@ -7,7 +8,6 @@ class CourseShow extends React.Component {
     
     this.state = props.course;
     // this.pins = JSON.parse(props.course.pins_object).pins;
-    debugger
 
     this.travelMode = 'BICYCLING';
 
@@ -18,13 +18,12 @@ class CourseShow extends React.Component {
 
   componentDidMount() {
     
-    debugger
+    
     this.props.fetchCourse(this.props.courseId)
     .then( () => {
-    debugger
+    
     this.setState(this.props.course)
     this.pins = JSON.parse(this.props.course.pins_object).pins;
-
 
     let centerLat = parseFloat(this.pins[0].lat);
     let centerLng = parseFloat(this.pins[0].lng);
@@ -57,7 +56,7 @@ class CourseShow extends React.Component {
   ////////////////////////////////////////////////////////////////
 
   updateCourse(dS, dR) {
-    debugger
+    
     let waypoints = this.pins.slice(1, this.pins.length - 1 )
     .map(pin => ({
       location: pin, 
@@ -91,15 +90,43 @@ class CourseShow extends React.Component {
 
   };
 
+  handleDeleteEvent() {
+
+  }
 
   //////////////////////////////////////////////////////////////////
   
   render() {
-    
-    debugger
+
     if (!this.state) {
       return <h1>LOADING...</h1>
     }
+
+    const buttons = () => {
+
+      // delete and edit buttons for course owner or admin
+      if (this.props.currentPlayerId === this.props.course.player_id ||
+         this.props.currentPlayerId === 1) {
+        return(
+        <div>
+
+          <button 
+            onClick={ () => {this.props.deleteCourse(this.props.courseId), 
+              this.props.history.push("/dashboard")}} >
+              DELETE COURSE
+          </button>
+
+          <br/>
+
+          <Link to={`/courses/${this.props.courseId}/edit`} >
+            EDIT COURSE
+          </Link>
+
+        </div>
+        )
+      }
+    }
+
     return(
       <div className='course-show-page'>
 
@@ -126,7 +153,8 @@ class CourseShow extends React.Component {
           </div>
           
         </div>
-        
+
+        {buttons()}
 
       </div>
     )

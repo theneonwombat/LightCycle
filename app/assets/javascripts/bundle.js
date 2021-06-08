@@ -179,6 +179,7 @@ var updateCourse = function updateCourse(course) {
 };
 var deleteCourse = function deleteCourse(courseId) {
   return function (dispatch) {
+    debugger;
     return _utils_course_util__WEBPACK_IMPORTED_MODULE_0__.deleteCourse(courseId).then(function (course) {
       return dispatch(removeCourse(course.id));
     });
@@ -312,12 +313,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
 /* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
-/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
-/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.js");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.js");
+/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
 /* harmony import */ var _course_course_show_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./course/course_show_container */ "./frontend/components/course/course_show_container.js");
+/* harmony import */ var _course_edit_course_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./course/edit_course_container */ "./frontend/components/course/edit_course_container.js");
+
 
 
 
@@ -333,35 +336,39 @@ var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/",
     component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_6__.default
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/splash",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_6__.default
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__.default
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__.default
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
     path: "/dashboard",
-    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_8__.default
+    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_7__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
-    path: "/course/new",
-    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__.default
+    path: "/courses/new",
+    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_8__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
     path: "/courses/:courseId",
     component: _course_course_show_container__WEBPACK_IMPORTED_MODULE_9__.default
-  }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    exact: true,
+    path: "/courses/:courseId/edit",
+    component: _course_edit_course_container__WEBPACK_IMPORTED_MODULE_10__.default
+  })));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -423,6 +430,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
     _this.handlesubmit = _this.handlesubmit.bind(_assertThisInitialized(_this));
+    debugger;
     return _this;
   }
 
@@ -431,6 +439,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      debugger;
       var centerLat;
       var centerLng;
 
@@ -466,6 +475,8 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
 
         _this2.updateCourse(directionsService, directionsRenderer);
       });
+      this.updateCourse(directionsService, directionsRenderer);
+      debugger;
       window.googleMap = this.map;
     } ////////////////////////////////////////////////////////////////
 
@@ -546,7 +557,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       }, function () {
         course = Object.assign({}, _this5.state);
 
-        _this5.props.processForm(course);
+        _this5.props.processForm(course).then(_this5.props.history.push("/dashboard"));
       });
     } //////////////////////////////////////////////////////////////////
 
@@ -577,7 +588,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       }, this.state.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, " ESTIMATED TIME:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "time-display"
       }, this.state.time)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        className: "submit-button"
+        id: "submit-button"
       }, "SAVE COURSE"));
     }
   }]);
@@ -601,6 +612,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -625,6 +637,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var CourseShow = /*#__PURE__*/function (_React$Component) {
   _inherits(CourseShow, _React$Component);
 
@@ -638,7 +651,6 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = props.course; // this.pins = JSON.parse(props.course.pins_object).pins;
 
-    debugger;
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
@@ -650,10 +662,7 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      debugger;
       this.props.fetchCourse(this.props.courseId).then(function () {
-        debugger;
-
         _this2.setState(_this2.props.course);
 
         _this2.pins = JSON.parse(_this2.props.course.pins_object).pins;
@@ -691,7 +700,6 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "updateCourse",
     value: function updateCourse(dS, dR) {
-      debugger;
       var waypoints = this.pins.slice(1, this.pins.length - 1).map(function (pin) {
         return {
           location: pin,
@@ -723,14 +731,30 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleDeleteEvent",
+    value: function handleDeleteEvent() {} //////////////////////////////////////////////////////////////////
+
+  }, {
     key: "render",
-    value: //////////////////////////////////////////////////////////////////
-    function render() {
-      debugger;
+    value: function render() {
+      var _this3 = this;
 
       if (!this.state) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "LOADING...");
       }
+
+      var buttons = function buttons() {
+        // delete and edit buttons for course owner or admin
+        if (_this3.props.currentPlayerId === _this3.props.course.player_id || _this3.props.currentPlayerId === 1) {
+          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+            onClick: function onClick() {
+              _this3.props.deleteCourse(_this3.props.courseId), _this3.props.history.push("/dashboard");
+            }
+          }, "DELETE COURSE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            to: "/courses/".concat(_this3.props.courseId, "/edit")
+          }, "EDIT COURSE"));
+        }
+      };
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "course-show-page"
@@ -747,7 +771,7 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
         className: "distance-display"
       }, this.state.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, " ESTIMATED TIME:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "time-display"
-      }, this.state.time)))));
+      }, this.state.time)))), buttons());
     }
   }]);
 
@@ -777,10 +801,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     course: state.entities.courses[ownProps.match.params.courseId],
-    courseId: ownProps.match.params.courseId
+    courseId: ownProps.match.params.courseId,
+    currentPlayerId: state.session.id
   };
 };
 
@@ -796,6 +820,44 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_course_show__WEBPACK_IMPORTED_MODULE_1__.default));
+
+/***/ }),
+
+/***/ "./frontend/components/course/edit_course_container.js":
+/*!*************************************************************!*\
+  !*** ./frontend/components/course/edit_course_container.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _course_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course_form */ "./frontend/components/course/course_form.jsx");
+/* harmony import */ var _actions_courses_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/courses_actions */ "./frontend/actions/courses_actions.js");
+
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  debugger;
+  return {
+    formType: 'Edit Course',
+    course: state.entities.courses[ownProps.match.params.courseId]
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    processForm: function processForm(course) {
+      return dispatch((0,_actions_courses_actions__WEBPACK_IMPORTED_MODULE_2__.updateCourse)(course));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_course_form__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -914,7 +976,7 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
           key: course.id
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-        to: "/course/new"
+        to: "/courses/new"
       }, "NEW COURSE"));
     }
   }]);
@@ -1161,8 +1223,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./frontend/components/App.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./frontend/components/App.jsx");
 
 
 
@@ -1172,7 +1234,7 @@ var Root = function Root(_ref) {
   var store = _ref.store;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__.Provider, {
     store: store
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_3__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);

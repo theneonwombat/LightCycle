@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
               deleteCourse={this.props.deleteCourse} 
               key={course.id} />})}
         </ul>
-        <Link to={`/course/new`} >NEW COURSE</Link>
+        <Link to={`/courses/new`} >NEW COURSE</Link>
       </div>
     )
   }
