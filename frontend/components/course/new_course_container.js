@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CourseForm from './course_form';
+import NewCourseForm from './new_course_form';
 import { createCourse } from '../../actions/courses_actions'
 
 const mSTP = ({ session }) => {
@@ -18,8 +18,9 @@ const mSTP = ({ session }) => {
 
 const mDTP = dispatch => {
   return{
+    fetchCourse: (courseId) => dispatch(fetchCourse(courseId)),
     processForm: (course) => dispatch(createCourse(course))
   }
 };
 
-export default connect(mSTP,mDTP)(CourseForm);
+export default connect(mSTP,mDTP)(NewCourseForm);

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class CourseShow extends React.Component {
   constructor(props) {
-
     super(props);
     
     this.state = props.course;
@@ -17,7 +16,6 @@ class CourseShow extends React.Component {
   }
 
   componentDidMount() {
-    
     
     this.props.fetchCourse(this.props.courseId)
     .then( () => {
@@ -37,11 +35,12 @@ class CourseShow extends React.Component {
     
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({
-      polylineOptions: { strokeColor: "#FC4C02" } ,
+      polylineOptions: { strokeColor: "#FC4C02" } , //make this a flexable variable
       suppressBicyclingLayer: true,
       suppressInfoWindows: true,
       suppressMarkers: true,
     })
+    
     directionsRenderer.setMap(this.map);
 
     this.pins.forEach( pin => 
@@ -97,10 +96,11 @@ class CourseShow extends React.Component {
   //////////////////////////////////////////////////////////////////
   
   render() {
-
+    debugger
     if (!this.state) {
       return <h1>LOADING...</h1>
     }
+    //if i wanna be really slick, make these dots go up and down later
 
     const buttons = () => {
 

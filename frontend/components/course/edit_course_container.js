@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CourseForm from './course_form';
+import CourseForm from './new_course_form';
 import { updateCourse } from '../../actions/courses_actions'
 
 const mSTP = (state, ownProps) => {
@@ -12,6 +12,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return{
+    fetchCourse: (courseId) => dispatch(fetchCourse(courseId)),
     processForm: (course) => dispatch(updateCourse(course))
   }
 };

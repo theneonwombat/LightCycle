@@ -1,10 +1,11 @@
 import React from 'react';
 
 class CourseForm extends React.Component {
+
   constructor(props) {
 
     super(props);
-    
+    debugger
     this.state = props.course;
     this.pins = JSON.parse(props.course.pins_object).pins;
 
@@ -18,7 +19,7 @@ class CourseForm extends React.Component {
   }
 
   componentDidMount() {
-    debugger
+    
     let centerLat;
     let centerLng;
     
@@ -51,7 +52,7 @@ class CourseForm extends React.Component {
       this.updateCourse(directionsService, directionsRenderer);
     });
 
-    this.updateCourse(directionsService, directionsRenderer);
+    // this.updateCourse(directionsService, directionsRenderer);
     debugger
     window.googleMap = this.map;
   }
