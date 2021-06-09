@@ -423,8 +423,7 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CourseShow);
 
     _this = _super.call(this, props);
-    _this.state = props.course; // this.pins = JSON.parse(props.course.pins_object).pins;
-
+    _this.state = props.course;
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
@@ -439,17 +438,9 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCourse(this.props.courseId).then(function () {
         _this2.setState(_this2.props.course);
 
-        _this2.pins = JSON.parse(_this2.props.course.pins_object).pins;
-        var centerLat = parseFloat(_this2.pins[0].lat);
-        var centerLng = parseFloat(_this2.pins[0].lng);
-        var mapOptions = {
-          center: {
-            lat: centerLat,
-            lng: centerLng
-          },
-          zoom: 12
-        };
-        _this2.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
+        _this2.pins = JSON.parse(_this2.props.course.pins_object).pins; //set up mp
+
+        _this2.map = new google.maps.Map(document.getElementById('the-map'));
         var directionsService = new google.maps.DirectionsService();
         var directionsRenderer = new google.maps.DirectionsRenderer({
           polylineOptions: {
@@ -498,7 +489,7 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "placeMarker",
     value: function placeMarker(location) {
-      var customIcon;
+      // let customIcon;
       var pin = new google.maps.Marker({
         position: location,
         map: this.map // icon: customIcon,
@@ -759,14 +750,12 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CourseForm);
 
     _this = _super.call(this, props);
-    debugger;
     _this.state = props.course;
     _this.pins = JSON.parse(props.course.pins_object).pins;
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
     _this.handlesubmit = _this.handlesubmit.bind(_assertThisInitialized(_this));
-    debugger;
     return _this;
   }
 
@@ -775,30 +764,22 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var centerLat;
-      var centerLng;
-
-      if (this.pins[0] === undefined) {
-        centerLat = 40.673842;
-        centerLng = -73.970083;
-      } else {
-        centerLat = parseFloat(this.pins[0].lat);
-        centerLng = parseFloat(this.pins[0].lng);
-      }
-
-      ;
+      var centerLat = 40.673842;
+      var centerLng = -73.970083;
+      var zoomLevel = 12;
+      var customStroke = "#FC4C02";
       var mapOptions = {
         center: {
           lat: centerLat,
           lng: centerLng
         },
-        zoom: 12
+        zoom: zoomLevel
       };
       this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
       var directionsService = new google.maps.DirectionsService();
       var directionsRenderer = new google.maps.DirectionsRenderer({
         polylineOptions: {
-          strokeColor: "#FC4C02"
+          strokeColor: customStroke
         },
         suppressBicyclingLayer: true,
         suppressInfoWindows: true,
@@ -809,9 +790,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
         _this2.placeMarker(event.latLng);
 
         _this2.updateCourse(directionsService, directionsRenderer);
-      }); // this.updateCourse(directionsService, directionsRenderer);
-
-      debugger;
+      });
       window.googleMap = this.map;
     } ////////////////////////////////////////////////////////////////
 
@@ -837,15 +816,11 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
           if (status === 'OK') {
             dR.setDirections(response);
             var distance = response.routes[0].legs[0].distance.text;
-
-            _this3.setState({
-              distance: distance
-            });
-
             var time = response.routes[0].legs[0].duration.text;
 
             _this3.setState({
-              time: time
+              time: time,
+              distance: distance
             });
           }
         });
@@ -854,7 +829,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "placeMarker",
     value: function placeMarker(location) {
-      var customIcon;
+      // let customIcon;
       var pin = new google.maps.Marker({
         position: location,
         map: this.map // icon: customIcon,
@@ -865,7 +840,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       this.pins.push({
         lat: pinLat,
         lng: pinLng
-      }); // this.pins.push(location)
+      });
     }
   }, {
     key: "handleChange",
@@ -886,6 +861,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       var pinsString = JSON.stringify({
         pins: this.pins
       }); //create a static map, set it to the state below
+      //IS THERE A CLEANER WAY TO DO THIS?
 
       this.setState({
         pins_object: pinsString

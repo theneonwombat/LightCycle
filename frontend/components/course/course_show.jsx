@@ -6,13 +6,12 @@ class CourseShow extends React.Component {
     super(props);
     
     this.state = props.course;
-    // this.pins = JSON.parse(props.course.pins_object).pins;
 
     this.travelMode = 'BICYCLING';
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
-
+    
   }
 
   componentDidMount() {
@@ -23,15 +22,8 @@ class CourseShow extends React.Component {
     this.setState(this.props.course)
     this.pins = JSON.parse(this.props.course.pins_object).pins;
 
-    let centerLat = parseFloat(this.pins[0].lat);
-    let centerLng = parseFloat(this.pins[0].lng);
-    
-    const mapOptions = {
-      center: { lat: centerLat, lng: centerLng }, 
-      zoom: 12,
-    }
-    
-    this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
+    //set up mp
+    this.map = new google.maps.Map(document.getElementById('the-map'));
     
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({
@@ -40,7 +32,7 @@ class CourseShow extends React.Component {
       suppressInfoWindows: true,
       suppressMarkers: true,
     })
-    
+
     directionsRenderer.setMap(this.map);
 
     this.pins.forEach( pin => 
@@ -79,7 +71,7 @@ class CourseShow extends React.Component {
   }
 
   placeMarker(location) {
-    let customIcon;
+    // let customIcon;
 
     let pin = new google.maps.Marker({
       position: location, 

@@ -5,7 +5,7 @@ class CourseForm extends React.Component {
   constructor(props) {
 
     super(props);
-    debugger
+    
     this.state = props.course;
     this.pins = JSON.parse(props.course.pins_object).pins;
 
@@ -15,32 +15,25 @@ class CourseForm extends React.Component {
     this.placeMarker = this.placeMarker.bind(this);
     this.handlesubmit = this.handlesubmit.bind(this);
 
-    debugger
   }
 
   componentDidMount() {
     
-    let centerLat;
-    let centerLng;
-    
-    if (this.pins[0] === undefined){
-      centerLat = 40.673842;
-      centerLng = -73.970083;
-    } else {
-      centerLat = parseFloat(this.pins[0].lat);
-      centerLng = parseFloat(this.pins[0].lng);
-    };
+    let centerLat = 40.673842;
+    let centerLng = -73.970083;
+    let zoomLevel = 12;
+    let customStroke = "#FC4C02";
 
     const mapOptions = {
       center: { lat: centerLat, lng: centerLng }, 
-      zoom: 12,
+      zoom: zoomLevel,
     }
     
     this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
     
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({
-      polylineOptions: { strokeColor: "#FC4C02" } ,
+      polylineOptions: { strokeColor: customStroke } ,
       suppressBicyclingLayer: true,
       suppressInfoWindows: true,
       suppressMarkers: true,
@@ -52,8 +45,6 @@ class CourseForm extends React.Component {
       this.updateCourse(directionsService, directionsRenderer);
     });
 
-    // this.updateCourse(directionsService, directionsRenderer);
-    debugger
     window.googleMap = this.map;
   }
 
@@ -77,17 +68,16 @@ class CourseForm extends React.Component {
           dR.setDirections(response);
 
           let distance = response.routes[0].legs[0].distance.text;
-          this.setState({distance: distance});
-
           let time = response.routes[0].legs[0].duration.text;
-          this.setState({time: time});
+
+          this.setState({time, distance});
         }
       })
     }
   }
 
   placeMarker(location) {
-    let customIcon;
+    // let customIcon;
 
     let pin = new google.maps.Marker({
       position: location, 
@@ -99,7 +89,7 @@ class CourseForm extends React.Component {
     let pinLng = pin.getPosition().lng();
 
     this.pins.push({ lat: pinLat, lng: pinLng })
-    // this.pins.push(location)
+ 
   };
 
   handleChange(field){
@@ -113,6 +103,7 @@ class CourseForm extends React.Component {
     const pinsString = JSON.stringify({ pins: this.pins });
 
     //create a static map, set it to the state below
+    //IS THERE A CLEANER WAY TO DO THIS?
 
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
