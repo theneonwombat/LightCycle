@@ -32,8 +32,21 @@ class Splash extends React.Component {
 
           <div className="splash-right">
             <div className="splash-button-div">
-              <Link to="/" className="splash-button">Button A</Link>
-              <Link to="/" className="splash-button">Button B</Link>
+
+              <a href="https://www.linkedin.com/in/alec-caro-5a713a5b/" 
+                rel="noreferrer" 
+                target="_blank" 
+                className="splash-button">
+                LinkedIn
+              </a>
+
+              <a href="https://github.com/theneonwombat/LightCycle" 
+                rel="noreferrer" 
+                target="_blank" 
+                className="splash-button">
+                GitHub
+              </a>
+
               <button onClick={this.demoLogin} className="splash-button splash-demo-button">Demo</button>
               <p className="button-subtitle">there's a little bit of text on the bottom</p>
             </div>

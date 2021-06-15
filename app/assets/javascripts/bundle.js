@@ -310,16 +310,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
-/* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
-/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.js");
-/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
-/* harmony import */ var _course_course_show_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./course/course_show_container */ "./frontend/components/course/course_show_container.js");
-/* harmony import */ var _course_edit_course_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./course/edit_course_container */ "./frontend/components/course/edit_course_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
+/* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.js");
+/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
+/* harmony import */ var _course_course_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./course/course_show_container */ "./frontend/components/course/course_show_container.js");
+/* harmony import */ var _course_edit_course_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./course/edit_course_container */ "./frontend/components/course/edit_course_container.js");
 
 
 
@@ -333,40 +333,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
     path: "/",
-    component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
+    component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_2__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     exact: true,
     path: "/splash",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_3__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     exact: true,
     path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     exact: true,
     path: "/dashboard",
-    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_7__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     exact: true,
     path: "/courses/new",
-    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_8__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     exact: true,
     path: "/courses/:courseId",
-    component: _course_course_show_container__WEBPACK_IMPORTED_MODULE_9__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    component: _course_course_show_container__WEBPACK_IMPORTED_MODULE_8__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
     exact: true,
     path: "/courses/:courseId/edit",
-    component: _course_edit_course_container__WEBPACK_IMPORTED_MODULE_10__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
+    component: _course_edit_course_container__WEBPACK_IMPORTED_MODULE_9__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
     path: "/",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_3__.default
   })));
 };
 
@@ -427,6 +427,7 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
+    _this.handleDeleteEvent = _this.handleDeleteEvent.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -435,6 +436,7 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      //IS SET STATE INSIDE A THEN A BAD METHOD?
       this.props.fetchCourse(this.props.courseId).then(function () {
         _this2.setState(_this2.props.course);
 
@@ -498,7 +500,9 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleDeleteEvent",
-    value: function handleDeleteEvent() {} //////////////////////////////////////////////////////////////////
+    value: function handleDeleteEvent() {
+      this.props.deleteCourse(this.props.courseId).then(this.props.history.push("/dashboard"));
+    } //////////////////////////////////////////////////////////////////
 
   }, {
     key: "render",
@@ -510,15 +514,14 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
       if (!this.state) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "LOADING...");
       } //if i wanna be really slick, make these dots go up and down later
+      // loading component
 
 
       var buttons = function buttons() {
         // delete and edit buttons for course owner or admin
         if (_this3.props.currentPlayerId === _this3.props.course.player_id || _this3.props.currentPlayerId === 1) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-            onClick: function onClick() {
-              _this3.props.deleteCourse(_this3.props.courseId), _this3.props.history.push("/dashboard");
-            }
+            onClick: _this3.handleDeleteEvent
           }, "DELETE COURSE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
             to: "/courses/".concat(_this3.props.courseId, "/edit")
           }, "EDIT COURSE"));
@@ -668,9 +671,10 @@ var mSTP = function mSTP(_ref) {
     course: {
       player_id: session.id,
       course_name: 'New Course',
-      distance: '',
-      time: '',
+      distance: '0 mi',
+      time: '0 mins',
       // static_map: '',
+      // travel_method: '',
       pins_object: '{"pins":[]}'
     }
   };
@@ -751,11 +755,15 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = props.course;
-    _this.pins = JSON.parse(props.course.pins_object).pins;
+    _this.pins = JSON.parse(props.course.pins_object).pins; // this.removedPins = []
+
     _this.travelMode = 'BICYCLING';
     _this.updateCourse = _this.updateCourse.bind(_assertThisInitialized(_this));
     _this.placeMarker = _this.placeMarker.bind(_assertThisInitialized(_this));
-    _this.handlesubmit = _this.handlesubmit.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // this.clearMarkers = this.clearMarkers.bind(this);
+    // this.undoMarker = this.undoMarker.bind(this);
+    // this.redoMarker = this.redoMarker.bind(this);
+
     return _this;
   }
 
@@ -776,8 +784,8 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
         zoom: zoomLevel
       };
       this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
-      var directionsService = new google.maps.DirectionsService();
-      var directionsRenderer = new google.maps.DirectionsRenderer({
+      this.directionsService = new google.maps.DirectionsService();
+      this.directionsRenderer = new google.maps.DirectionsRenderer({
         polylineOptions: {
           strokeColor: customStroke
         },
@@ -785,18 +793,18 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
         suppressInfoWindows: true,
         suppressMarkers: true
       });
-      directionsRenderer.setMap(this.map);
+      this.directionsRenderer.setMap(this.map);
       google.maps.event.addListener(this.map, 'click', function (event) {
         _this2.placeMarker(event.latLng);
 
-        _this2.updateCourse(directionsService, directionsRenderer);
+        _this2.updateCourse(_this2.directionsService, _this2.directionsRenderer);
       });
       window.googleMap = this.map;
     } ////////////////////////////////////////////////////////////////
 
   }, {
     key: "updateCourse",
-    value: function updateCourse(dS, dR) {
+    value: function updateCourse(directionsService, directionsRenderer) {
       var _this3 = this;
 
       var waypoints = this.pins.slice(1, this.pins.length - 1).map(function (pin) {
@@ -805,18 +813,20 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
           stopover: false
         };
       }) || [];
+      var distance = "0 mi";
+      var time = "0 mins";
 
       if (this.pins.length > 1) {
-        dS.route({
+        directionsService.route({
           origin: this.pins[0],
           waypoints: waypoints,
           destination: this.pins[this.pins.length - 1],
           travelMode: this.travelMode
         }, function (response, status) {
           if (status === 'OK') {
-            dR.setDirections(response);
-            var distance = response.routes[0].legs[0].distance.text;
-            var time = response.routes[0].legs[0].duration.text;
+            directionsRenderer.setDirections(response);
+            distance = response.routes[0].legs[0].distance.text;
+            time = response.routes[0].legs[0].duration.text;
 
             _this3.setState({
               time: time,
@@ -844,7 +854,28 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleChange",
-    value: function handleChange(field) {
+    value: ////////////////////////////
+    // clearMarkers() {
+    //   debugger
+    //   console.log(this.pins);
+    //   this.pins = [];
+    //   this.updateCourse();
+    //   console.log(this.pins);
+    // }
+    // undoMarker() {
+    //   debugger
+    //   let poppedPin = this.pins.pop();
+    //   this.removedPins.push(poppedPin);
+    //   this.updateCourse;
+    // }
+    // redoMarker() {
+    //   debugger
+    //   let poppedPin = this.removedPins.pop();
+    //   this.pins.push(poppedPin);
+    //   this.updateCourse;
+    // }
+    ////////////////////////////
+    function handleChange(field) {
       var _this4 = this;
 
       return function (e) {
@@ -852,8 +883,8 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       };
     }
   }, {
-    key: "handlesubmit",
-    value: function handlesubmit(e) {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
       var _this5 = this;
 
       e.preventDefault();
@@ -875,9 +906,9 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
         className: "course-form-page",
-        onSubmit: this.handlesubmit
+        onSubmit: this.handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "map-headder"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
@@ -900,7 +931,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
         className: "time-display"
       }, this.state.time)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         id: "submit-button"
-      }, "SAVE COURSE"));
+      }, "SAVE COURSE")));
     }
   }]);
 
@@ -1228,8 +1259,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./frontend/components/App.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./frontend/components/App.jsx");
 
 
 
@@ -1239,7 +1270,7 @@ var Root = function Root(_ref) {
   var store = _ref.store;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__.Provider, {
     store: store
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_3__.default, null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);
@@ -1509,7 +1540,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1581,13 +1611,17 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-button-div"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/",
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "https://www.linkedin.com/in/alec-caro-5a713a5b/",
+        rel: "noreferrer",
+        target: "_blank",
         className: "splash-button"
-      }, "Button A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-        to: "/",
+      }, "LinkedIn"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+        href: "https://github.com/theneonwombat/LightCycle",
+        rel: "noreferrer",
+        target: "_blank",
         className: "splash-button"
-      }, "Button B"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, "GitHub"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.demoLogin,
         className: "splash-button splash-demo-button"
       }, "Demo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -1936,7 +1970,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 
 
 

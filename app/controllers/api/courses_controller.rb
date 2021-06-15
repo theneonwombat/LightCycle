@@ -41,7 +41,7 @@ class Api::CoursesController < ApplicationController
   private
 
   def course_params 
-    params.require(:course).permit(:id, :course_name, :player_id, :distance, :time, :pins_object, :created_at)
+    params.require(:course).permit(:id, :course_name, :player_id, :distance, :time, :pins_object, :created_at, :description, :travel_mode, :static_map)
   end
 
 end

@@ -8,9 +8,10 @@ const mSTP = ({ session }) => {
     course: {
       player_id: session.id,
       course_name: 'New Course',
-      distance: '',
-      time: '',
+      distance: '0 mi',
+      time: '0 mins',
       // static_map: '',
+      // travel_method: '',
       pins_object: '{"pins":[]}'
     }
   };

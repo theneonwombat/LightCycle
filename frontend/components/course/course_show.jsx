@@ -11,11 +11,13 @@ class CourseShow extends React.Component {
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
+    this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
     
   }
 
   componentDidMount() {
     
+    //IS SET STATE INSIDE A THEN A BAD METHOD?
     this.props.fetchCourse(this.props.courseId)
     .then( () => {
     
@@ -82,7 +84,8 @@ class CourseShow extends React.Component {
   };
 
   handleDeleteEvent() {
-
+    this.props.deleteCourse(this.props.courseId) 
+    .then(this.props.history.push("/dashboard"));
   }
 
   //////////////////////////////////////////////////////////////////
@@ -93,18 +96,18 @@ class CourseShow extends React.Component {
       return <h1>LOADING...</h1>
     }
     //if i wanna be really slick, make these dots go up and down later
+    // loading component
 
     const buttons = () => {
 
       // delete and edit buttons for course owner or admin
-      if (this.props.currentPlayerId === this.props.course.player_id ||
-         this.props.currentPlayerId === 1) {
+      if (this.props.currentPlayerId === this.props.course.player_id 
+        || this.props.currentPlayerId === 1) {
         return(
         <div>
 
           <button 
-            onClick={ () => {this.props.deleteCourse(this.props.courseId), 
-              this.props.history.push("/dashboard")}} >
+            onClick={ this.handleDeleteEvent } >
               DELETE COURSE
           </button>
 

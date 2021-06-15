@@ -15,7 +15,6 @@ class CourseForm extends React.Component {
     this.placeMarker = this.placeMarker.bind(this);
     this.handlesubmit = this.handlesubmit.bind(this);
 
-    debugger
   }
 
   componentDidMount() {

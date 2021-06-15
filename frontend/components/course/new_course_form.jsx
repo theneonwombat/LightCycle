@@ -8,12 +8,16 @@ class CourseForm extends React.Component {
     
     this.state = props.course;
     this.pins = JSON.parse(props.course.pins_object).pins;
+    // this.removedPins = []
 
     this.travelMode = 'BICYCLING';
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
-    this.handlesubmit = this.handlesubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.clearMarkers = this.clearMarkers.bind(this);
+    // this.undoMarker = this.undoMarker.bind(this);
+    // this.redoMarker = this.redoMarker.bind(this);
 
   }
 
@@ -31,18 +35,18 @@ class CourseForm extends React.Component {
     
     this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
     
-    const directionsService = new google.maps.DirectionsService();
-    const directionsRenderer = new google.maps.DirectionsRenderer({
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsRenderer = new google.maps.DirectionsRenderer({
       polylineOptions: { strokeColor: customStroke } ,
       suppressBicyclingLayer: true,
       suppressInfoWindows: true,
       suppressMarkers: true,
     })
-    directionsRenderer.setMap(this.map);
+    this.directionsRenderer.setMap(this.map);
   
     google.maps.event.addListener(this.map, 'click', (event) => {
       this.placeMarker(event.latLng);
-      this.updateCourse(directionsService, directionsRenderer);
+      this.updateCourse(this.directionsService, this.directionsRenderer);
     });
 
     window.googleMap = this.map;
@@ -50,14 +54,18 @@ class CourseForm extends React.Component {
 
   ////////////////////////////////////////////////////////////////
 
-  updateCourse(dS, dR) {
+  updateCourse(directionsService, directionsRenderer) {
+
     let waypoints = this.pins.slice(1, this.pins.length - 1 )
     .map(pin => ({
       location: pin, 
       stopover: false})) || [];
-
+    
+    let distance = "0 mi"
+    let time = "0 mins"
+    
     if(this.pins.length > 1) {
-      dS.route({
+      directionsService.route({
         origin: this.pins[0],
         waypoints: waypoints,
         destination: this.pins[this.pins.length - 1],
@@ -65,10 +73,10 @@ class CourseForm extends React.Component {
       }, (response, status) => {
         if (status === 'OK') {
 
-          dR.setDirections(response);
+          directionsRenderer.setDirections(response);
 
-          let distance = response.routes[0].legs[0].distance.text;
-          let time = response.routes[0].legs[0].duration.text;
+          distance = response.routes[0].legs[0].distance.text;
+          time = response.routes[0].legs[0].duration.text;
 
           this.setState({time, distance});
         }
@@ -92,11 +100,39 @@ class CourseForm extends React.Component {
  
   };
 
+  ////////////////////////////
+
+  // clearMarkers() {
+  //   debugger
+  //   console.log(this.pins);
+
+  //   this.pins = [];
+  //   this.updateCourse();
+
+  //   console.log(this.pins);
+  // }
+
+  // undoMarker() {
+  //   debugger
+  //   let poppedPin = this.pins.pop();
+  //   this.removedPins.push(poppedPin);
+  //   this.updateCourse;
+  // }
+
+  // redoMarker() {
+  //   debugger
+  //   let poppedPin = this.removedPins.pop();
+  //   this.pins.push(poppedPin);
+  //   this.updateCourse;
+  // }
+
+  ////////////////////////////
+
   handleChange(field){
     return (e) => this.setState({[field]: e.target.value})
   }
 
-  handlesubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
     
     let course;
@@ -118,40 +154,50 @@ class CourseForm extends React.Component {
   render() {
     
     return(
-      <form className='course-form-page' onSubmit={this.handlesubmit} >
 
-        <div className="map-headder" >
-          <input type="text" 
-          className="course-name" 
-          value={this.state.course_name} 
-          onChange={this.handleChange("course_name")} />
-        </div>
+      <div>
+        <form className='course-form-page' onSubmit={this.handleSubmit} >
 
-        <div className="map-div" >
-          <div className='the-map' id='the-map'>
-            MAP
+          <div className="map-headder" >
+            <input type="text" 
+            className="course-name" 
+            value={this.state.course_name} 
+            onChange={this.handleChange("course_name")} />
           </div>
-        </div>
 
-        <div className="course-info">
+          <div className="map-div" >
+            <div className='the-map' id='the-map'>
+              MAP
+            </div>
+          </div>
 
-          <div className="read-out" >
+          <div className="course-info">
 
-            <label> DISTANCE:
-              <div className="distance-display" >{this.state.distance}</div>
-            </label>
+            <div className="read-out" >
 
-            <label> ESTIMATED TIME:
-              <div className="time-display" >{this.state.time}</div>
-            </label>
+              <label> DISTANCE:
+                <div className="distance-display" >{this.state.distance}</div>
+              </label>
+
+              <label> ESTIMATED TIME:
+                <div className="time-display" >{this.state.time}</div>
+              </label>
+              
+            </div>
             
           </div>
           
-        </div>
-        
-        <button id="submit-button" >SAVE COURSE</button>
+          <button id="submit-button" >SAVE COURSE</button>
 
       </form>
+
+        {/* <button onClick={this.clearMarkers} >CLEAR</button>
+        <br />
+        <button onClick={this.undoMarker} >UNDO</button>
+        <br />
+        <button onClick={this.redoMarker} >REDO</button> */}
+
+      </div>
     )
   }
 }
