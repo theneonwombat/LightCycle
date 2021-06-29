@@ -1,7 +1,7 @@
 class Api::CoursesController < ApplicationController
   
   def index
-    @courses = Course.all
+    @courses = Course.includes(:player).all
   end
 
   def show

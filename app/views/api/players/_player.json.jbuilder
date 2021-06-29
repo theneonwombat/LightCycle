@@ -1,1 +1,1 @@
-json.extract! player, :id, :playername
+json.extract! player, :id, :playername, :bio, :location

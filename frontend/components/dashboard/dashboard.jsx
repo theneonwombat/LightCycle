@@ -9,10 +9,11 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCourses()
+    this.props.fetchCourses();
   }
 
   render(){
+    
     return(
       <div>
         <ul>

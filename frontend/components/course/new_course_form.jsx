@@ -103,7 +103,6 @@ class CourseForm extends React.Component {
   ////////////////////////////
 
   // clearMarkers() {
-  //   debugger
   //   console.log(this.pins);
 
   //   this.pins = [];
@@ -113,14 +112,12 @@ class CourseForm extends React.Component {
   // }
 
   // undoMarker() {
-  //   debugger
   //   let poppedPin = this.pins.pop();
   //   this.removedPins.push(poppedPin);
   //   this.updateCourse;
   // }
 
   // redoMarker() {
-  //   debugger
   //   let poppedPin = this.removedPins.pop();
   //   this.pins.push(poppedPin);
   //   this.updateCourse;

@@ -11,6 +11,7 @@ import DashboardContainer from './dashboard/dashboard_container'
 import NewCourseContainer from './course/new_course_container';
 import ShowCourseContainer from './course/course_show_container'
 import EditCourseContainer from './course/edit_course_container'
+import PlayerShowContainer from './profile/profile_container'
 
 const App = () => (
   <div>
@@ -26,6 +27,7 @@ const App = () => (
       <ProtectedRoute exact path="/courses/new" component={NewCourseContainer} />
       <ProtectedRoute exact path="/courses/:courseId" component={ShowCourseContainer} />
       <ProtectedRoute exact path="/courses/:courseId/edit" component={EditCourseContainer} />
+      <ProtectedRoute exact path="/players/:playerId" component={PlayerShowContainer} />
 
       <AuthRoute path="/" component={Splash} />
     

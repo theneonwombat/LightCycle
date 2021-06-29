@@ -179,7 +179,6 @@ var updateCourse = function updateCourse(course) {
 };
 var deleteCourse = function deleteCourse(courseId) {
   return function (dispatch) {
-    debugger;
     return _utils_course_util__WEBPACK_IMPORTED_MODULE_0__.deleteCourse(courseId).then(function (course) {
       return dispatch(removeCourse(course.id));
     });
@@ -213,6 +212,89 @@ var fetchPins = function fetchPins() {
   return function (dispatch) {
     return APIUtil.fetchPins().then(function (pins) {
       return dispatch(receivePins(pins));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/actions/player_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/player_actions.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RECEIVE_ALL_PLAYERS": () => (/* binding */ RECEIVE_ALL_PLAYERS),
+/* harmony export */   "RECEIVE_PLAYER": () => (/* binding */ RECEIVE_PLAYER),
+/* harmony export */   "REMOVE_PLAYER": () => (/* binding */ REMOVE_PLAYER),
+/* harmony export */   "fetchPlayers": () => (/* binding */ fetchPlayers),
+/* harmony export */   "fetchPlayer": () => (/* binding */ fetchPlayer),
+/* harmony export */   "updatePlayer": () => (/* binding */ updatePlayer),
+/* harmony export */   "deletePlayer": () => (/* binding */ deletePlayer)
+/* harmony export */ });
+/* harmony import */ var _utils_player_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/player_util */ "./frontend/utils/player_util.js");
+
+var RECEIVE_ALL_PLAYERS = "RECEIVE_ALL_PLAYERS";
+var RECEIVE_PLAYER = "RECEIVE_PLAYER";
+var REMOVE_PLAYER = "REMOVE_PLAYER"; // synch
+
+var receiveAllPlayers = function receiveAllPlayers(players) {
+  return {
+    type: RECEIVE_ALL_PLAYERS,
+    players: players
+  };
+};
+
+var receivePlayer = function receivePlayer(player) {
+  return {
+    type: RECEIVE_PLAYER,
+    player: player
+  };
+};
+
+var removePlayer = function removePlayer(playerId) {
+  return {
+    type: REMOVE_PLAYER,
+    playerId: playerId
+  };
+}; // asynch
+
+
+var fetchPlayers = function fetchPlayers() {
+  return function (dispatch) {
+    return _utils_player_util__WEBPACK_IMPORTED_MODULE_0__.fetchPlayers().then(function (players) {
+      return dispatch(receiveAllPlayers(players));
+    });
+  };
+};
+var fetchPlayer = function fetchPlayer(playerId) {
+  return function (dispatch) {
+    return _utils_player_util__WEBPACK_IMPORTED_MODULE_0__.fetchPlayer(playerId).then(function (player) {
+      return dispatch(receivePlayer(player));
+    });
+  };
+}; // **signup under session actions makes this useless**
+// export const createPlayer = (player) => dispatch => {
+//   return(
+//     PlayerApiUtil.createPlayer(player)
+//     .then((player) => dispatch(receivePlayer(player)))
+//   )
+// }
+
+var updatePlayer = function updatePlayer(player) {
+  return function (dispatch) {
+    return _utils_player_util__WEBPACK_IMPORTED_MODULE_0__.updatePlayer(player).then(function (player) {
+      return dispatch(receivePlayer(player));
+    });
+  };
+};
+var deletePlayer = function deletePlayer(playerId) {
+  return function (dispatch) {
+    return _utils_player_util__WEBPACK_IMPORTED_MODULE_0__.deletePlayer(playerId).then(function (player) {
+      return dispatch(removePlayer(player.id));
     });
   };
 };
@@ -310,16 +392,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
-/* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
-/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
-/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.js");
-/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
-/* harmony import */ var _course_course_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./course/course_show_container */ "./frontend/components/course/course_show_container.js");
-/* harmony import */ var _course_edit_course_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./course/edit_course_container */ "./frontend/components/course/edit_course_container.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _utils_route_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/route_util */ "./frontend/utils/route_util.jsx");
+/* harmony import */ var _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./nav/nav_container */ "./frontend/components/nav/nav_container.js");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
+/* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
+/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
+/* harmony import */ var _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/dashboard_container */ "./frontend/components/dashboard/dashboard_container.js");
+/* harmony import */ var _course_new_course_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./course/new_course_container */ "./frontend/components/course/new_course_container.js");
+/* harmony import */ var _course_course_show_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./course/course_show_container */ "./frontend/components/course/course_show_container.js");
+/* harmony import */ var _course_edit_course_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./course/edit_course_container */ "./frontend/components/course/edit_course_container.js");
+/* harmony import */ var _profile_profile_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./profile/profile_container */ "./frontend/components/profile/profile_container.js");
+
 
 
 
@@ -333,40 +417,44 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/",
-    component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
+    component: _nav_nav_container__WEBPACK_IMPORTED_MODULE_3__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/splash",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/login",
-    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_4__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
+    component: _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     exact: true,
     path: "/signup",
-    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_5__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+    component: _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
     path: "/dashboard",
-    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_6__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+    component: _dashboard_dashboard_container__WEBPACK_IMPORTED_MODULE_7__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
     path: "/courses/new",
-    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_7__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+    component: _course_new_course_container__WEBPACK_IMPORTED_MODULE_8__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
     path: "/courses/:courseId",
-    component: _course_course_show_container__WEBPACK_IMPORTED_MODULE_8__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.ProtectedRoute, {
+    component: _course_course_show_container__WEBPACK_IMPORTED_MODULE_9__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
     exact: true,
     path: "/courses/:courseId/edit",
-    component: _course_edit_course_container__WEBPACK_IMPORTED_MODULE_9__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
+    component: _course_edit_course_container__WEBPACK_IMPORTED_MODULE_10__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.ProtectedRoute, {
+    exact: true,
+    path: "/players/:playerId",
+    component: _profile_profile_container__WEBPACK_IMPORTED_MODULE_11__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_utils_route_util__WEBPACK_IMPORTED_MODULE_2__.AuthRoute, {
     path: "/",
-    component: _splash_splash__WEBPACK_IMPORTED_MODULE_3__.default
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_4__.default
   })));
 };
 
@@ -436,7 +524,6 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      //IS SET STATE INSIDE A THEN A BAD METHOD?
       this.props.fetchCourse(this.props.courseId).then(function () {
         _this2.setState(_this2.props.course);
 
@@ -509,8 +596,6 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      debugger;
-
       if (!this.state) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "LOADING...");
       } //if i wanna be really slick, make these dots go up and down later
@@ -537,7 +622,9 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
         id: "the-map"
       }, "MAP")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "course-info"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: "/players/".concat(this.state.player_id)
+      }, this.state.player), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "read-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, " DISTANCE:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "distance-display"
@@ -614,7 +701,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  debugger;
   return {
     formType: 'Edit Course',
     course: state.entities.courses[ownProps.match.params.courseId]
@@ -856,20 +942,17 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
     key: "handleChange",
     value: ////////////////////////////
     // clearMarkers() {
-    //   debugger
     //   console.log(this.pins);
     //   this.pins = [];
     //   this.updateCourse();
     //   console.log(this.pins);
     // }
     // undoMarker() {
-    //   debugger
     //   let poppedPin = this.pins.pop();
     //   this.removedPins.push(poppedPin);
     //   this.updateCourse;
     // }
     // redoMarker() {
-    //   debugger
     //   let poppedPin = this.removedPins.pop();
     //   this.pins.push(poppedPin);
     //   this.updateCourse;
@@ -1038,13 +1121,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard */ "./frontend/components/dashboard/dashboard.jsx");
 /* harmony import */ var _actions_courses_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/courses_actions */ "./frontend/actions/courses_actions.js");
+/* harmony import */ var _actions_player_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/player_actions */ "./frontend/actions/player_actions.js");
+
 
 
 
 
 var mSTP = function mSTP(state, ownProps) {
   return {
-    courses: Object.values(state.entities.courses)
+    courses: Object.values(state.entities.courses) // players: state.entities.players,
+
   };
 };
 
@@ -1052,6 +1138,9 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchCourses: function fetchCourses() {
       return dispatch((0,_actions_courses_actions__WEBPACK_IMPORTED_MODULE_2__.fetchCourses)());
+    },
+    fetchPlayers: function fetchPlayers() {
+      return dispatch((0,_actions_player_actions__WEBPACK_IMPORTED_MODULE_3__.fetchPlayers)());
     },
     deleteCourse: function deleteCourse(courseId) {
       return dispatch((0,_actions_courses_actions__WEBPACK_IMPORTED_MODULE_2__.deleteCourse)(courseId));
@@ -1117,10 +1206,13 @@ var DashboardItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      debugger;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        className: "dash-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/courses/".concat(this.props.course.id),
         className: "dash-item-name"
-      }, this.props.course.course_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+      }, this.props.course.course_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, this.props.course.player), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "dash-item-distance"
       }, this.props.course.distance), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "dash-item-time"
@@ -1243,6 +1335,113 @@ var mDTP = function mDTP(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_nav__WEBPACK_IMPORTED_MODULE_2__.default));
+
+/***/ }),
+
+/***/ "./frontend/components/profile/profile hooks.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/profile/profile hooks.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _dashboard_dashboard_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../dashboard/dashboard_item */ "./frontend/components/dashboard/dashboard_item.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+
+function PlayerShow(_ref) {
+  var player = _ref.player,
+      playerId = _ref.playerId,
+      exact_path = _ref.exact_path,
+      currentPlayerId = _ref.currentPlayerId,
+      fetchPlayer = _ref.fetchPlayer,
+      deleteCourse = _ref.deleteCourse;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    fetchPlayer(playerId);
+  }, [exact_path]);
+
+  if (!player) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "LOADING...");
+  }
+
+  function playerCourses(courses) {
+    if (courses) {
+      debugger;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, courses.map(function (course) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_dashboard_dashboard_item__WEBPACK_IMPORTED_MODULE_1__.default, {
+          course: course,
+          deleteCourse: deleteCourse,
+          key: course.id
+        });
+      }));
+    }
+  }
+
+  debugger;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "AVATAR"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, player.playername), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Location:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, player.location)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Bio:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, player.bio)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, "COURSES", playerCourses(player.courses)));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PlayerShow);
+
+/***/ }),
+
+/***/ "./frontend/components/profile/profile_container.js":
+/*!**********************************************************!*\
+  !*** ./frontend/components/profile/profile_container.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _profile_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile hooks */ "./frontend/components/profile/profile hooks.jsx");
+/* harmony import */ var _actions_player_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/player_actions */ "./frontend/actions/player_actions.js");
+
+
+
+
+var mSTP = function mSTP(state, ownProps) {
+  return {
+    currentPlayerId: state.session.id,
+    exact_path: ownProps.match.url,
+    player: state.entities.players[ownProps.match.params.playerId],
+    playerId: ownProps.match.params.playerId
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    deleteCourse: function (_deleteCourse) {
+      function deleteCourse(_x) {
+        return _deleteCourse.apply(this, arguments);
+      }
+
+      deleteCourse.toString = function () {
+        return _deleteCourse.toString();
+      };
+
+      return deleteCourse;
+    }(function (courseId) {
+      return dispatch(deleteCourse(courseId));
+    }),
+    fetchPlayer: function fetchPlayer(playerId) {
+      return dispatch((0,_actions_player_actions__WEBPACK_IMPORTED_MODULE_2__.fetchPlayer)(playerId));
+    }
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(mSTP, mDTP)(_profile_hooks__WEBPACK_IMPORTED_MODULE_1__.default));
 
 /***/ }),
 
@@ -1540,7 +1739,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1590,7 +1790,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         playername: 'tron',
         password: 'fortheuser'
       };
-      dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__.login)(player));
+      dispatch((0,_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__.login)(player));
     }
   }, {
     key: "render",
@@ -1657,8 +1857,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actions_courses_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/courses_actions */ "./frontend/actions/courses_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 var defaultState = {};
 
@@ -1672,7 +1870,8 @@ var CoursesReducer = function CoursesReducer() {
       return Object.assign({}, action.courses);
 
     case _actions_courses_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_COURSE:
-      return Object.assign({}, oldState, _defineProperty({}, action.course.id, action.course));
+      return Object.assign({}, oldState, action.course);
+    //action.course was previously { [action.course.id]: action.course }
 
     case _actions_courses_actions__WEBPACK_IMPORTED_MODULE_0__.REMOVE_COURSE:
       var nextState = Object.assign({}, oldState);
@@ -1747,7 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* harmony import */ var _actions_player_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/player_actions */ "./frontend/actions/player_actions.js");
 
 
 
@@ -1758,7 +1957,13 @@ var PlayersReducer = function PlayersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_PLAYER:
-      return Object.assign({}, state, _defineProperty({}, action.currentPlayer.id, action.currentPlayer));
+      return Object.assign({}, state, action.currentPlayer);
+
+    case _actions_player_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_ALL_PLAYERS:
+      return Object.assign({}, action.players);
+
+    case _actions_player_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_PLAYER:
+      return Object.assign({}, state, action.player);
 
     default:
       return state;
@@ -1956,6 +2161,60 @@ var deleteCourse = function deleteCourse(courseId) {
 
 /***/ }),
 
+/***/ "./frontend/utils/player_util.js":
+/*!***************************************!*\
+  !*** ./frontend/utils/player_util.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "fetchPlayers": () => (/* binding */ fetchPlayers),
+/* harmony export */   "fetchPlayer": () => (/* binding */ fetchPlayer),
+/* harmony export */   "createPlayer": () => (/* binding */ createPlayer),
+/* harmony export */   "updatePlayer": () => (/* binding */ updatePlayer),
+/* harmony export */   "deletePlayer": () => (/* binding */ deletePlayer)
+/* harmony export */ });
+var fetchPlayers = function fetchPlayers() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/players'
+  });
+};
+var fetchPlayer = function fetchPlayer(playerId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/players/".concat(playerId)
+  });
+};
+var createPlayer = function createPlayer(player) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/players',
+    data: {
+      player: player
+    }
+  });
+};
+var updatePlayer = function updatePlayer(player) {
+  return $.ajax({
+    method: 'PATCH',
+    url: "/api/players/".concat(player.id),
+    data: {
+      player: player
+    }
+  });
+};
+var deletePlayer = function deletePlayer(playerId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/players/".concat(playerId)
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/utils/route_util.jsx":
 /*!***************************************!*\
   !*** ./frontend/utils/route_util.jsx ***!
@@ -1970,7 +2229,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 

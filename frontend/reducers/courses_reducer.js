@@ -12,7 +12,7 @@ const CoursesReducer = (oldState = defaultState, action) => {
     case RECEIVE_ALL_COURSES:
       return Object.assign({}, action.courses);
     case RECEIVE_COURSE:
-      return Object.assign({}, oldState, {[action.course.id]: action.course});
+      return Object.assign({}, oldState, action.course ); //action.course was previously { [action.course.id]: action.course }
     case REMOVE_COURSE:
       let nextState = Object.assign({}, oldState)
       delete nextState[action.courseId]

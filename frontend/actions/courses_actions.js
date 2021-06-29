@@ -39,7 +39,9 @@ export const fetchCourses = () => dispatch => {
 export const fetchCourse = (courseId) => dispatch => {
   return(
     CourseApiUtil.fetchCourse(courseId)
-    .then((course) => dispatch(receiveCourse(course)))
+    .then((course) => {
+      return dispatch(receiveCourse(course))
+    })
   )
 }
 
@@ -58,7 +60,6 @@ export const updateCourse = (course) => dispatch => {
 }
 
 export const deleteCourse = (courseId) => dispatch => {
-  debugger
   return(
     CourseApiUtil.deleteCourse(courseId)
     .then((course) => dispatch(removeCourse(course.id)))

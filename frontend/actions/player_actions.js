@@ -59,7 +59,6 @@ export const updatePlayer = (player) => dispatch => {
 }
 
 export const deletePlayer = (playerId) => dispatch => {
-  debugger
   return(
     PlayerApiUtil.deletePlayer(playerId)
     .then((player) => dispatch(removePlayer(player.id)))

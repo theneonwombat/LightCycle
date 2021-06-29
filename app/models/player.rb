@@ -17,6 +17,9 @@ class Player < ApplicationRecord
   
   attr_reader :password
 
+  has_many :courses
+  has_one_attached :avatar #AWS
+
   before_validation :ensure_session_token
 
   def password=(password)

@@ -10,7 +10,7 @@ class Api::PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-
+    # default avatar
     if @player.save
       login!(@player)
       render :show

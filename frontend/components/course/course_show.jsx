@@ -17,7 +17,6 @@ class CourseShow extends React.Component {
 
   componentDidMount() {
     
-    //IS SET STATE INSIDE A THEN A BAD METHOD?
     this.props.fetchCourse(this.props.courseId)
     .then( () => {
     
@@ -91,7 +90,6 @@ class CourseShow extends React.Component {
   //////////////////////////////////////////////////////////////////
   
   render() {
-    debugger
     if (!this.state) {
       return <h1>LOADING...</h1>
     }
@@ -122,6 +120,7 @@ class CourseShow extends React.Component {
       }
     }
 
+    
     return(
       <div className='course-show-page'>
 
@@ -134,6 +133,12 @@ class CourseShow extends React.Component {
         </div>
 
         <div className="course-info">
+
+          <Link to={`/players/${this.state.player_id}`} >
+            {this.state.player}
+          </Link>
+
+          <br />
 
           <div className="read-out" >
 

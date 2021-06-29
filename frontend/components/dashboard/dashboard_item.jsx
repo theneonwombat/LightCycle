@@ -8,14 +8,18 @@ class DashboardItem extends React.Component {
   }
 
   render(){
+    debugger
     return(
-      <li>
+      <li className="dash-item" >
 
         <Link 
         to={`/courses/${this.props.course.id}`} 
         className="dash-item-name" >
           {this.props.course.course_name}
         </Link>
+
+        {/* <h4>{this.props.playerName}</h4> */}
+        <h4>{this.props.course.player}</h4>
 
         <h2 className="dash-item-distance" >{this.props.course.distance}</h2>
         <h2 className="dash-item-time" >{this.props.course.time}</h2>

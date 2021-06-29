@@ -8,6 +8,7 @@ export const fetchPlayers = () => {
 }
 
 export const fetchPlayer = (playerId) => {
+  
   return(
     $.ajax({
       method: 'GET',
