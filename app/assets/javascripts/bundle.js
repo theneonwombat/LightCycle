@@ -975,7 +975,6 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
       var pinsString = JSON.stringify({
         pins: this.pins
       }); //create a static map, set it to the state below
-      //IS THERE A CLEANER WAY TO DO THIS?
 
       this.setState({
         pins_object: pinsString
@@ -1957,7 +1956,6 @@ var PlayersReducer = function PlayersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_PLAYER:
-      debugger;
       return Object.assign({}, state, action.currentPlayer);
 
     case _actions_player_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_ALL_PLAYERS:

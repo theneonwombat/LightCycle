@@ -8,7 +8,6 @@ const PlayersReducer = ( state = {}, action ) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CURRENT_PLAYER:
-      debugger
       return Object.assign({}, state, action.currentPlayer);
     case RECEIVE_ALL_PLAYERS:
       return Object.assign({}, action.players);

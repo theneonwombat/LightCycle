@@ -136,7 +136,6 @@ class CourseForm extends React.Component {
     const pinsString = JSON.stringify({ pins: this.pins });
 
     //create a static map, set it to the state below
-    //IS THERE A CLEANER WAY TO DO THIS?
 
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
