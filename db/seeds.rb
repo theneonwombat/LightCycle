@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 Player.destroy_all
 
 #players
@@ -28,21 +30,14 @@ mpc = Player.create!(
   password: "fucktheuser",
 )
 
-# #courses
-# redhookride = Course.create!(
-#   player_id: neon.id,
-#   name: "Redhook Ride"
-# )
+#open avatars
+neonAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/wombat_full.jpg')
+tronAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/old_tron.png')
+ramAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/old_ram.jpg')
+mpcAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/MPC.png')
 
-# #pins
-# grandarmy = Pin.create!(
-#   lat: 40.672396,
-#   lng: -73.969830,
-#   course_id: redhookride.id
-# )
-
-# redhook = Pin.create!(
-#   lat: 40.675729,
-#   lng: -74.018285,
-#   course_id: redhookride.id
-# )
+#attach avatars
+neon.avatar.attach(io: neonAvatar, filename: 'wombat_full.jpg')
+tron.avatar.attach(io: tronAvatar, filename: 'old_tron.png')
+ram.avatar.attach(io: ramAvatar, filename: 'old_ram.jpg')
+mpc.avatar.attach(io: mpcAvatar, filename: 'MPC.png')

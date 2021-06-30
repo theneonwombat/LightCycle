@@ -1206,7 +1206,6 @@ var DashboardItem = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "dash-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
@@ -1374,7 +1373,6 @@ function PlayerShow(_ref) {
 
   function playerCourses(courses) {
     if (courses) {
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, courses.map(function (course) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_dashboard_dashboard_item__WEBPACK_IMPORTED_MODULE_1__.default, {
           course: course,
@@ -1385,8 +1383,10 @@ function PlayerShow(_ref) {
     }
   }
 
-  debugger;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "AVATAR"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, player.playername), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Location:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, player.location)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Bio:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, player.bio)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, "COURSES", playerCourses(player.courses)));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: player.avatarUrl,
+    alt: ""
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, player.playername), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Location:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, player.location)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Bio:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, player.bio)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, "COURSES", playerCourses(player.courses)));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PlayerShow);
@@ -1957,6 +1957,7 @@ var PlayersReducer = function PlayersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_PLAYER:
+      debugger;
       return Object.assign({}, state, action.currentPlayer);
 
     case _actions_player_actions__WEBPACK_IMPORTED_MODULE_1__.RECEIVE_ALL_PLAYERS:
@@ -1985,18 +1986,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
-/* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
-/* harmony import */ var _errors_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./errors_reducer */ "./frontend/reducers/errors_reducer.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _session_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session_reducer */ "./frontend/reducers/session_reducer.js");
+/* harmony import */ var _entities_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./entities_reducer */ "./frontend/reducers/entities_reducer.js");
+/* harmony import */ var _errors_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./errors_reducer */ "./frontend/reducers/errors_reducer.js");
 
 
 
 
-var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_3__.combineReducers)({
-  session: _session_reducer__WEBPACK_IMPORTED_MODULE_0__.default,
-  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
-  errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_2__.default
+var rootReducer = (0,redux__WEBPACK_IMPORTED_MODULE_0__.combineReducers)({
+  session: _session_reducer__WEBPACK_IMPORTED_MODULE_1__.default,
+  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_2__.default,
+  errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_3__.default
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (rootReducer);
 
@@ -2061,8 +2062,9 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_PLAYER:
-      return Object.assign({}, {
-        id: action.currentPlayer.id
+      //fix this hacky shit later? 6/30/2021
+      return Object.assign({}, state, {
+        id: Object.keys(action.currentPlayer)[0]
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.LOGOUT_CURRENT_PLAYER:

@@ -16,7 +16,6 @@ function PlayerShow({ player, playerId, exact_path,
 
   function playerCourses(courses) {
     if (courses) {
-      debugger
       return <ul>
         {courses.map((course) => { 
           return <DashboardItem
@@ -27,11 +26,10 @@ function PlayerShow({ player, playerId, exact_path,
       </ul>
     }
   }
-  
-  debugger
+
   return(
     <div>
-      <div>AVATAR</div>
+      <img src={player.avatarUrl} alt="" />
       <h1>{player.playername}</h1>
       <label>Location:
         <h4>{player.location}</h4>

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Api::PlayersController < ApplicationController
 
   def index
@@ -10,8 +12,11 @@ class Api::PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    # default avatar
     if @player.save
+
+      default_avatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/wombat_full.jpg')
+      @player.avatar.attach(io: default_avatar, filename: 'wombat_full.jpg')
+      
       login!(@player)
       render :show
     else

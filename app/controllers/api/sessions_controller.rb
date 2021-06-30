@@ -1,6 +1,7 @@
 class Api::SessionsController < ApplicationController
 
   def create
+    
     @player = Player.find_by_credentials(
       params[:player][:playername],
       params[:player][:password]

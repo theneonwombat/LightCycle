@@ -8,7 +8,7 @@ class DashboardItem extends React.Component {
   }
 
   render(){
-    debugger
+
     return(
       <li className="dash-item" >
 
