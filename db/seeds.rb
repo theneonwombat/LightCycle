@@ -31,13 +31,13 @@ mpc = Player.create!(
 )
 
 #open avatars
-neonAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/wombat_full.jpg')
-tronAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/old_tron.png')
-ramAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/old_ram.jpg')
-mpcAvatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/MPC.png')
+neon_avatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/wombat_full.jpg')
+tron_avatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/old_tron.png')
+ram_avatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/old_ram.jpg')
+mpc_avatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/MPC.png')
 
 #attach avatars
-neon.avatar.attach(io: neonAvatar, filename: 'wombat_full.jpg')
-tron.avatar.attach(io: tronAvatar, filename: 'old_tron.png')
-ram.avatar.attach(io: ramAvatar, filename: 'old_ram.jpg')
-mpc.avatar.attach(io: mpcAvatar, filename: 'MPC.png')
+neon.avatar.attach(io: neon_avatar, filename: 'wombat_full.jpg')
+tron.avatar.attach(io: tron_avatar, filename: 'old_tron.png')
+ram.avatar.attach(io: ram_avatar, filename: 'old_ram.jpg')
+mpc.avatar.attach(io: mpc_avatar, filename: 'MPC.png')

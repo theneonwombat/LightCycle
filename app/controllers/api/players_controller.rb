@@ -14,8 +14,9 @@ class Api::PlayersController < ApplicationController
     @player = Player.new(player_params)
     if @player.save
 
-      default_avatar = URI.open('https://light-cycle-avatars.s3.amazonaws.com/wombat_full.jpg')
-      @player.avatar.attach(io: default_avatar, filename: 'wombat_full.jpg')
+      default_avatar = URI.open(
+        'https://light-cycle-avatars.s3.amazonaws.com/default1.png')
+      @player.avatar.attach(io: default_avatar, filename: 'default1.png')
       
       login!(@player)
       render :show
