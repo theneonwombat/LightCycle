@@ -15,14 +15,26 @@ class Dashboard extends React.Component {
   render(){
     
     return(
-      <div>
-        <ul>
-          {this.props.courses.map((course) => {
-            return <DashboardItem course={course}
+      <div className="dash">
+
+        <div className="player-card">
+
+        </div>
+
+        <div className="dash-feed" >
+          <Link to={`/courses/new`} >NEW COURSE</Link>
+          <ul>
+            {this.props.courses.map((course) => {
+              return <DashboardItem course={course}
               deleteCourse={this.props.deleteCourse} 
               key={course.id} />})}
-        </ul>
-        <Link to={`/courses/new`} >NEW COURSE</Link>
+          </ul>
+        </div>
+
+        <div className="link-card">
+
+        </div>
+
       </div>
     )
   }

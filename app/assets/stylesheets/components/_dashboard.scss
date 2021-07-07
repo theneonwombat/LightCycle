@@ -1,0 +1,19 @@
+.dash-feed {
+  
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #f7f7fa;
+  .dash-item{
+    background: white;
+    padding: 24px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+
+    .static-map {
+      justify-self: right;
+      height: 250px;
+      width: 250px;
+    }
+  }
+  
+}

@@ -10,9 +10,9 @@ const mSTP = ({ session }) => {
       course_name: 'New Course',
       distance: '0 mi',
       time: '0 mins',
-      // static_map: '',
+      pins_object: '{"pins":[]}',
+      static_map: '',
       // travel_method: '',
-      pins_object: '{"pins":[]}'
     }
   };
 };

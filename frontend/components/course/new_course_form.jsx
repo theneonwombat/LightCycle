@@ -63,6 +63,7 @@ class CourseForm extends React.Component {
     
     let distance = "0 mi"
     let time = "0 mins"
+    let static_map = ""
     
     if(this.pins.length > 1) {
       directionsService.route({
@@ -77,8 +78,9 @@ class CourseForm extends React.Component {
 
           distance = response.routes[0].legs[0].distance.text;
           time = response.routes[0].legs[0].duration.text;
+          static_map = response.routes[0].overview_polyline;
 
-          this.setState({time, distance});
+          this.setState({time, distance, static_map});
         }
       })
     }
@@ -135,8 +137,6 @@ class CourseForm extends React.Component {
     let course;
     const pinsString = JSON.stringify({ pins: this.pins });
 
-    //create a static map, set it to the state below
-
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
       this.props.processForm(course)
@@ -148,7 +148,7 @@ class CourseForm extends React.Component {
   //////////////////////////////////////////////////////////////////
   
   render() {
-    
+
     return(
 
       <div>
