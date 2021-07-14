@@ -1,19 +1,114 @@
+.dash {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.player-card {
+  width: 33.33%;
+  background-color: #f7f7fa;
+
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    box-shadow: 0px 8px 24px rgba(13,13,18,0.16);
+  }
+}
+
 .dash-feed {
-  
+  width: 66.67%;
+  padding-top: 12px;
   padding-left: 16px;
   padding-right: 16px;
   background-color: #f7f7fa;
+
   .dash-item{
+    // display: flex;
     background: white;
-    padding: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    padding-bottom: 20px;
     margin-bottom: 12px;
     border-radius: 4px;
+    box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
+
+    .dash-item-head {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 8px;
+
+      .dash-item-avatar {
+        background-color: darkcyan;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 24px;
+      }
+
+      .dash-item-head-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+
+        .dash-item-player {
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .dash-item-created {
+          font-size: 11px;
+          color: #666;
+        }
+      }
+    }
+
+    .dash-item-body {
+      // background-color: darkcyan;
+      display: flex;
+      flex-direction: column;
+      
+      .dash-item-name {
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .dash-item-stats {
+        // background-color: darkmagenta;
+        display: flex;
+        flex-direction: row;
+
+        .dash-item-distance {
+          font-size: 20px;
+          font-weight: 400;
+        }
+        
+        .dash-item-time {
+          font-size: 20px;
+          font-weight: 400;
+
+        }
+      }
+    }
 
     .static-map {
-      justify-self: right;
-      height: 250px;
-      width: 250px;
+      border-radius: 2px;
+      height: 220px;
+      width: 100%;
+      padding-top: 8px;
+      object-fit: cover;
     }
   }
   
+}
+
+@media (max-width: 900px) {
+  .player-card {
+    display: none;
+  }
+
+  .dash-feed {
+    width: 100%;
+  }
 }

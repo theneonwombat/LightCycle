@@ -911,6 +911,7 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
           travelMode: this.travelMode
         }, function (response, status) {
           if (status === 'OK') {
+            console.log(response);
             directionsRenderer.setDirections(response);
             distance = response.routes[0].legs[0].distance.text;
             time = response.routes[0].legs[0].duration.text;
@@ -1089,15 +1090,21 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
+      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "player-card"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-card-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "player-card-avatar",
+        src: this.props.currentPlayer.avatarUrl
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+        to: "/players/".concat(this.props.currentPlayer.id)
+      }, this.props.currentPlayer.playername), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "courses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, this.props.currentPlayer.numCourses))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-feed"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-        to: "/courses/new"
-      }, "NEW COURSE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.courses.map(function (course) {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.courses.map(function (course) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_dashboard_item__WEBPACK_IMPORTED_MODULE_1__.default, {
           course: course,
           deleteCourse: _this.props.deleteCourse,
@@ -1137,9 +1144,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
+  //calculate number of courses, total distance, total time
   return {
-    courses: Object.values(state.entities.courses) // players: state.entities.players,
-
+    courses: Object.values(state.entities.courses),
+    currentPlayer: state.entities.players[state.session.id]
   };
 };
 
@@ -1213,27 +1221,35 @@ var DashboardItem = /*#__PURE__*/function (_React$Component) {
   _createClass(DashboardItem, [{
     key: "render",
     value: function render() {
-      var _this = this;
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "dash-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dash-item-head"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dash-item-avatar"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dash-item-head-text"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        className: "dash-item-player",
+        to: "/players/".concat(this.props.course.player_id)
+      }, this.props.course.player), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dash-item-created"
+      }, "created_at"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dash-item-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/courses/".concat(this.props.course.id),
         className: "dash-item-name"
-      }, this.props.course.course_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, this.props.course.player), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+      }, this.props.course.course_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "dash-item-stats"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-item-distance"
-      }, this.props.course.distance), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.course.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
         className: "dash-item-time"
-      }, this.props.course.time), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      }, this.props.course.time))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "static-map",
-        src: "https://maps.googleapis.com/maps/api/staticmap?size=400x400&path=weight:3%7Ccolor:0xfc5200FF%7Cenc:".concat(this.props.course.static_map, "&key=").concat(window.googleAPIKey),
+        src: "https://maps.googleapis.com/maps/api/staticmap?size=800x500&path=weight:3%7Ccolor:0xfc5200FF%7Cenc:".concat(this.props.course.static_map, "&key=").concat(window.googleAPIKey),
         alt: ""
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: function onClick() {
-          return _this.props.deleteCourse(_this.props.course.id);
-        },
-        className: "dash-item-delete-button"
-      }, "Delete"));
+      }));
     }
   }]);
 
@@ -1269,7 +1285,7 @@ var NavBar = function NavBar(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "simple-nav"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      className: "nav-logo",
+      id: "nav-logo",
       to: "/splash"
     }, "LightCycle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
       className: "login-button",
@@ -1281,7 +1297,7 @@ var NavBar = function NavBar(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "simple-nav"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      className: "nav-logo",
+      id: "nav-logo",
       to: "/splash"
     }, "LightCycle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
       className: "signup-button",
@@ -1293,7 +1309,7 @@ var NavBar = function NavBar(_ref) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
       className: "complex-nav"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-      className: "nav-logo",
+      id: "nav-logo",
       to: "/splash"
     }, "LightCycle"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", {
       className: "welcome"
@@ -1301,7 +1317,10 @@ var NavBar = function NavBar(_ref) {
       className: "signout-button"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
       onClick: logout
-    }, "Sign Out")));
+    }, "Sign Out")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      className: "new-course-button",
+      to: "/courses/new"
+    }, "NEW COURSE"));
   };
 
   return currentPlayer ? comlpexNav() : currentPage === "/login" ? simpleNavB() : simpleNavA();

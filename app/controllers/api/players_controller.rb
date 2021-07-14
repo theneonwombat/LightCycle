@@ -8,6 +8,7 @@ class Api::PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @num_courses = @player.num_courses
   end
 
   def create

@@ -74,6 +74,8 @@ class CourseForm extends React.Component {
       }, (response, status) => {
         if (status === 'OK') {
 
+          console.log(response);
+
           directionsRenderer.setDirections(response);
 
           distance = response.routes[0].legs[0].distance.text;

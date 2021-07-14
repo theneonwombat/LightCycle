@@ -7,14 +7,12 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
 
     <div className="simple-nav">
 
-      <Link className="nav-logo" to="/splash">
+      <Link id="nav-logo" to="/splash">
         LightCycle
       </Link>
 
-      
       <NavLink className="login-button" to="/login">Log In</NavLink>
       
-
     </div>
   );
 
@@ -22,7 +20,7 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
 
     <div className="simple-nav">
 
-      <Link className="nav-logo" to="/splash">
+      <Link id="nav-logo" to="/splash">
         LightCycle
       </Link>
 
@@ -36,7 +34,7 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
   const comlpexNav = () => (
     <div className="complex-nav">
 
-      <Link className="nav-logo" to="/splash">
+      <Link id="nav-logo" to="/splash">
         LightCycle
       </Link>
 
@@ -48,7 +46,10 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         <button onClick={logout}>
           Sign Out
         </button>
+
       </div>
+      
+      <Link className="new-course-button" to={`/courses/new`} >NEW COURSE</Link>
 
     </div>
     

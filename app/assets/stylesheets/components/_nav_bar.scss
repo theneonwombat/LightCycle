@@ -10,12 +10,16 @@
   border-bottom: solid 1px #f0f0f5;
 }
 
-.nav-logo {
+#nav-logo {
   color: $deep-orange;
   font-size: 21px;
   font-family: sans-serif;
   font-weight: 999;
   margin-left: 20px;
+}
+
+#nav-logo:hover {
+  color: $deep-orange;
 }
 
 .login-button {

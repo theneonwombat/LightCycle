@@ -52,4 +52,8 @@ class Player < ApplicationRecord
     self.session_token
   end
 
+  def num_courses
+    self.courses.count
+  end
+
 end
