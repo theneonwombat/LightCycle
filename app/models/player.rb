@@ -56,4 +56,16 @@ class Player < ApplicationRecord
     self.courses.count
   end
 
+  def total_distance
+    total = 0
+    self.courses.each do |course|
+      total += course.distance.to_f
+    end
+    total.round(2)
+  end
+
+  def last_course
+    self.courses[-1]
+  end
+
 end

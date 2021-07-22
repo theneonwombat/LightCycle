@@ -24,10 +24,8 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
         LightCycle
       </Link>
 
-      
       <NavLink className="signup-button" to="/signup">Sign Up</NavLink>
       
-
     </div>
   )
 

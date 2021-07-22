@@ -4,7 +4,6 @@ import { fetchCourses, deleteCourse } from '../../actions/courses_actions'
 import { fetchPlayers } from '../../actions/player_actions'
 
 const mSTP = (state, ownProps) => {
-  //calculate number of courses, total distance, total time
   return ({
     courses: Object.values(state.entities.courses),
     currentPlayer: state.entities.players[state.session.id],

@@ -2,113 +2,245 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
-}
+  padding-top: 58px;
 
-.player-card {
-  width: 33.33%;
-  background-color: #f7f7fa;
-
-  img {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    box-shadow: 0px 8px 24px rgba(13,13,18,0.16);
+  .stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  h4 {
+    margin: 0px;
+  }
+  
+  .stat-tag {
+    font-size: 12px;
+    font-weight: 400;
+    color: #494950;
+  }
+  
+  .stat-num {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 400;
   }
 }
-
-.dash-feed {
-  width: 66.67%;
-  padding-top: 12px;
-  padding-left: 16px;
-  padding-right: 16px;
-  background-color: #f7f7fa;
-
-  .dash-item{
-    // display: flex;
-    background: white;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-top: 16px;
-    padding-bottom: 20px;
-    margin-bottom: 12px;
-    border-radius: 4px;
-    box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
-
-    .dash-item-head {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 8px;
-
-      .dash-item-avatar {
-        background-color: darkcyan;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 24px;
-      }
-
-      .dash-item-head-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-
-        .dash-item-player {
-          font-size: 14px;
-          font-weight: 700;
-        }
-
-        .dash-item-created {
-          font-size: 11px;
-          color: #666;
-        }
-      }
+  
+  .player-card {
+    background-color: #f7f7fa;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+    img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      box-shadow: 0px 8px 24px rgba(13,13,18,0.16);
+      position: relative;
+      top: 35px;
     }
-
-    .dash-item-body {
-      // background-color: darkcyan;
+    
+    .player-card-content {
+      // margin-top: 64px;
+      padding-top: 24px;
+      box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
+      border-radius: 4px;
+      width: 290px;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      background-color: white;
       
-      .dash-item-name {
+      .player-card-name {
+        margin-top: 12px;
+        margin-bottom: 16px;
         font-size: 22px;
         font-weight: 700;
       }
-      .dash-item-stats {
-        // background-color: darkmagenta;
+      
+      .player-card-stats {
         display: flex;
         flex-direction: row;
+        width: 80%;
+        justify-content: space-around;
+        position: relative;
+      }
 
-        .dash-item-distance {
-          font-size: 20px;
+      .player-card-stats::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #f7f7fa;
+        top: calc(100% + 10px);
+      }
+      
+      ////////////////////
+      .no-activity {
+        padding: 16px;
+      }
+      .latest-course-info {
+        font-size: 12px;
+        padding: 16px;
+        align-items: flex-start;
+        
+        .latest-headding {
           font-weight: 400;
+          margin: 0;
+          padding-bottom: 5px;
         }
         
-        .dash-item-time {
-          font-size: 20px;
-          font-weight: 400;
-
+        .latest-link {
+          display: flex;
+          flex-direction: row;
+          font-size: 12px;
+          .latest-name {
+            margin: 0;
+            font-weight: bold;
+          }
+          .latest-date {
+            font-weight: 400;
+            margin: 0;
+          }
         }
       }
+      
     }
-
-    .static-map {
-      border-radius: 2px;
-      height: 220px;
-      width: 100%;
-      padding-top: 8px;
-      object-fit: cover;
-    }
+    
   }
   
-}
-
-@media (max-width: 900px) {
-  .player-card {
-    display: none;
-  }
+  ///////////////////////////////////////////////////////
 
   .dash-feed {
-    width: 100%;
+    width: 66.67%;
+    padding-top: 70px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #f7f7fa;
+    
+    .dash-item{
+      // display: flex;
+      background: white;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 16px;
+      padding-bottom: 20px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
+      
+      .stat-block {
+        // justify-content: left;
+        align-items:flex-start;
+        // background-color: yellowgreen;
+        padding-right: 16px;
+        margin-right: 16px;
+        margin-bottom: 16px;
+      }
+
+      .dash-item-head {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 8px;
+        
+        .dash-item-avatar {
+          background-color: darkcyan;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-right: 24px;
+        }
+        
+        .dash-item-head-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          
+          
+          .dash-item-player {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          
+          .dash-item-created {
+            font-size: 11px;
+            color: #666;
+          }
+        }
+      }
+      
+      .dash-item-body {
+        // background-color: darkcyan;
+        display: flex;
+        flex-direction: column;
+        
+        .dash-item-name {
+          font-size: 22px;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        .dash-item-stats {
+          // background-color: darkmagenta;
+          display: flex;
+          flex-direction: row;
+          
+          .dash-item-distance {
+            font-size: 20px;
+            font-weight: 400;
+          }
+          
+          .dash-item-time {
+            font-size: 20px;
+            font-weight: 400;
+            
+          }
+        }
+      }
+      
+      .static-map {
+        border-radius: 2px;
+        height: 220px;
+        width: 100%;
+        padding-top: 8px;
+        object-fit: cover;
+      }
+    }
+    
   }
+
+  /////////////////////////////@at-root
+
+  .link-card {
+    background: #f7f7fa;
+  }
+  
+  @media (max-width: 900px) {
+    .player-card {
+      display: none;
+    }
+    .dash-feed {
+      width: 100%;
+    }
+    .link-card {
+      display: none;
+    }
+  }
+
+    @media (min-width: 1200px) {
+    .player-card {
+      width: 25%;
+    }
+    .dash-feed {
+      width: 50%;
+    }
+    .link-card {
+      width: 25%;
+    }
+  }
+
 }

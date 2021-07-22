@@ -363,6 +363,7 @@ var signup = function signup(player) {
 };
 var login = function login(player) {
   return function (dispatch) {
+    debugger;
     return _utils_session_api_util__WEBPACK_IMPORTED_MODULE_0__.login(player).then(function (player) {
       return dispatch(receiveCurrentPlayer(player));
     }, function (err) {
@@ -475,6 +476,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _map_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./map_styles */ "./frontend/components/course/map_styles.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -496,6 +498,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -529,7 +532,12 @@ var CourseShow = /*#__PURE__*/function (_React$Component) {
 
         _this2.pins = JSON.parse(_this2.props.course.pins_object).pins; //set up mp
 
-        _this2.map = new google.maps.Map(document.getElementById('the-map'));
+        var mapOptions = {
+          styles: _map_styles__WEBPACK_IMPORTED_MODULE_2__.default,
+          disableDefaultUI: true,
+          zoomControl: true
+        };
+        _this2.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
         var directionsService = new google.maps.DirectionsService();
         var directionsRenderer = new google.maps.DirectionsRenderer({
           polylineOptions: {
@@ -732,6 +740,229 @@ var mDTP = function mDTP(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/course/map_styles.js":
+/*!**************************************************!*\
+  !*** ./frontend/components/course/map_styles.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
+  "featureType": "all",
+  "elementType": "labels.text",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "administrative",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "administrative.locality",
+  "elementType": "labels.text",
+  "stylers": [{
+    "visibility": "simplified"
+  }]
+}, {
+  "featureType": "administrative.neighborhood",
+  "elementType": "labels.text",
+  "stylers": [{
+    "visibility": "simplified"
+  }]
+}, {
+  "featureType": "landscape",
+  "elementType": "all",
+  "stylers": [{
+    "color": "#e5e8e7"
+  }, {
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "landscape.man_made",
+  "elementType": "geometry.fill",
+  "stylers": [{
+    "color": "#efeff5"
+  }, {
+    "visibility": "on"
+  }]
+}, {
+  "featureType": "landscape.natural",
+  "elementType": "geometry.fill",
+  "stylers": [{
+    "color": "#f5f5f2"
+  }, {
+    "visibility": "on"
+  }]
+}, {
+  "featureType": "poi",
+  "elementType": "labels.icon",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.attraction",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.business",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.government",
+  "elementType": "geometry",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.medical",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "all",
+  "stylers": [{
+    "color": "#91b65d"
+  }, {
+    "gamma": 1.51
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "visibility": "on"
+  }, {
+    "color": "#2b6d0a"
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "labels.text.stroke",
+  "stylers": [{
+    "color": "#efeff5"
+  }]
+}, {
+  "featureType": "poi.park",
+  "elementType": "labels.icon",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.place_of_worship",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.school",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.sports_complex",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "poi.sports_complex",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#c7c7c7"
+  }, {
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "road",
+  "elementType": "all",
+  "stylers": [{
+    "color": "#ffffff"
+  }]
+}, {
+  "featureType": "road",
+  "elementType": "labels",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "road.highway",
+  "elementType": "geometry",
+  "stylers": [{
+    "color": "#ffffff"
+  }, {
+    "visibility": "simplified"
+  }]
+}, {
+  "featureType": "road.highway",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "color": "#9595a1"
+  }, {
+    "visibility": "on"
+  }]
+}, {
+  "featureType": "road.arterial",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "simplified"
+  }, {
+    "color": "#ffffff"
+  }]
+}, {
+  "featureType": "road.arterial",
+  "elementType": "geometry",
+  "stylers": [{
+    "visibility": "simplified"
+  }]
+}, {
+  "featureType": "road.arterial",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "visibility": "on"
+  }, {
+    "color": "#9595a1"
+  }]
+}, {
+  "featureType": "road.local",
+  "elementType": "geometry",
+  "stylers": [{
+    "visibility": "on"
+  }]
+}, {
+  "featureType": "road.local",
+  "elementType": "labels.text.fill",
+  "stylers": [{
+    "visibility": "on"
+  }, {
+    "color": "#9595a1"
+  }]
+}, {
+  "featureType": "transit",
+  "elementType": "all",
+  "stylers": [{
+    "visibility": "off"
+  }]
+}, {
+  "featureType": "water",
+  "elementType": "all",
+  "stylers": [{
+    "color": "#a0d3d3"
+  }]
+}]);
+
+/***/ }),
+
 /***/ "./frontend/components/course/new_course_container.js":
 /*!************************************************************!*\
   !*** ./frontend/components/course/new_course_container.js ***!
@@ -803,6 +1034,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _map_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./map_styles */ "./frontend/components/course/map_styles.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -826,6 +1058,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -867,7 +1100,10 @@ var CourseForm = /*#__PURE__*/function (_React$Component) {
           lat: centerLat,
           lng: centerLng
         },
-        zoom: zoomLevel
+        zoom: zoomLevel,
+        styles: _map_styles__WEBPACK_IMPORTED_MODULE_1__.default,
+        disableDefaultUI: true,
+        zoomControl: true
       };
       this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
       this.directionsService = new google.maps.DirectionsService();
@@ -1075,9 +1311,13 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Dashboard);
 
   function Dashboard(props) {
+    var _this;
+
     _classCallCheck(this, Dashboard);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.renderLatest = _this.renderLatest.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Dashboard, [{
@@ -1086,28 +1326,66 @@ var Dashboard = /*#__PURE__*/function (_React$Component) {
       this.props.fetchCourses();
     }
   }, {
+    key: "renderLatest",
+    value: function renderLatest() {
+      if (this.props.currentPlayer.lastCourse) {
+        this.dateObj = new Date(this.props.currentPlayer.lastCourse.created_at);
+        this.dateString = this.dateObj.toDateString();
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "latest-course-info"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+          className: "latest-headding"
+        }, "latest course"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          to: "/courses/".concat(this.props.currentPlayer.lastCourse.id),
+          className: "latest-link"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+          className: "latest-name"
+        }, this.props.currentPlayer.lastCourse.course_name, " \u2022"), "\xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+          className: "latest-date"
+        }, this.dateString)));
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "no-activity"
+      }, "No Recent Activity");
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
-      debugger;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "player-card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "player-card-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "player-card-avatar",
         src: this.props.currentPlayer.avatarUrl
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-card-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+        className: "player-card-name",
         to: "/players/".concat(this.props.currentPlayer.id)
-      }, this.props.currentPlayer.playername), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "courses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, this.props.currentPlayer.numCourses))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, this.props.currentPlayer.playername), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-card-stats"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "stat-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "stat-tag"
+      }, "Courses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "stat-num"
+      }, this.props.currentPlayer.numCourses)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "stat-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "stat-tag"
+      }, "Total Distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "stat-num"
+      }, this.props.currentPlayer.totalDistance, " mi"))), this.renderLatest())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-feed"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, this.props.courses.map(function (course) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_dashboard_item__WEBPACK_IMPORTED_MODULE_1__.default, {
           course: course,
-          deleteCourse: _this.props.deleteCourse,
+          deleteCourse: _this2.props.deleteCourse,
           key: course.id
         });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1144,7 +1422,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  //calculate number of courses, total distance, total time
   return {
     courses: Object.values(state.entities.courses),
     currentPlayer: state.entities.players[state.session.id]
@@ -1221,12 +1498,28 @@ var DashboardItem = /*#__PURE__*/function (_React$Component) {
   _createClass(DashboardItem, [{
     key: "render",
     value: function render() {
+      //Date and time parse
+      var dateObj = new Date(this.props.course.created_at);
+      var month = dateObj.toLocaleDateString(undefined, {
+        month: 'long'
+      });
+      var date = dateObj.toLocaleDateString(undefined, {
+        day: 'numeric'
+      });
+      var year = dateObj.toLocaleDateString(undefined, {
+        year: 'numeric'
+      });
+      var time = dateObj.toLocaleTimeString("en-Us", {
+        hour: "numeric",
+        minute: "2-digit"
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "dash-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-item-head"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "dash-item-avatar"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "dash-item-avatar",
+        src: this.props.course.avatarUrl
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-item-head-text"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
@@ -1234,7 +1527,7 @@ var DashboardItem = /*#__PURE__*/function (_React$Component) {
         to: "/players/".concat(this.props.course.player_id)
       }, this.props.course.player), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-item-created"
-      }, "created_at"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "".concat(month, " ").concat(date, ", ").concat(year, " at ").concat(time)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-item-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/courses/".concat(this.props.course.id),
@@ -1242,12 +1535,20 @@ var DashboardItem = /*#__PURE__*/function (_React$Component) {
       }, this.props.course.course_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "dash-item-stats"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "dash-item-distance"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", null, "distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.course.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
-        className: "dash-item-time"
-      }, this.props.course.time))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "dash-item-distance stat-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "stat-tag"
+      }, "Distance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+        className: "stat-num"
+      }, this.props.course.distance)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "stat-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+        className: "stat-tag"
+      }, "Time"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", {
+        className: "stat-num"
+      }, this.props.course.time)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         className: "static-map",
-        src: "https://maps.googleapis.com/maps/api/staticmap?size=800x500&path=weight:3%7Ccolor:0xfc5200FF%7Cenc:".concat(this.props.course.static_map, "&key=").concat(window.googleAPIKey),
+        src: "https://maps.googleapis.com/maps/api/staticmap?size=800x300&path=weight:3%7Ccolor:0xfc5200FF%7Cenc:".concat(this.props.course.static_map, "&key=").concat(window.googleAPIKey, "&map_id=2ce121783e577f4a"),
         alt: ""
       }));
     }
@@ -2093,9 +2394,8 @@ var sessionReducer = function sessionReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_PLAYER:
-      //fix this hacky shit later? 6/30/2021
       return Object.assign({}, state, {
-        id: Object.keys(action.currentPlayer)[0]
+        id: action.currentPlayer.id
       });
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.LOGOUT_CURRENT_PLAYER:

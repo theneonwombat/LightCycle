@@ -1,4 +1,5 @@
 import React from 'react';
+import mapStyles from './map_styles'
 
 class CourseForm extends React.Component {
 
@@ -31,6 +32,9 @@ class CourseForm extends React.Component {
     const mapOptions = {
       center: { lat: centerLat, lng: centerLng }, 
       zoom: zoomLevel,
+      styles: mapStyles,
+      disableDefaultUI: true,
+      zoomControl: true,
     }
     
     this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);

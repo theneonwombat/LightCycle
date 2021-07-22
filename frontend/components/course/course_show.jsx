@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import mapStyles from './map_styles'
 
 class CourseShow extends React.Component {
   constructor(props) {
@@ -24,7 +25,13 @@ class CourseShow extends React.Component {
     this.pins = JSON.parse(this.props.course.pins_object).pins;
 
     //set up mp
-    this.map = new google.maps.Map(document.getElementById('the-map'));
+    const mapOptions = {
+      styles: mapStyles,
+      disableDefaultUI: true,
+      zoomControl: true,
+    }
+
+    this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
     
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer({

@@ -59,8 +59,11 @@
   background-color: rgb(240, 240, 240);
 }
 
-//temp complex nav shit
+//temp complex nav
 .complex-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
   background: white;
   display: flex;
   padding: 0 16px;
