@@ -35,15 +35,16 @@ function PlayerShow({ player, playerId, exact_path,
       <div className="profile-content" >
         <img src={player.avatarUrl} alt="" />
         <h1>{player.playername}</h1>
+        <div className="location-container flexrow" >
           <IoLocationOutline />
-          <h4>{player.location}</h4>
-        <label>Bio:
+          <div className="location-tag" >{player.location}</div>
+        </div>
+        <div className="bio" >
           <p>{player.bio}</p>
-        </label>
+        </div>
       </div>
       
       <div className="profile-feed" >
-        COURSES
         {playerCourses(player.courses)}
       </div>
 

@@ -10,8 +10,7 @@
 .simple-nav {
   background: white;
   display: flex;
-  width: 100vw;
-  // padding: 0 16px;
+  // width: 100vw;
   height: 58px;
   justify-content: space-between;
   align-items: center;
@@ -104,11 +103,11 @@
 }
 
 .signout-button:hover {
-  background-color: #d34600;
+  background-color: $hover-orange;
 }
 
 .new-course-button {
-  color: #d34600;
+  color: $hover-orange;
   svg {
     height: 30px;
     width: 30px;

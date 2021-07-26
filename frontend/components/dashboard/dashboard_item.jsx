@@ -37,7 +37,7 @@ class DashboardItem extends React.Component {
           </div>
         </div>
 
-        <div className="flex-row" >
+        <div className="flexrow" >
           <div className="icon-container" >
             <FaBicycle className="bike-icon" />
           </div>

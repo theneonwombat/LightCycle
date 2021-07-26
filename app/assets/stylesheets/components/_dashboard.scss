@@ -1,77 +1,37 @@
-.icon-container {
-  width: 40px;
-  margin-right: 24px;
-  display: flex;
-  justify-content: center;
-}
-.bike-icon {
-  height: 24px;
-  width: 24px;
-}
-
 .kitchen-sink {
-  background-color: #f7f7fa;
+  background-color: $bg-white;
 }
 
 .dash {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  // padding-top: 58px;
   padding: 58px 1em 0 1em;
-  background-color: #f7f7fa;
+  background-color: $bg-white;
   justify-content: center;
-  // width: 100%;
   gap: 2em;
   max-width: 1000px;
   margin: auto;
-
-  .stat-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  h4 {
-    margin: 0px;
-  }
-  
-  .stat-tag {
-    font-size: 12px;
-    font-weight: 400;
-    color: #494950;
-  }
-  
-  .stat-num {
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: 400;
-  }
-}
   
   .player-card {
-    background-color: #f7f7fa;
-    
+    background-color: $bg-white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    // width: 33.33%;
     width: 286px;
-    // padding-left: 16px;
-    // padding-right: 16px;
     
     img {
       height: 70px;
       width: 70px;
       border-radius: 50%;
-      box-shadow: 0px 8px 24px rgba(13,13,18,0.16);
+      box-shadow: 0px 8px 24px $shadow;
       position: relative;
       top: 35px;
     }
     
     .player-card-content {
-      // margin-top: 64px;
       padding-top: 24px;
-      box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
+      box-shadow: 0px 8px 24px $shadow;
       border-radius: 4px;
       width: 100%;
       display: flex;
@@ -99,7 +59,7 @@
         position: absolute;
         width: 100%;
         height: 2px;
-        background: #f7f7fa;
+        background: $bg-white;
         top: calc(100% + 10px);
       }
       
@@ -141,105 +101,13 @@
 
   .dash-feed {
     margin: auto 0;
-    // width: 66.67%;
     width: 616px;
     padding-top: 70px;
-    // padding-left: 16px;
-    // padding-right: 16px;
-    background-color: #f7f7fa;
-    
-    .dash-item{
-      // display: flex;
-      background: white;
-      padding-left: 24px;
-      padding-right: 24px;
-      padding-top: 16px;
-      padding-bottom: 20px;
-      margin-bottom: 12px;
-      border-radius: 4px;
-      box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
-      
-      .stat-block {
-        // justify-content: left;
-        align-items:flex-start;
-        // background-color: yellowgreen;
-        padding-right: 16px;
-        margin-right: 16px;
-        margin-bottom: 16px;
-      }
-
-      .dash-item-head {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 8px;
-        
-        .dash-item-avatar {
-          background-color: darkcyan;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          margin-right: 24px;
-        }
-        
-        .dash-item-head-text {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 2px;
-          
-          
-          .dash-item-player {
-            font-size: 14px;
-            font-weight: 700;
-          }
-          
-          .dash-item-created {
-            font-size: 11px;
-            color: #666;
-          }
-        }
-      }
-      
-      .dash-item-body {
-        // background-color: darkcyan;
-        display: flex;
-        flex-direction: column;
-        
-        .dash-item-name {
-          font-size: 22px;
-          font-weight: 700;
-          margin-bottom: 10px;
-        }
-        .dash-item-stats {
-          // background-color: darkmagenta;
-          display: flex;
-          flex-direction: row;
-          
-          .dash-item-distance {
-            font-size: 20px;
-            font-weight: 400;
-          }
-          
-          .dash-item-time {
-            font-size: 20px;
-            font-weight: 400;
-            
-          }
-        }
-      }
-      
-      .static-map {
-        border-radius: 2px;
-        height: 220px;
-        width: 100%;
-        padding-top: 8px;
-        object-fit: cover;
-      }
-    }
-    
+    background-color: $bg-white;
+  
   }
 
-  /////////////////////////////@at-root
+  /////////////////////////////
 
   .link-card {
     background: lightgreen;
@@ -259,7 +127,7 @@
     }
   }
 
-    @media (min-width: 1300px) {
+  @media (min-width: 1300px) {
     .player-card {
       flex: 0 0 286px;
     }
@@ -272,4 +140,120 @@
     }
   }
 
+}
+
+.dash-item{
+  background: white;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px $shadow;
+  
+  .icon-container {
+    width: 40px;
+    margin-right: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bike-icon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .dash-item-head {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    
+    .dash-item-avatar {
+      background-color: darkcyan;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 24px;
+    }
+    
+    .dash-item-head-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      
+      
+      .dash-item-player {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      
+      .dash-item-created {
+        font-size: 11px;
+        color: #666;
+      }
+    }
+  }
+  
+  .dash-item-body {
+    // background-color: darkcyan;
+    display: flex;
+    flex-direction: column;
+    
+    .dash-item-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .dash-item-stats {
+      // background-color: darkmagenta;
+      display: flex;
+      flex-direction: row;
+      
+      .dash-item-distance {
+        font-size: 20px;
+        font-weight: 400;
+      }
+      
+      .dash-item-time {
+        font-size: 20px;
+        font-weight: 400;
+        
+      }
+    }
+  }
+  
+  .static-map {
+    border-radius: 2px;
+    height: 220px;
+    width: 100%;
+    padding-top: 8px;
+    object-fit: cover;
+  }
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  padding-right: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  h4 {
+    margin: 0px;
+  }
+  
+  .stat-tag {
+    font-size: 12px;
+    font-weight: 400;
+    color: #494950;
+  }
+  
+  .stat-num {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
