@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ProfileShow from './profile hooks'
+import ProfileShow from './profile_hooks'
 import {
   fetchPlayer,
 } from '../../actions/player_actions'

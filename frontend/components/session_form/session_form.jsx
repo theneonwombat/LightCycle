@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
 
   demoLogin(e) {
     e.preventDefault();
-    const player = { playername: 'tron', password: 'fortheuser'}
+    const player = { playername: 'Flynn', password: 'password123'}
     dispatch(login(player));
   }
 

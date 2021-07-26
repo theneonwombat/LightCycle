@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { IoAddCircleOutline } from "react-icons/io5";
 
 const NavBar = ({currentPlayer, currentPage, logout}) => {
 
@@ -30,25 +31,29 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
   )
 
   const comlpexNav = () => (
-    <div className="complex-nav">
+    <div className="all-nav" >
+      <div className="complex-nav">
 
-      <Link id="nav-logo" to="/splash">
-        LightCycle
-      </Link>
+        <Link id="nav-logo" to="/splash">
+          LightCycle
+        </Link>
 
 
-      <h3 className="welcome" >Welcome, {currentPlayer.playername}!</h3>
-      {/* dropdowns go here */}
+        {/* <h3 className="welcome" >Welcome, {currentPlayer.playername}!</h3> */}
+        {/* dropdowns go here */}
 
-      <div className="signout-button">
-        <button onClick={logout}>
-          Sign Out
-        </button>
+        <div className="signout-button">
+          <button onClick={logout}>
+            Sign Out
+          </button>
+
+        </div>
+        
+        <Link className="new-course-button" to={`/courses/new`} >
+          <IoAddCircleOutline />
+        </Link>
 
       </div>
-      
-      <Link className="new-course-button" to={`/courses/new`} >NEW COURSE</Link>
-
     </div>
     
   )

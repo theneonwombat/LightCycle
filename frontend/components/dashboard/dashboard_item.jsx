@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaBicycle } from 'react-icons/fa';
 
 class DashboardItem extends React.Component {
   constructor(props){
@@ -36,24 +37,30 @@ class DashboardItem extends React.Component {
           </div>
         </div>
 
-        <div className="dash-item-body" >
-          <Link 
-          to={`/courses/${this.props.course.id}`} 
-          className="dash-item-name" >
-            {this.props.course.course_name}
-          </Link>
-          <div className="dash-item-stats" >
+        <div className="flex-row" >
+          <div className="icon-container" >
+            <FaBicycle className="bike-icon" />
+          </div>
+          <div className="dash-item-body" >
 
-            <div className="dash-item-distance stat-block">
-              <h4 className="stat-tag" >Distance</h4>
-              <h2 className="stat-num" >{this.props.course.distance}</h2>
-            </div>
+            <Link 
+            to={`/courses/${this.props.course.id}`} 
+            className="dash-item-name" >
+              {this.props.course.course_name}
+            </Link>
+            <div className="dash-item-stats" >
 
-            <div className="stat-block">
-              <h4 className="stat-tag" >Time</h4>
-              <h2 className="stat-num" >{this.props.course.time}</h2>
+              <div className="dash-item-distance stat-block">
+                <h4 className="stat-tag" >Distance</h4>
+                <h2 className="stat-num" >{this.props.course.distance}</h2>
+              </div>
+
+              <div className="stat-block">
+                <h4 className="stat-tag" >Time</h4>
+                <h2 className="stat-num" >{this.props.course.time}</h2>
+              </div>
+              
             </div>
-            
           </div>
         </div>
         
