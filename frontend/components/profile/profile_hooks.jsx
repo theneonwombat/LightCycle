@@ -32,16 +32,27 @@ function PlayerShow({ player, playerId, exact_path,
   return(
     <div className="profile" >
 
-      <div className="profile-content" >
-        <img src={player.avatarUrl} alt="" />
-        <h1>{player.playername}</h1>
-        <div className="location-container flexrow" >
-          <IoLocationOutline />
-          <div className="location-tag" >{player.location}</div>
+      <div className="profile-head" >
+
+        <div className="profile-content" >
+          <img src={player.avatarUrl} alt="" />
+          <h1>{player.playername}</h1>
+          <div className="location-container flexrow" >
+            <IoLocationOutline />
+            <div className="location-tag" >{player.location}</div>
+          </div>
+
+          <div className="bio" >
+              <p>{player.bio}</p>
+          </div>
         </div>
-        <div className="bio" >
-          <p>{player.bio}</p>
+
+        <div className="all-time" > 
+          <div className="time-began" >Since Forever</div>
+          <div className="time-num" >{player.numCourses}</div>
+          <div className="after-time" >Total Courses</div>
         </div>
+
       </div>
       
       <div className="profile-feed" >

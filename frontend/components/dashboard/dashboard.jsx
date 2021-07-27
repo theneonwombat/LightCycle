@@ -40,6 +40,10 @@ class Dashboard extends React.Component {
 
   render() {
     
+    if (!this.props.currentPlayer) {
+      return <div>Loading...</div>
+    }
+
     return(
       <div className="kitchen-sink" >
 

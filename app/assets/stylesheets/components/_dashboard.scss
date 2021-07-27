@@ -52,6 +52,10 @@
         width: 80%;
         justify-content: space-around;
         position: relative;
+
+        .stat-block {
+          align-items: center;
+        }
       }
 
       .player-card-stats::after {

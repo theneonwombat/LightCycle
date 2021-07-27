@@ -83,9 +83,9 @@
   text-decoration: none;
 }
 
-.welcome {
-  font-family: sans-serif;
-  font-size: 18px;
+.nav-right {
+  display: flex;
+  flex-direction: row;
 }
 
 .signout-button {

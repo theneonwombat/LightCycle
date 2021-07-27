@@ -33,26 +33,25 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
   const comlpexNav = () => (
     <div className="all-nav" >
       <div className="complex-nav">
+        <div className="nav-left" >
+          <Link id="nav-logo" to="/splash">
+            LightCycle
+          </Link>
+        </div>
 
-        <Link id="nav-logo" to="/splash">
-          LightCycle
-        </Link>
+        <div className="nav-right" >
 
-
-        {/* <h3 className="welcome" >Welcome, {currentPlayer.playername}!</h3> */}
-        {/* dropdowns go here */}
-
-        <div className="signout-button">
-          <button onClick={logout}>
-            Sign Out
-          </button>
+            <button 
+            className="signout-button"
+            onClick={logout}>
+              Sign Out
+            </button>
+          
+          <Link className="new-course-button" to={`/courses/new`} >
+            <IoAddCircleOutline />
+          </Link>
 
         </div>
-        
-        <Link className="new-course-button" to={`/courses/new`} >
-          <IoAddCircleOutline />
-        </Link>
-
       </div>
     </div>
     
