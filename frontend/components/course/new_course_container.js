@@ -12,7 +12,8 @@ const mSTP = ({ session }) => {
       time: '0 mins',
       pins_object: '{"pins":[]}',
       static_map: '',
-      // travel_method: '',
+      travel_mode: 'BICYCLING',
+      description: '',
     }
   };
 };

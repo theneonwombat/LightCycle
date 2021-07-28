@@ -40,7 +40,6 @@ export const signup = player => dispatch => {
 };
 
 export const login = player => dispatch => {
-  debugger
   return APIUtil.login(player)
   .then(
     player  => dispatch(receiveCurrentPlayer(player)),

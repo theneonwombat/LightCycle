@@ -1,5 +1,7 @@
 import React from 'react';
 import mapStyles from './map_styles'
+import { IoBicycleSharp } from 'react-icons/io5';
+import { BiRun } from "react-icons/bi";
 
 class CourseForm extends React.Component {
 
@@ -16,6 +18,8 @@ class CourseForm extends React.Component {
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateTravelMode = this.updateTravelMode.bind(this);
+    this.modeIcon = this.modeIcon.bind(this);
     // this.clearMarkers = this.clearMarkers.bind(this);
     // this.undoMarker = this.undoMarker.bind(this);
     // this.redoMarker = this.redoMarker.bind(this);
@@ -74,11 +78,11 @@ class CourseForm extends React.Component {
         origin: this.pins[0],
         waypoints: waypoints,
         destination: this.pins[this.pins.length - 1],
-        travelMode: this.travelMode
+        travelMode: this.state.travel_mode
       }, (response, status) => {
         if (status === 'OK') {
 
-          console.log(response);
+          // console.log(response);
 
           directionsRenderer.setDirections(response);
 
@@ -137,6 +141,26 @@ class CourseForm extends React.Component {
     return (e) => this.setState({[field]: e.target.value})
   }
 
+
+  updateTravelMode(event) {
+    const input = event.target.value;
+    this.setState({travel_mode: input}, () => {
+      this.updateCourse(this.directionsService, this.directionsRenderer)
+    })
+  }
+
+  modeIcon() {
+    if (this.state.travel_mode === 'BICYCLING') {
+      return <label className="read-out-label" >Ride
+        <IoBicycleSharp className="mode-icon" />
+      </label>
+    }
+
+    return <label className="read-out-label" >Run
+      <BiRun className="mode-icon" />
+    </label>
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     
@@ -160,36 +184,58 @@ class CourseForm extends React.Component {
       <div>
         <form className='course-form-page' onSubmit={this.handleSubmit} >
 
-          <div className="map-headder" >
-            <input type="text" 
-            className="course-name" 
-            value={this.state.course_name} 
-            onChange={this.handleChange("course_name")} />
-          </div>
+          <div className="top-part" >
 
-          <div className="map-div" >
-            <div className='the-map' id='the-map'>
-              MAP
+            <div className="course-edit-panel" >
+              <label>Course name
+                <input type="text" 
+                className="course-name" 
+                value={this.state.course_name} 
+                onChange={this.handleChange("course_name")} />
+              </label>
+
+              <label>Description
+                <textarea 
+                cols="30" rows="10"
+                maxLength="280">
+                </textarea>
+              </label>
+              
+              <div className="select-container" >
+                <select onChange={this.updateTravelMode} name="travelMode" id="travel-mode">
+                  <option value="BICYCLING">Bicycle</option>
+                  <option value="WALKING">Running</option>
+                </select>
+              </div>
+
+              <button id="submit-button" >Save Course</button>
             </div>
+
+            <div className="map-div" >
+              <div className='the-map' id='the-map'>
+                MAP
+              </div>
+            </div>
+
           </div>
 
           <div className="course-info">
 
             <div className="read-out" >
 
-              <label> DISTANCE:
-                <div className="distance-display" >{this.state.distance}</div>
+              <div className="read-out-method" >{this.modeIcon()}</div>
+
+              <label className="read-out-label" > Distance
+                <div className="read-out-num" >{this.state.distance}</div>
               </label>
 
-              <label> ESTIMATED TIME:
-                <div className="time-display" >{this.state.time}</div>
+              <label className="read-out-label" > Est. Time
+                <div className="read-out-num" >{this.state.time}</div>
               </label>
               
             </div>
             
           </div>
-          
-          <button id="submit-button" >SAVE COURSE</button>
 
       </form>
 

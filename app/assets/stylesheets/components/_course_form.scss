@@ -1,32 +1,113 @@
 .course-form-page {
   display: flex;
   flex-direction: column;
+  padding-top: 58px;
 }
 
-.map-headder {
+.top-part {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  height: calc(100vh - 138px);
+}
+
+.course-edit-panel {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
   font-family: sans-serif;
   font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  width: 300px;
+  height: auto;
+  gap: .5em;
+  padding: .5em;
+  border-right: 1px solid #dfdfe8;
+
+  label {
+    color: $middle-gray;
+    font-size: 11px;
+  }
+
+  textarea {
+    background-color: white;
+    resize: none;
+    height: 200px;
+    width: auto;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 16px;
+    outline: 1px solid #dfdfe8;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+
+  textarea:focus {
+    outline: 2px solid purple;
+  }
+
+  select {
+    width: 100%;
+  }
+}
+
+.course-name {
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 550;
+  height: 48px;
+  padding: 16px;
+  outline: 1px solid #dfdfe8;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.course-name:focus {
+  outline: 2px solid purple;
+}
+
+.select-container {
+  position: relative;
+}
+
+#submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $deep-orange;
+  height: 32px;
+  width: auto;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: $white;
+  padding: 12px;
+  border-radius: 4px;
+  font-weight: 450;
+}
+
+#submit-button:hover {
+  background-color: $hover-orange;
 }
 
 .map-div {
-  display: flex;
-  justify-content: center;
+  width: calc(100% - 250px);
 }
 
 .the-map {
   height: 500px;
-  width: 80%;
+  width: 100%;
+  height: 100%;
   border-radius: 2px;
 }
 
 .course-info {
+  background-color: white;
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  height: 80px;
+  padding: 1em;
+  box-shadow: 0px -8px 24px $shadow;
 }
 
 .read-out {
@@ -34,4 +115,32 @@
   justify-content: space-between;
   width: 500px;
   font-family: sans-serif;
+}
+
+.read-out-method {
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 42px;
+    width: 42px;
+    .mode-icon {
+      color: black;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
+.read-out-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #494950;
+}
+
+.read-out-num {
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 3px;
 }

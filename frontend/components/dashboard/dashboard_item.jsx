@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaBicycle } from 'react-icons/fa';
+import { IoBicycleSharp } from 'react-icons/io5';
 
 class DashboardItem extends React.Component {
   constructor(props){
@@ -39,7 +39,7 @@ class DashboardItem extends React.Component {
 
         <div className="flexrow" >
           <div className="icon-container" >
-            <FaBicycle className="bike-icon" />
+            <IoBicycleSharp className="bike-icon" />
           </div>
           <div className="dash-item-body" >
 
