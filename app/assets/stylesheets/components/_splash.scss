@@ -91,28 +91,11 @@
   justify-content: center;
 }
 
-// .footer-logo {
-//   color: white;
-//   font-family: sans-serif;
-//   font-size: 25px;
-//   font-weight: bold;
-// }
-
-// .copyright {
-//   color: #666;
-//   font-family: sans-serif;
-//   font-size: 10px;
-//   font-weight: 200;
-// }
-
 .footer-logo {
   color: white;
   font-family: sans-serif;
   font-size: 25px;
   font-weight: bold;
-  position: relative;
-  left: 5%;
-  bottom: -5%;
 }
 
 .copyright {
@@ -120,7 +103,25 @@
   font-family: sans-serif;
   font-size: 10px;
   font-weight: 200;
-  position: relative;
-  left: 5%;
-  bottom: -9%;
-} 
+}
+
+//attempting to reproduce splash overflow issue
+// .footer-logo {
+//   color: white;
+//   font-family: sans-serif;
+//   font-size: 25px;
+//   font-weight: bold;
+//   position: relative;
+//   left: 5%;
+//   bottom: -5%;
+// }
+
+// .copyright {
+//   color: #666;
+//   font-family: sans-serif;
+//   font-size: 10px;
+//   font-weight: 200;
+//   position: relative;
+//   left: 5%;
+//   bottom: -9%;
+// } 
