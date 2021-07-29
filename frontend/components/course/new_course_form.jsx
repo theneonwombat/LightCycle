@@ -13,8 +13,6 @@ class CourseForm extends React.Component {
     this.pins = JSON.parse(props.course.pins_object).pins;
     // this.removedPins = []
 
-    this.travelMode = 'BICYCLING';
-
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -196,15 +194,17 @@ class CourseForm extends React.Component {
 
               <label>Description
                 <textarea 
-                cols="30" rows="10"
+                onChange={this.handleChange("description")}
+                value={this.state.description} 
+                cols="32" rows="10"
                 maxLength="280">
                 </textarea>
               </label>
               
               <div className="select-container" >
                 <select onChange={this.updateTravelMode} name="travelMode" id="travel-mode">
-                  <option value="BICYCLING">Bicycle</option>
-                  <option value="WALKING">Running</option>
+                  <option value="BICYCLING">Bike</option>
+                  <option value="WALKING">Run</option>
                 </select>
               </div>
 

@@ -109,17 +109,18 @@ class CourseShow extends React.Component {
       if (this.props.currentPlayerId === this.props.course.player_id 
         || this.props.currentPlayerId === 1) {
         return(
-        <div>
+        <div className="course-show-buttons" >
 
-          <button 
+          <button
+            className="show-button"
             onClick={ this.handleDeleteEvent } >
-              DELETE COURSE
+              Delete
           </button>
 
-          <br/>
-
-          <Link to={`/courses/${this.props.courseId}/edit`} >
-            EDIT COURSE
+          <Link 
+          to={`/courses/${this.props.courseId}/edit`}
+          className="show-button" >
+            Edit
           </Link>
 
         </div>
@@ -127,42 +128,63 @@ class CourseShow extends React.Component {
       }
     }
 
+    const dateObj = new Date(this.state.created_at);
+    const month = dateObj.toLocaleDateString(undefined, { month: 'long' })
+    const date = dateObj.toLocaleDateString(undefined, { day: 'numeric' })
+    const year = dateObj.toLocaleDateString(undefined, { year: 'numeric' })
+    const time = dateObj.toLocaleTimeString("en-Us", {
+      hour: "numeric",
+      minute: "2-digit",
+    });
     
     return(
       <div className='course-show-page'>
+        <div className="course-show-container" >
 
-        <h1>{this.state.course_name}</h1>
+          <div className="course-show-head" >
+            <h1>{this.state.course_name}</h1>
+            {buttons()}
+          </div>
 
-        <div className="map-div" >
-          <div className='the-map' id='the-map'>
-            MAP
+          <div className="course-show-body" >
+
+            <div className="show-map-div" >
+              <div className='the-map' id='the-map'>
+                MAP
+              </div>
+            </div>
+
+            <div className="course-show-info">
+              <div className="course-show-info-head" >
+                  <Link  className="show-avatar" to={`/players/${this.state.player_id}`} >
+                    <img className="show-avatar" src={this.state.avatarUrl}/>
+                  </Link>
+
+                <div className="course-creation-info" >
+                  <div className="show-creator" >By {this.state.player}</div>
+                  <div className="show-created" >{`Created on ${month} ${date}, ${year}`}</div>
+                </div>
+              </div>
+
+              <div className="course-show-stats" >
+                <label>
+                  <div className="distance-display" >{this.state.distance}</div>
+                  Distance
+                </label>
+
+                <label>
+                  <div className="time-display" >{this.state.time}</div>
+                  Est. Time
+                </label>  
+              </div>
+
+              <div className="course-show-description" >
+                {this.state.description}
+              </div>
+              
+            </div>
           </div>
         </div>
-
-        <div className="course-info">
-
-          <Link to={`/players/${this.state.player_id}`} >
-            {this.state.player}
-          </Link>
-
-          <br />
-
-          <div className="read-out" >
-
-            <label> DISTANCE:
-              <div className="distance-display" >{this.state.distance}</div>
-            </label>
-
-            <label> ESTIMATED TIME:
-              <div className="time-display" >{this.state.time}</div>
-            </label>
-            
-          </div>
-          
-        </div>
-
-        {buttons()}
-
       </div>
     )
   }
