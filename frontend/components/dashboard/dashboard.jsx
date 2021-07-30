@@ -93,13 +93,15 @@ class Dashboard extends React.Component {
             <ul className="dash-link-list" >
 
               <li className="dash-link-item" >
-                <i className="dash-link-icon" >
-                  <FaGithub />
-                </i>
+                <div className="dash-link-left" >
+                  <i className="dash-link-icon" >
+                    <FaGithub />
+                  </i>
+                </div>
                 <div className="dash-link-content">
                   <h2>Github</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum magnam officiis enim iusto repudiandae quasi tenetur non praesentium quisquam modi mollitia iste natus, ad veniam nam aliquam necessitatibus accusamus reiciendis dolor illum delectus atque ab dolorum! Sunt aut deleniti quia incidunt! Eligendi cumque, veritatis dolorum molestias soluta excepturi aspernatur mollitia?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque omnis maxime, nulla dolore nesciunt earum perferendis pariatur ratione repudiandae in alias reprehenderit exercitationem commodi non?
                   </p>
                   <a href="https://github.com/theneonwombat/LightCycle" 
                     rel="noreferrer" 
@@ -111,13 +113,17 @@ class Dashboard extends React.Component {
               </li>
 
               <li className="dash-link-item" >
-                <i className="dash-link-icon" >
-                  <FaLinkedin />
-                </i>
+                <div className="dash-link-left" >
+                  <i className="dash-link-icon" >
+                    <div className="icon-container" >
+                      <FaLinkedin />
+                    </div>
+                  </i>
+                </div>
                 <div className="dash-link-content">
                   <h2>Linkedin</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum magnam officiis enim iusto repudiandae quasi tenetur non praesentium quisquam modi mollitia iste natus, ad veniam nam aliquam necessitatibus accusamus reiciendis dolor illum delectus atque ab dolorum! Sunt aut deleniti quia incidunt! Eligendi cumque, veritatis dolorum molestias soluta excepturi aspernatur mollitia?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque omnis maxime, nulla dolore nesciunt earum perferendis pariatur ratione repudiandae in alias reprehenderit exercitationem commodi non?
                   </p>
                   <a href="https://www.linkedin.com/in/alec-caro-5a713a5b/" 
                     rel="noreferrer" 
@@ -129,13 +135,15 @@ class Dashboard extends React.Component {
               </li>
 
               <li className="dash-link-item" >
-                <i className="dash-link-icon" >
-                  <GiFoxHead />
-                </i>
+                <div className="dash-link-left" >
+                  <i className="dash-link-icon" >
+                    <GiFoxHead />
+                  </i>
+                </div>
                 <div className="dash-link-content">
                   <h2>Personal Page</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum magnam officiis enim iusto repudiandae quasi tenetur non praesentium quisquam modi mollitia iste natus, ad veniam nam aliquam necessitatibus accusamus reiciendis dolor illum delectus atque ab dolorum! Sunt aut deleniti quia incidunt! Eligendi cumque, veritatis dolorum molestias soluta excepturi aspernatur mollitia?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque omnis maxime, nulla dolore nesciunt earum perferendis pariatur ratione repudiandae in alias reprehenderit exercitationem commodi non?
                   </p>
                   <a href="https://theneonwombat.github.io/OutFox/" 
                     rel="noreferrer" 

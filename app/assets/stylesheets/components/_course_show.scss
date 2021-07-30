@@ -8,6 +8,11 @@
 }
 
 .course-show-head {
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // gap: 2px;
 
   h1 {
     font-size: 34px;
@@ -18,7 +23,7 @@
 .course-show-buttons {
   display: flex;
   gap: 3.5px;
-  margin: 10px 0;
+  height: 29px;
 
   .show-button {
     display: flex;
@@ -101,4 +106,30 @@
 .course-show-description {
   font-size: 14px;
   color: #242428;
+}
+
+@media (max-width: 990px) {
+  .course-show-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 1em;
+  }
+
+  .course-show-info {
+    display: none;
+  }
+
+  .show-map-div {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .course-show-info {
+    width: 325px;
+  }
+
+  .show-map-div {
+    width: 750px;
+  }
 }

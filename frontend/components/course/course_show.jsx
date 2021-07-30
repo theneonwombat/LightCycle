@@ -104,7 +104,7 @@ class CourseShow extends React.Component {
     // loading component
 
     const buttons = () => {
-
+      debugger
       // delete and edit buttons for course owner or admin
       if (this.props.currentPlayerId === this.props.course.player_id 
         || this.props.currentPlayerId === 1) {
@@ -136,7 +136,7 @@ class CourseShow extends React.Component {
       hour: "numeric",
       minute: "2-digit",
     });
-    
+    debugger
     return(
       <div className='course-show-page'>
         <div className="course-show-container" >

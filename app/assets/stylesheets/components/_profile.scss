@@ -1,13 +1,22 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  background-color: $bg-white;
+}
+
 .profile {
   padding: 88px 1em 0 1em;
   background-color: $bg-white;
+  margin: auto;
+  width: 100%;
+  max-width: 700px;
 
   .profile-head {
     // background-color: lightsalmon;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 575px;
+    max-width: 575px;
   }
 
   .profile-content {
@@ -75,15 +84,22 @@
       color: $middle-gray;
       font-size: 16px;
       margin-top: 3px;
+      width: 100px;
     }
   }
 
   .profile-feed {
     margin-top: 20px;
-    width: 700px;
+    width: 100%;
   }
 
   .dash-item-head {
     display: none;
+  }
+  
+  @media (max-width: 600px) {
+    .all-time {
+      display: none;
+    }
   }
 }
