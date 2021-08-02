@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CourseForm from './new_course_form';
+import CourseForm from './edit_course_form';
 import { updateCourse } from '../../actions/courses_actions'
 
 const mSTP = (state, ownProps) => {

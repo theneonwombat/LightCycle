@@ -91,7 +91,7 @@ class CourseShow extends React.Component {
 
   handleDeleteEvent() {
     this.props.deleteCourse(this.props.courseId) 
-    .then(this.props.history.push("/dashboard"));
+    .then(() => this.props.history.push("/dashboard"));
   }
 
   //////////////////////////////////////////////////////////////////

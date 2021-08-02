@@ -6,7 +6,7 @@ import {
 
 const mSTP = (state, ownProps) => {
   return({
-    currentPlayerId: state.session.id,
+    isCurrentPlayer: state.session.id === ownProps.match.params.playerId,
     exact_path: ownProps.match.url,
     player: state.entities.players[ownProps.match.params.playerId],
     playerId: ownProps.match.params.playerId,

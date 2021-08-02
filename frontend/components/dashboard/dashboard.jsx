@@ -13,6 +13,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchPlayer(this.props.currentPlayerId);
     this.props.fetchCourses();
   }
 
@@ -44,7 +45,7 @@ class Dashboard extends React.Component {
     if (!this.props.currentPlayer) {
       return <div>Loading...</div>
     }
-
+    debugger
     return(
       <div className="kitchen-sink" >
 

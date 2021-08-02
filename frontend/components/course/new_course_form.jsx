@@ -168,7 +168,7 @@ class CourseForm extends React.Component {
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
       this.props.processForm(course)
-        .then(this.props.history.push("/dashboard"));
+        .then(() => this.props.history.push("/dashboard"));
     });
 
   }

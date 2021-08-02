@@ -3,17 +3,14 @@ import React from 'react';
 class CourseForm extends React.Component {
 
   constructor(props) {
-
     super(props);
+
     this.state = props.course;
     this.pins = JSON.parse(props.course.pins_object).pins;
-
-    this.travelMode = 'BICYCLING';
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
     this.handlesubmit = this.handlesubmit.bind(this);
-
   }
 
   componentDidMount() {
@@ -50,8 +47,8 @@ class CourseForm extends React.Component {
       this.updateCourse(directionsService, directionsRenderer);
     });
 
-    // this.updateCourse(directionsService, directionsRenderer);
     window.googleMap = this.map;
+    this.updateCourse(directionsService, directionsRenderer);
   }
 
   ////////////////////////////////////////////////////////////////
@@ -67,7 +64,7 @@ class CourseForm extends React.Component {
         origin: this.pins[0],
         waypoints: waypoints,
         destination: this.pins[this.pins.length - 1],
-        travelMode: this.travelMode
+        travelMode: this.state.travelMode
       }, (response, status) => {
         if (status === 'OK') {
 

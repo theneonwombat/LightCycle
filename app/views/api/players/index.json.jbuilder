@@ -1,5 +1,5 @@
 @players.each do |player|
   json.set! player.id do
-    json.extract! player, :id, :playername, :bio, :location, :avatar, :created_at
+    json.partial! "api/players/player", player: player
   end
 end

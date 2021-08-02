@@ -18,7 +18,18 @@
     flex-direction: row;
     justify-content: space-between;
     max-width: 575px;
+    position: relative;
   }
+
+  // .profile-head::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: -1em;
+  //   left: 0;
+  //   height: 1px;
+  //   width: 100%;
+  //   background: $light-gray;
+  // }
 
   .profile-content {
     // background-color: aqua;
@@ -56,15 +67,31 @@
   }
 
   .bio {
-    // background-color: lightgreen;
     margin-top: 20px;
     width: 380px;
     font-size: 15px;
     line-height: 18px;
+
+    // .unknown-bio {
+    //   display: flex;
+    //   align-items: flex-end;
+    // }
+
+    svg {
+      color: $middle-gray;
+      height: 20px;
+      width: 20px;
+      margin-left: 10px;
+    }
+  }
+
+  .profile-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .all-time {
-    // background-color: lightslategray;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -89,9 +116,29 @@
     }
   }
 
-  .profile-feed {
-    margin-top: 20px;
+  .profile-feed::before {
+    content: "";
+    position: absolute;
+    top: -1em;
+    left: 0;
+    height: 1px;
     width: 100%;
+    background: rgba(164, 161, 161, 0.9);
+  }
+
+  .profile-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    width: 100%;
+    position: relative;
+  }
+
+  .no-courses-yet {
+    color: $middle-gray;
+    font-size: 20px;
+    margin-top: 30px;
   }
 
   .dash-item-head {
