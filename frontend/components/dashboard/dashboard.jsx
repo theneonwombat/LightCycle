@@ -1,8 +1,9 @@
 import React from 'react';
 import DashboardItem from './dashboard_item';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { GiFoxHead } from 'react-icons/gi';
+import { AiOutlineLinkedin } from 'react-icons/ai'
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -95,7 +96,9 @@ class Dashboard extends React.Component {
               <li className="dash-link-item" >
                 <div className="dash-link-left" >
                   <i className="dash-link-icon" >
-                    <FaGithub />
+                    <div className="icon-container" >
+                      <FaGithub />
+                    </div>
                   </i>
                 </div>
                 <div className="dash-link-content">
@@ -116,7 +119,7 @@ class Dashboard extends React.Component {
                 <div className="dash-link-left" >
                   <i className="dash-link-icon" >
                     <div className="icon-container" >
-                      <FaLinkedin />
+                      <AiOutlineLinkedin />
                     </div>
                   </i>
                 </div>
@@ -137,7 +140,9 @@ class Dashboard extends React.Component {
               <li className="dash-link-item" >
                 <div className="dash-link-left" >
                   <i className="dash-link-icon" >
-                    <GiFoxHead />
+                    <div className="icon-container" >
+                      <GiFoxHead />
+                    </div>
                   </i>
                 </div>
                 <div className="dash-link-content">

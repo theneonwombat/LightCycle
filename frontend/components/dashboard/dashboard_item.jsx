@@ -1,11 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoBicycleSharp } from 'react-icons/io5';
+import { BiRun } from "react-icons/bi";
 
 class DashboardItem extends React.Component {
   constructor(props){
     super(props)
   
+    this.modeIcon = this.modeIcon.bind(this);
+  }
+
+  modeIcon() {
+    if (this.props.course.travel_mode === 'BICYCLING') {
+      return(
+        <IoBicycleSharp className="mode-icon" />
+      )
+    }
+
+    return(
+      <BiRun className="mode-icon" />
+    )
   }
 
   render(){
@@ -39,7 +53,7 @@ class DashboardItem extends React.Component {
 
         <div className="flexrow" >
           <div className="icon-container" >
-            <IoBicycleSharp className="bike-icon" />
+            {this.modeIcon()}
           </div>
           <div className="dash-item-body" >
 

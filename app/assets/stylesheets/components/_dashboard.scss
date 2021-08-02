@@ -127,34 +127,9 @@
   /////////////////////////////
 
   .link-card {
-    background: lightgreen;
+    // background: lightgreen;
     padding-top: 70px;
     display: none;
-  }
-  
-  @media (max-width: 950px) {
-    .player-card {
-      display: none;
-    }
-    .dash-feed {
-      width: 100%;
-    }
-    .link-card {
-      display: none;
-    }
-  }
-
-  @media (min-width: 1300px) {
-    .player-card {
-      flex: 0 0 286px;
-    }
-    .dash-feed {
-      flex: 0 0 616px;
-    }
-    .link-card {
-      display: flex;
-      flex: 0 0 286px;
-    }
   }
 
 }
@@ -285,31 +260,88 @@
 // }
 
 .dash-link-item {
+  // background-color: lime;
   display: flex;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 36px;
 
   .dash-link-left {
+    // background-color: lightsalmon;
     display: flex;
     justify-content: center;
   }
+
   .dash-link-icon {
     content: "";
     border-radius: 50%;
-    border: 1px solid $light-gray;
+    border: 1px solid #ccccd1;
     height: 0;
     width: 0;
-    padding: 1em;
-    background-color: transparent;
+    padding: 23px;
+    background-color: white;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    .icon-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+
+    }
+
     svg {
-      height: 1em;
-      width: 1em;
+      color: $dark-gray;;
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  .dash-link-content {
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
+    p {
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    a {
+      color: #fc5200;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
+
+.dash {
+  @media (max-width: 950px) {
+    .player-card {
+      display: none;
+    }
+    .dash-feed {
+      width: 100%;
+      max-width: 750px;
+    }
+    .link-card {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .player-card {
+      flex: 0 0 286px;
+    }
+    .dash-feed {
+      flex: 0 0 516px;
+    }
+    .link-card {
+      display: flex;
+      flex: 0 0 286px;
     }
   }
 }

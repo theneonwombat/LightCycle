@@ -5,28 +5,30 @@ import { IoAddCircleOutline } from "react-icons/io5";
 const NavBar = ({currentPlayer, currentPage, logout}) => {
 
   const simpleNavA = () => (
+    <div className="all-nav" >
+      <div className="simple-nav">
 
-    <div className="simple-nav">
+        <Link id="nav-logo" to="/splash">
+          LightCycle
+        </Link>
 
-      <Link id="nav-logo" to="/splash">
-        LightCycle
-      </Link>
-
-      <NavLink className="login-button" to="/login">Log In</NavLink>
-      
+        <NavLink className="login-button" to="/login">Log In</NavLink>
+        
+      </div>
     </div>
   );
 
   const simpleNavB = () => (
+    <div className="all-nav" >
+      <div className="simple-nav">
 
-    <div className="simple-nav">
+        <Link id="nav-logo" to="/splash">
+          LightCycle
+        </Link>
 
-      <Link id="nav-logo" to="/splash">
-        LightCycle
-      </Link>
-
-      <NavLink className="signup-button" to="/signup">Sign Up</NavLink>
-      
+        <NavLink className="signup-button" to="/signup">Sign Up</NavLink>
+        
+      </div>
     </div>
   )
 
@@ -48,7 +50,7 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
             </button>
           
           <Link className="new-course-button" to={`/courses/new`} >
-            <IoAddCircleOutline />
+            New Course <IoAddCircleOutline />
           </Link>
 
         </div>
