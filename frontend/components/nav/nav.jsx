@@ -1,55 +1,60 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { IoAddCircleOutline } from "react-icons/io5";
 
 const NavBar = ({currentPlayer, currentPage, logout}) => {
 
   const simpleNavA = () => (
+    <div className="all-nav" >
+      <div className="simple-nav">
 
-    <div className="simple-nav">
+        <Link id="nav-logo" to="/splash">
+          LightCycle
+        </Link>
 
-      <Link className="nav-logo" to="/splash">
-        LightCycle
-      </Link>
-
-      
-      <NavLink className="login-button" to="/login">Log In</NavLink>
-      
-
+        <NavLink className="login-button" to="/login">Log In</NavLink>
+        
+      </div>
     </div>
   );
 
   const simpleNavB = () => (
+    <div className="all-nav" >
+      <div className="simple-nav">
 
-    <div className="simple-nav">
+        <Link id="nav-logo" to="/splash">
+          LightCycle
+        </Link>
 
-      <Link className="nav-logo" to="/splash">
-        LightCycle
-      </Link>
-
-      
-      <NavLink className="signup-button" to="/signup">Sign Up</NavLink>
-      
-
+        <NavLink className="signup-button" to="/signup">Sign Up</NavLink>
+        
+      </div>
     </div>
   )
 
   const comlpexNav = () => (
-    <div className="complex-nav">
+    <div className="all-nav" >
+      <div className="complex-nav">
+        <div className="nav-left" >
+          <Link id="nav-logo" to="/splash">
+            LightCycle
+          </Link>
+        </div>
 
-      <Link className="nav-logo" to="/splash">
-        LightCycle
-      </Link>
+        <div className="nav-right" >
 
+            <button 
+            className="signout-button"
+            onClick={logout}>
+              Sign Out
+            </button>
+          
+          <Link className="new-course-button" to={`/courses/new`} >
+            New Course <IoAddCircleOutline />
+          </Link>
 
-      <h3 className="welcome" >Welcome, {currentPlayer.playername}!</h3>
-      {/* dropdowns go here */}
-
-      <div className="signout-button">
-        <button onClick={logout}>
-          Sign Out
-        </button>
+        </div>
       </div>
-
     </div>
     
   )

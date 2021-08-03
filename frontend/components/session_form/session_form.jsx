@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
 
   demoLogin(e) {
     e.preventDefault();
-    const player = { playername: 'tron', password: 'fortheuser'}
+    const player = { playername: 'Flynn', password: 'password123'}
     dispatch(login(player));
   }
 
@@ -61,60 +61,60 @@ class SessionForm extends React.Component {
 
 
     return (
-
-      <div className="login-form-container">
+      <>
         {this.pickBackground()}
+        <div className="login-form-container">
 
-        <h1 className="form-type" >{this.props.formType}</h1>
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          
-          <br/>
-
-          <div 
-            className="error-box">
-            {this.renderErrors()}
-          </div>
-
-          <div className="login-form">
-
-            <br/>
-
-            <div className="flex-div">
-              <input type="text"
-                value={this.state.playername}
-                onChange={this.update('playername')}
-                className="login-input"
-                placeholder="playername"
-                />
-            </div>
-
-            <br/>
-
-            <div className="flex-div">
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-                placeholder="password"
-                />
-              </div>
-
-            <br/>
-            <div className="flex-div">
-              <button className="session-submit" >{this.props.formType}</button>
-            </div>
+          <h1 className="form-type" >{this.props.formType}</h1>
+          <form onSubmit={this.handleSubmit} className="login-form-box">
             
             <br/>
-            <div className="flex-div" >
-              <button className="form-demo-button" onClick={this.demoLogin} >Demo</button>
+
+            <div 
+              className="error-box">
+              {this.renderErrors()}
             </div>
-        
-          </div>
 
-        </form>
+            <div className="login-form">
 
-      </div>
-    
+              <br/>
+
+              <div className="flex-div">
+                <input type="text"
+                  value={this.state.playername}
+                  onChange={this.update('playername')}
+                  className="login-input"
+                  placeholder="playername"
+                  />
+              </div>
+
+              <br/>
+
+              <div className="flex-div">
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  className="login-input"
+                  placeholder="password"
+                  />
+                </div>
+
+              <br/>
+              <div className="flex-div">
+                <button className="session-submit" >{this.props.formType}</button>
+              </div>
+              
+              <br/>
+              <div className="flex-div" >
+                <button className="form-demo-button" onClick={this.demoLogin} >Demo</button>
+              </div>
+          
+            </div>
+
+          </form>
+
+        </div>
+      </>
     );
   }
 }
