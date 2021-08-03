@@ -15,6 +15,7 @@ class CourseForm extends React.Component {
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
+    this.placeOldMarker = this.placeOldMarker.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateTravelMode = this.updateTravelMode.bind(this);
     this.modeIcon = this.modeIcon.bind(this);
@@ -50,12 +51,19 @@ class CourseForm extends React.Component {
     })
     this.directionsRenderer.setMap(this.map);
   
+    this.pins.forEach(pin => {          
+      this.placeOldMarker(pin);
+      this.updateCourse(this.directionsService, this.directionsRenderer);
+    })
+    
     google.maps.event.addListener(this.map, 'click', (event) => {
       this.placeMarker(event.latLng);
       this.updateCourse(this.directionsService, this.directionsRenderer);
     });
 
     window.googleMap = this.map;
+
+
   }
 
   ////////////////////////////////////////////////////////////////
@@ -110,6 +118,17 @@ class CourseForm extends React.Component {
  
   };
 
+  placeOldMarker(location) {
+    // let customIcon;
+
+    let pin = new google.maps.Marker({
+        position: location, 
+        map: this.map
+        // icon: customIcon,
+    });
+   }
+
+
   ////////////////////////////
 
   // clearMarkers() {
@@ -135,7 +154,7 @@ class CourseForm extends React.Component {
 
   ////////////////////////////
 
-  handleChange(field){
+  handleChange(field) {
     return (e) => this.setState({[field]: e.target.value})
   }
 
@@ -157,21 +176,40 @@ class CourseForm extends React.Component {
     return <label className="read-out-label" >Run
       <BiRun className="mode-icon" />
     </label>
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     let course;
     const pinsString = JSON.stringify({ pins: this.pins });
-
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
       this.props.processForm(course)
-        .then(() => this.props.history.push("/dashboard"));
+        .then(() => {
+          if (this.props.formType === 'Edit Course') {
+            this.props.history.push(`/courses/${this.props.course.id}`)
+          } else { this.props.history.push("/dashboard") }
+          // return location.hash = `/dashboard`
+          
+        });
     });
-
   }
+
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+
+  //   let course;
+  //   const pinsString = JSON.stringify({ pins: this.pins });
+
+  //   await this.setState({ pins_object: pinsString })
+  //   course = Object.assign({}, this.state);
+  //   await this.props.processForm(course)
+  //   if (this.props.formType === 'Edit Course') {
+  //     this.props.history.push(`/course/${this.props.course.id}`)
+  //   }
+  //   this.props.history.push("/dashboard")
+  // }
 
   //////////////////////////////////////////////////////////////////
   

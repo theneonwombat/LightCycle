@@ -6,7 +6,7 @@ import { fetchPlayer } from '../../actions/player_actions';
 const mSTP = ({ session }) => {
   return {
     formType: 'Create New Course',
-    currentPlayerId: session.id,
+    // currentPlayerId: session.id,
     course: {
       player_id: session.id,
       course_name: 'New Course',
@@ -22,8 +22,8 @@ const mSTP = ({ session }) => {
 
 const mDTP = dispatch => {
   return{
-    fetchCourse: (courseId) => dispatch(fetchCourse(courseId)),
     processForm: (course) => dispatch(createCourse(course)),
+    // fetchCourse: (courseId) => dispatch(fetchCourse(courseId)),
   }
 };
 

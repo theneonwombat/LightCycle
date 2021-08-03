@@ -6,9 +6,7 @@ class CourseShow extends React.Component {
   constructor(props) {
     super(props);
     
-    this.state = props.course;
-
-    this.travelMode = 'BICYCLING';
+    this.course = props.course;
 
     this.updateCourse = this.updateCourse.bind(this);
     this.placeMarker = this.placeMarker.bind(this);
@@ -21,7 +19,7 @@ class CourseShow extends React.Component {
     this.props.fetchCourse(this.props.courseId)
     .then( () => {
     
-    this.setState(this.props.course)
+    // this.setState(this.props.course)
     this.pins = JSON.parse(this.props.course.pins_object).pins;
 
     //set up mp
@@ -66,7 +64,7 @@ class CourseShow extends React.Component {
         origin: this.pins[0],
         waypoints: waypoints,
         destination: this.pins[this.pins.length - 1],
-        travelMode: this.travelMode
+        travelMode: this.course.travel_mode
       }, (response, status) => {
           if (status === 'OK') {
 
@@ -97,14 +95,13 @@ class CourseShow extends React.Component {
   //////////////////////////////////////////////////////////////////
   
   render() {
-    if (!this.state) {
+    if (!this.course) {
       return <h1>LOADING...</h1>
     }
     //if i wanna be really slick, make these dots go up and down later
     // loading component
 
     const buttons = () => {
-      debugger
       // delete and edit buttons for course owner or admin
       if (this.props.currentPlayerId === this.props.course.player_id 
         || this.props.currentPlayerId === 1) {
@@ -128,21 +125,17 @@ class CourseShow extends React.Component {
       }
     }
 
-    const dateObj = new Date(this.state.created_at);
+    const dateObj = new Date(this.course.created_at);
     const month = dateObj.toLocaleDateString(undefined, { month: 'long' })
     const date = dateObj.toLocaleDateString(undefined, { day: 'numeric' })
     const year = dateObj.toLocaleDateString(undefined, { year: 'numeric' })
-    const time = dateObj.toLocaleTimeString("en-Us", {
-      hour: "numeric",
-      minute: "2-digit",
-    });
-    debugger
+
     return(
       <div className='course-show-page'>
         <div className="course-show-container" >
 
           <div className="course-show-head" >
-            <h1>{this.state.course_name}</h1>
+            <h1>{this.course.course_name}</h1>
             {buttons()}
           </div>
 
@@ -156,30 +149,30 @@ class CourseShow extends React.Component {
 
             <div className="course-show-info">
               <div className="course-show-info-head" >
-                  <Link  className="show-avatar" to={`/players/${this.state.player_id}`} >
-                    <img className="show-avatar" src={this.state.avatarUrl}/>
+                  <Link  className="show-avatar" to={`/players/${this.course.player_id}`} >
+                    <img className="show-avatar" src={this.course.avatarUrl}/>
                   </Link>
 
                 <div className="course-creation-info" >
-                  <div className="show-creator" >By {this.state.player}</div>
+                  <div className="show-creator" >By {this.course.player}</div>
                   <div className="show-created" >{`Created on ${month} ${date}, ${year}`}</div>
                 </div>
               </div>
 
               <div className="course-show-stats" >
                 <label>
-                  <div className="distance-display" >{this.state.distance}</div>
+                  <div className="distance-display" >{this.course.distance}</div>
                   Distance
                 </label>
 
                 <label>
-                  <div className="time-display" >{this.state.time}</div>
+                  <div className="time-display" >{this.course.time}</div>
                   Est. Time
                 </label>  
               </div>
 
               <div className="course-show-description" >
-                {this.state.description}
+                {this.course.description}
               </div>
               
             </div>

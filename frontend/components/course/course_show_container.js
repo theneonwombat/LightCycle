@@ -6,7 +6,6 @@ import {
  } from '../../actions/courses_actions';
 
 const mSTP = (state, ownProps) => {
-  debugger
   return({
     course: state.entities.courses[ownProps.match.params.courseId],
     courseId: ownProps.match.params.courseId,
