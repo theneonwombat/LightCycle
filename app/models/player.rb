@@ -17,6 +17,9 @@ class Player < ApplicationRecord
   
   attr_reader :password
 
+  has_many :courses
+  has_one_attached :avatar #AWS
+
   before_validation :ensure_session_token
 
   def password=(password)
@@ -47,6 +50,22 @@ class Player < ApplicationRecord
     self.session_token = SecureRandom.base64
     self.save!
     self.session_token
+  end
+
+  def num_courses
+    self.courses.count
+  end
+
+  def total_distance
+    total = 0
+    self.courses.each do |course|
+      total += course.distance.to_f
+    end
+    total.round(2)
+  end
+
+  def last_course
+    self.courses[-1]
   end
 
 end

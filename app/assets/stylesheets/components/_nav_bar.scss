@@ -1,21 +1,34 @@
-
-.simple-nav {
-  background: white;
+.all-nav {
+  background-color: white;
+  width: 100vw;
+  position: fixed;
   display: flex;
-  padding: 0 16px;
-  height: 58px;
+  justify-content: center;
+  z-index: 1;
+  border-bottom: solid 1px #f0f0f5;
+}
+.simple-nav {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2em 0 1em;
+  background: white;
+  height: 58px;
   text-decoration: none;
   border-bottom: solid 1px #f0f0f5;
 }
 
-.nav-logo {
+#nav-logo {
   color: $deep-orange;
   font-size: 21px;
   font-family: sans-serif;
   font-weight: 999;
-  margin-left: 20px;
+}
+
+#nav-logo:hover {
+  color: $deep-orange;
 }
 
 .login-button {
@@ -55,27 +68,38 @@
   background-color: rgb(240, 240, 240);
 }
 
-//temp complex nav shit
+//temp complex nav
 .complex-nav {
+  // position: fixed;
+  width: 100%;
+  // z-index: 1;
   background: white;
   display: flex;
-  padding: 0 16px;
+  max-width: 1200px;
+  padding: 0 2em 0 1em;
+  // padding: 0 16px;
   height: 58px;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  border-bottom: solid 1px #f0f0f5;
 }
 
-.welcome {
-  font-family: sans-serif;
-  font-size: 18px;
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  width: 210px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .signout-button {
-  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 82px;
   font-size: 12px;
-  padding: 6px 16px;
+  // padding: 6px 16px;
   min-height: unset;
   line-height: normal;
   border-radius: 4px;
@@ -87,5 +111,25 @@
 }
 
 .signout-button:hover {
-  background-color: #d34600;
+  background-color: $hover-orange;
+}
+
+.new-course-button {
+  color: $deep-orange;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  outline: 2px solid $deep-orange;
+  height: 30px;
+  width: 106px;
+  border-radius: 15px;
+  font-size: 12px;
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.new-course-button:hover {
+    outline: 2px solid $hover-blue;
 }

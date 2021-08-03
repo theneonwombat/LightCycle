@@ -1,0 +1,350 @@
+.kitchen-sink {
+  background-color: $bg-white;
+}
+
+.dash {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 58px 1em 0 1em;
+  background-color: $bg-white;
+  justify-content: center;
+  gap: 2em;
+  // max-width: 1000px;
+  margin: auto;
+  
+  .player-card {
+    background-color: $bg-white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 286px;
+    
+    img {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      box-shadow: 0px 8px 24px $shadow;
+      position: relative;
+      top: 35px;
+    }
+    
+    .player-card-content {
+      padding-top: 24px;
+      box-shadow: 0px 8px 24px $shadow;
+      border-radius: 4px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      
+      .player-card-name {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      
+      .player-card-stats {
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        justify-content: center;
+        gap: 2em;
+        position: relative;
+
+        .stat-block {
+          align-items: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        .stat-block::after{
+          content: "";
+          position: absolute;
+          background: $bg-white;
+          width: 2px;
+          height: 100%;
+          right: 128px;
+        }
+      }
+
+      .player-card-stats::after {
+        content: "";
+        position: absolute;
+        width: 125%;
+        height: 2px;
+        background: $bg-white;
+        top: calc(100% + 10px);
+      }
+      
+      ////////////////////
+      .no-activity {
+        padding: 16px;
+        margin-top: 1em;
+      }
+      .latest-course-info {
+        font-size: 12px;
+        padding: 16px;
+        align-items: flex-start;
+        margin-top: 1em;
+        
+        .latest-headding {
+          font-weight: 400;
+          margin: 0;
+          padding-bottom: 5px;
+        }
+        
+        .latest-link {
+          display: flex;
+          flex-direction: row;
+          font-size: 12px;
+          .latest-name {
+            margin: 0;
+            font-weight: bold;
+          }
+          .latest-date {
+            font-weight: 400;
+            margin: 0;
+          }
+        }
+      }
+      
+    }
+    
+  }
+  
+  ///////////////////////////////////////////////////////
+
+  .dash-feed {
+    margin: auto 0;
+    width: 616px;
+    padding-top: 70px;
+    background-color: $bg-white;
+  
+  }
+
+  /////////////////////////////
+
+  .link-card {
+    // background: lightgreen;
+    padding-top: 70px;
+    display: none;
+  }
+
+}
+
+.dash-item{
+  background: white;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px $shadow;
+  
+  .icon-container {
+    width: 40px;
+    margin-right: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mode-icon {
+    height: 24px;
+    width: 24px;
+  }
+
+  .dash-item-head {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px;
+    
+    .dash-item-avatar {
+      background-color: darkcyan;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 24px;
+    }
+    
+    .dash-item-head-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      
+      
+      .dash-item-player {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      
+      .dash-item-created {
+        font-size: 11px;
+        color: #666;
+      }
+    }
+  }
+  
+  .dash-item-body {
+    // background-color: darkcyan;
+    display: flex;
+    flex-direction: column;
+    
+    .dash-item-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .dash-item-stats {
+      // background-color: darkmagenta;
+      display: flex;
+      flex-direction: row;
+      
+      .dash-item-distance {
+        font-size: 20px;
+        font-weight: 400;
+      }
+      
+      .dash-item-time {
+        font-size: 20px;
+        font-weight: 400;
+        
+      }
+    }
+  }
+  
+  .static-map {
+    border-radius: 2px;
+    height: 220px;
+    width: 100%;
+    padding-top: 8px;
+    object-fit: cover;
+  }
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  padding-right: 16px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+
+  h4 {
+    margin: 0px;
+  }
+  
+  .stat-tag {
+    font-size: 12px;
+    font-weight: 400;
+    color: #494950;
+  }
+  
+  .stat-num {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+// .dash-item-distance::after {
+//   content: "";
+//   position: absolute;
+//   background: $bg-white;
+//   width: 2px;
+//   height: 100%;
+//   right: 128px;
+// }
+
+.dash-link-item {
+  // background-color: lime;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 36px;
+
+  .dash-link-left {
+    // background-color: lightsalmon;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dash-link-icon {
+    content: "";
+    border-radius: 50%;
+    border: 1px solid #ccccd1;
+    height: 0;
+    width: 0;
+    padding: 23px;
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+
+    }
+
+    svg {
+      color: $dark-gray;;
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  .dash-link-content {
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
+    p {
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    a {
+      color: #fc5200;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+}
+
+.dash {
+  @media (max-width: 950px) {
+    .player-card {
+      display: none;
+    }
+    .dash-feed {
+      width: 100%;
+      max-width: 750px;
+    }
+    .link-card {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .player-card {
+      flex: 0 0 286px;
+    }
+    .dash-feed {
+      // flex: 0 0 516px;
+      width: 100%;
+      max-width: 616px;
+    }
+    .link-card {
+      display: flex;
+      flex: 0 0 286px;
+    }
+  }
+}

@@ -9,12 +9,12 @@ span, article, footer, time, small {
   padding: 0;
   border: 0;
   outline: 0;
-  font: sans-serif;
+  font-family: sans-serif;
   color: inherit;
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
-  box-sizing: inherit;
+  box-sizing: border-box;
   background: transparent;
 }
 
@@ -43,9 +43,24 @@ button {
   appearance: none;
 }
 
+a:not(.btn):hover {
+  color: #005b83;
+  text-decoration: none;
+}
+
 button,
 input[type="submit"] {
   cursor: pointer;
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Clearfix */

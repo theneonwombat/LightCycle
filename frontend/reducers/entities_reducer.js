@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import playersReducer from './players_reducer';
+import CoursesReducer from './courses_reducer';
+import PlayersReducer from './players_reducer';
 
 const entitiesReducer = combineReducers({
-  players: playersReducer,
+  players: PlayersReducer,
+  courses: CoursesReducer,
 });
 
 export default entitiesReducer;

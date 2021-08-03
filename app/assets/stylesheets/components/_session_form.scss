@@ -5,8 +5,9 @@
 
 .login-image {
   position: absolute;
-  height: 108%;
-  width: 108%;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 58px;
   object-fit: cover;
   z-index: -1;
 }
@@ -15,12 +16,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 108px;
   padding-bottom: 50px;
 }
 
 .form-type {
-  width: 300px;
+  width: 400px;
   padding: 20px 50px;
   background: rgba(0,0,0,0.85);
   color: white;
@@ -88,6 +89,7 @@
   line-height: normal;
   font-family: sans-serif;
   font-weight: 700;
+  margin-top: 30px;
 }
 
 .form-demo-button {
