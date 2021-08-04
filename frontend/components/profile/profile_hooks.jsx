@@ -1,28 +1,36 @@
 import React from 'react';
 import DashboardItem from '../dashboard/dashboard_item';
+import ProfileItem from './profile_item';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { IoLocationOutline } from 'react-icons/io5'
 import { BiGhost } from 'react-icons/bi'
+import { fetchCourses } from '../../actions/courses_actions';
 
 function PlayerShow({ player, playerId, exact_path,
-  isCurrentPlayer, fetchPlayer, deleteCourse }) {
+  isCurrentPlayer, fetchPlayer, fetchCourses, deleteCourse, playerCourses }) {
+  
+  // const [courses, setCourses] = useState(player.courses);
 
   useEffect(() => { 
-    fetchPlayer(playerId) 
+    fetchCourses();
+    fetchPlayer(playerId);
   }, [exact_path]);
   
   if (!player) {
     return <h1>LOADING...</h1>
   }
 
-  function playerCourses(courses) {
+  function mapPlayerCourses(courses) {
     if (courses.length) {
       return <ul>
         {courses.map((course) => { 
-          return <DashboardItem
+          return <ProfileItem
             course={course}
-            deleteCourse={deleteCourse} 
+            playername={player.playername}
+            avatarUrl={player.avatarUrl}
+            isCurrentPlayer={isCurrentPlayer}
+            deleteCourse={deleteCourse}
             key={course.id}
           />})}
       </ul>
@@ -64,7 +72,7 @@ function PlayerShow({ player, playerId, exact_path,
         <div className="profile-head" >
 
           <div className="profile-content" >
-            <img src={player.avatarUrl} alt="" />
+            <img className="profile-pic" src={player.avatarUrl} />
             <h1>{player.playername}</h1>
             <div className="location-container flexrow" >
               <IoLocationOutline />
@@ -90,7 +98,7 @@ function PlayerShow({ player, playerId, exact_path,
         </div>
         
         <div className="profile-feed" >
-          {playerCourses(player.courses)}
+          {mapPlayerCourses(playerCourses)}
         </div>
 
       </div>

@@ -1,0 +1,77 @@
+.profile-item{
+  display: flex;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 8px 24px $shadow;
+  margin-bottom: 1em;
+
+  .profile-item-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em;
+
+    .top-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-item-avatar {
+      height: 48px;
+      width: 48px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      // margin-bottom: 20px;
+    }
+    .mode-icon {
+      height: 24px;
+      width: 24px;
+    }
+    .bottom-left {
+      svg {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  .profile-item-center {
+    padding: .5em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .playername {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .created-at {
+      font-size: 12px;
+      color: $middle-gray;
+    }
+    .this-course-name {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .stats {
+      display: flex;
+      gap: 1em;
+
+      font-size: 13px;
+      font-weight: 600;
+      color: #494950
+    }
+    .description {
+      font-size: 13px;
+    }
+  }
+
+  .profile-item-right {
+    .static-map {
+      height: 200px;
+      width: 200px;
+    }
+  }
+}

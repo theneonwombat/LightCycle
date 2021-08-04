@@ -28,7 +28,7 @@ class CourseShow extends React.Component {
       disableDefaultUI: true,
       zoomControl: true,
     }
-
+    debugger
     this.map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
     
     const directionsService = new google.maps.DirectionsService();
@@ -96,7 +96,11 @@ class CourseShow extends React.Component {
   
   render() {
     if (!this.course) {
-      return <h1>LOADING...</h1>
+      return (
+        <div className='the-map' id='the-map'>
+          MAP
+        </div>
+      )
     }
     //if i wanna be really slick, make these dots go up and down later
     // loading component

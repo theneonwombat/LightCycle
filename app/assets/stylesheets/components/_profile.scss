@@ -37,7 +37,7 @@
     flex-direction: column;
   }
 
-  img {
+  .profile-pic {
     height: 132px;
     width: 132px;
     border: 2px solid #fff;
@@ -133,6 +133,9 @@
     margin-top: 30px;
     width: 100%;
     position: relative;
+    ul {
+      width: 100%;
+    }
   }
 
   .no-courses-yet {

@@ -24,8 +24,7 @@ class EditCourseForm extends React.Component {
       course = {course}
       formType = {formType}
       processForm = {processForm}
-      history = {history}
-      />
+      history = {history} />
     )
   }
 }
