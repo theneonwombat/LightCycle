@@ -23,7 +23,6 @@ function ProfileItem({course, playername, avatarUrl, deleteCourse, isCurrentPlay
   }
 
   function allowDelete() {
-    debugger
     if (isCurrentPlayer) {
       return (
         <button 

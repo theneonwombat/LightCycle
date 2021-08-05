@@ -4,7 +4,6 @@ import { fetchPlayer } from '../../actions/player_actions'
 import { fetchCourses, deleteCourse } from '../../actions/courses_actions'
 
 const mSTP = (state, ownProps) => {
-  debugger
   return({
     isCurrentPlayer: state.session.id === parseInt(ownProps.match.params.playerId),
     exact_path: ownProps.match.url,

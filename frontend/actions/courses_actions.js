@@ -63,7 +63,6 @@ export const deleteCourse = (courseId) => dispatch => {
   return(
     CourseApiUtil.deleteCourse(courseId)
     .then((course) => {
-      // debugger
       return dispatch(removeCourse(course.id))
     })
   )

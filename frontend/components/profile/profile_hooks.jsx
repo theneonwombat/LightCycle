@@ -86,7 +86,7 @@ function PlayerShow({ player, playerId, exact_path,
 
           <div className="profile-right" >
 
-            <div>Edit?</div>
+            <div></div>
 
             <div className="all-time" > 
               <div className="time-began" >Since Forever</div>
