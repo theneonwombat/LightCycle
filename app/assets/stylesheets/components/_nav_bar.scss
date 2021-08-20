@@ -118,9 +118,9 @@
   color: $deep-orange;
   display: flex;
   align-items: center;
-  justify-content: end;
-  outline: 2px solid $deep-orange;
-  height: 30px;
+  justify-content: flex-end;
+  border: 2px solid $deep-orange;
+  height: 34px;
   width: 106px;
   border-radius: 15px;
   font-size: 12px;
@@ -131,5 +131,5 @@
 }
 
 .new-course-button:hover {
-    outline: 2px solid $hover-blue;
+    border: 2px solid $hover-blue;
 }

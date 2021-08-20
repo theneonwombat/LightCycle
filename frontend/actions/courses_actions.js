@@ -36,6 +36,15 @@ export const fetchCourses = () => dispatch => {
   )
 }
 
+////////
+export const fetchPlayerCourses = (playerId) => dispatch => {
+  return(
+    CourseApiUtil.fetchCourses()
+    .then((courses) => dispatch(receiveAllCourses(courses)))
+  )
+}
+////////
+
 export const fetchCourse = (courseId) => dispatch => {
   return(
     CourseApiUtil.fetchCourse(courseId)

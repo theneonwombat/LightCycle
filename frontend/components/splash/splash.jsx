@@ -36,14 +36,14 @@ class Splash extends React.Component {
               <a href="https://www.linkedin.com/in/alec-caro-5a713a5b/" 
                 rel="noreferrer" 
                 target="_blank" 
-                className="splash-button">
+                className="splash-button btn">
                 LinkedIn
               </a>
 
               <a href="https://github.com/theneonwombat/LightCycle" 
                 rel="noreferrer" 
                 target="_blank" 
-                className="splash-button">
+                className="splash-button btn">
                 GitHub
               </a>
 

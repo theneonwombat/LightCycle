@@ -12,7 +12,7 @@ function ShowMap({course}) {
       disableDefaultUI: true,
       zoomControl: true,
     }
-    
+    debugger
     const map = new google.maps.Map(document.getElementById('the-map'), mapOptions);
     
     const directionsService = new google.maps.DirectionsService();

@@ -8,7 +8,11 @@
     <script type="text/javascript">
       window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
     </script>
-
+    <meta property="og:title" content="LightCycle" />
+    <meta property="og:image" content="<%= image_url('') %>"/>
+    <meta property="og:description"
+      content="A full stack single-page app clone of Strava, allowing users to map and share their favorite bicycling routes" />
+    <meta property="og:url">
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google[:api_key]}" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>

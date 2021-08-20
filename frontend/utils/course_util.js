@@ -7,6 +7,17 @@ export const fetchCourses = () => {
   )
 }
 
+/////////
+export const fetchPlayerCourses = (playerId) => {
+  return(
+    $.ajax({
+      method: 'GET',
+      url: `/api/courses/?player_id=${playerId}`,
+    })
+  )
+}
+///////////
+
 export const fetchCourse = (courseId) => {
   return(
     $.ajax({

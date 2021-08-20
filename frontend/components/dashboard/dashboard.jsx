@@ -105,13 +105,15 @@ class Dashboard extends React.Component {
                 <div className="dash-link-content">
                   <h2>Github</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque omnis maxime, nulla dolore nesciunt earum perferendis pariatur ratione repudiandae in alias reprehenderit exercitationem commodi non?
+                    This project was built with a React frontend and Ruby on Rails
+                    backend, and utilizes the Google Maps API. If you'd like to 
+                    view the code for yourself feel free to visit the Github repository.
                   </p>
                   <a href="https://github.com/theneonwombat/LightCycle" 
                     rel="noreferrer" 
                     target="_blank" 
                     className="">
-                    View Project GitHub
+                    View Project on GitHub
                   </a>
                 </div>
               </li>
@@ -127,7 +129,9 @@ class Dashboard extends React.Component {
                 <div className="dash-link-content">
                   <h2>Linkedin</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque omnis maxime, nulla dolore nesciunt earum perferendis pariatur ratione repudiandae in alias reprehenderit exercitationem commodi non?
+                    This project was created by Alec Caro, personable Software 
+                    Engineer with a degree in Mechanical Engineering, experience 
+                    in leadership, and an obsessive problem solver. 
                   </p>
                   <a href="https://www.linkedin.com/in/alec-caro-5a713a5b/" 
                     rel="noreferrer" 
@@ -147,15 +151,18 @@ class Dashboard extends React.Component {
                   </i>
                 </div>
                 <div className="dash-link-content">
-                  <h2>Personal Page</h2>
+                  <h2>OutFoxed</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque omnis maxime, nulla dolore nesciunt earum perferendis pariatur ratione repudiandae in alias reprehenderit exercitationem commodi non?
+                    Another project from Alec Caro; OutFoxed is a Javascript game 
+                    featureing adorable pixle animals eating other adorable pixle animals. 
+                    This one is a work in progress, so be sure to check back now 
+                    and then to see how the game will grow!
                   </p>
                   <a href="https://theneonwombat.github.io/OutFox/" 
                     rel="noreferrer" 
                     target="_blank" 
                     className="">
-                    View Alec's Personal Page
+                    Play Around in OutFoxed
                   </a>
                 </div>
               </li>

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  //TESTING BELOW
+  //TESTING BELOW penis
   window.getState = store.getState
   window.dispatch = store.dispatch
   window.fetchPins = fetchPins
