@@ -131,7 +131,7 @@ class Dashboard extends React.Component {
                   <p>
                     This project was created by Alec Caro, personable Software 
                     Engineer with a degree in Mechanical Engineering, experience 
-                    in leadership, and an obsessive problem solver. 
+                    in leadership, who is an obsessive problem solver. 
                   </p>
                   <a href="https://www.linkedin.com/in/alec-caro-5a713a5b/" 
                     rel="noreferrer" 
@@ -153,7 +153,7 @@ class Dashboard extends React.Component {
                 <div className="dash-link-content">
                   <h2>OutFoxed</h2>
                   <p>
-                    Another project from Alec Caro; OutFoxed is a Javascript game 
+                    OutFoxed is a Javascript game 
                     featureing adorable pixle animals eating other adorable pixle animals. 
                     This one is a work in progress, so be sure to check back now 
                     and then to see how the game will grow!

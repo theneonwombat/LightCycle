@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { IoAddCircleOutline } from "react-icons/io5";
+import { FaGithub } from 'react-icons/fa';
+import { AiOutlineLinkedin } from 'react-icons/ai'
 
 const NavBar = ({currentPlayer, currentPage, logout}) => {
 
@@ -39,6 +41,18 @@ const NavBar = ({currentPlayer, currentPage, logout}) => {
           <Link id="nav-logo" to="/splash">
             LightCycle
           </Link>
+          <a href="https://github.com/theneonwombat/LightCycle" 
+            rel="noreferrer" 
+            target="_blank"
+            className="nav-icon">
+            <FaGithub />  
+          </a>
+          <a href="https://www.linkedin.com/in/alec-caro-5a713a5b/" 
+            rel="noreferrer" 
+            target="_blank"
+            className="nav-icon">
+            <AiOutlineLinkedin />  
+          </a>
         </div>
 
         <div className="nav-right" >

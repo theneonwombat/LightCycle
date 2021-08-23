@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => {
     exact_path: ownProps.match.url,
     player: state.entities.players[ownProps.match.params.playerId],
     playerId: ownProps.match.params.playerId,
-    playerCourses: Object.values(state.entities.courses).filter(course => course.player_id === parseInt(ownProps.match.params.playerId))
+    playerCourses: Object.values(state.entities.courses).filter(course => course.player_id === parseInt(ownProps.match.params.playerId)).reverse()
   })
 }
 

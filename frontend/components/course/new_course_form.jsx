@@ -185,6 +185,7 @@ class CourseForm extends React.Component {
     const pinsString = JSON.stringify({ pins: this.pins });
     this.setState({ pins_object: pinsString }, () => {
       course = Object.assign({}, this.state);
+      console.log(course);
       this.props.processForm(course)
         .then(() => {
           if (this.props.formType === 'Edit Course') {

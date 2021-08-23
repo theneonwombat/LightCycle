@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ShowMap from './show_map'
-// import mapStyles from './map_styles'
+import { IoBicycleSharp } from 'react-icons/io5';
+import { BiRun } from "react-icons/bi";
 
 class CourseShow extends React.Component {
   
   constructor(props) {
     super(props);
 
-    this.handleDeleteEvent = this.handleDeleteEvent.bind(this); 
+    this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
+    this.modeIcon = this.modeIcon.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +22,18 @@ class CourseShow extends React.Component {
   handleDeleteEvent() {
     this.props.deleteCourse(this.props.courseId) 
     .then(() => this.props.history.push("/dashboard"));
+  }
+
+  modeIcon() {
+    if (this.props.course.travel_mode === 'BICYCLING') {
+      return(
+        <IoBicycleSharp className="mode-icon" />
+      )
+    }
+
+    return(
+      <BiRun className="mode-icon" />
+    )
   }
   
   render() {
@@ -60,7 +74,12 @@ class CourseShow extends React.Component {
         <div className="course-show-container" >
 
           <div className="course-show-head" >
-            <h1>{this.props.course.course_name}</h1>
+            <div className="course-show-title" >
+              <h1>{this.props.course.course_name}</h1>
+              <div className="icon-container" >
+                {this.modeIcon()}
+              </div>
+            </div>
             {buttons()}
           </div>
 

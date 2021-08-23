@@ -1,6 +1,7 @@
 .course-show-page {
   display: flex;
   padding-top: 58px;
+  background-color: $bg-white;
 }
 
 .course-show-container {
@@ -13,10 +14,19 @@
   flex-direction: column;
   justify-content: center;
   margin-bottom: 1em;
+  .course-show-title {
+    display: flex;
+    gap: 1em;
 
-  h1 {
-    font-size: 34px;
-    font-weight: 700;
+    h1 {
+      font-size: 34px;
+      font-weight: 700;
+    }
+    svg {
+      color: $dark-gray;
+      height: 30px;
+      width: 30px;
+    }
   }
 }
 
@@ -24,10 +34,11 @@
   display: flex;
   gap: 3.5px;
   height: 29px;
-
+  
   .show-button {
     display: flex;
     justify-content: center;
+    background-color: white;
     padding: 6px 12px;
     border: 1px solid #dfdfe8;
     border-radius: 4px;
@@ -51,6 +62,7 @@
   width: 600px;
   height: 450px;
   box-shadow: 0px 8px 24px $shadow;
+  border-radius: 4px;
 }
 
 .course-show-info {
@@ -59,9 +71,10 @@
   flex-direction: column;
   justify-content: start;
   gap: 2em;
-
+  
   padding: 1em;
   box-shadow: 0px 8px 24px $shadow;
+  border-radius: 4px;
 }
 
 .course-show-info-head {

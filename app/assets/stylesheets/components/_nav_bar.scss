@@ -20,6 +20,20 @@
   border-bottom: solid 1px #f0f0f5;
 }
 
+.nav-left {
+  display: flex;
+  gap: 1.5em;
+
+  svg {
+    height: 22px;
+    width: 22px;
+    color: $light-gray;
+  }
+  svg:hover {
+    color: $hover-blue;
+  }
+}
+
 #nav-logo {
   color: $deep-orange;
   font-size: 21px;
