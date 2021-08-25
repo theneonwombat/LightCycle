@@ -68,7 +68,6 @@ class CourseShow extends React.Component {
     const month = dateObj.toLocaleDateString(undefined, { month: 'long' })
     const date = dateObj.toLocaleDateString(undefined, { day: 'numeric' })
     const year = dateObj.toLocaleDateString(undefined, { year: 'numeric' })
-    debugger
     return(
       <div className='course-show-page'>
         <div className="course-show-container" >

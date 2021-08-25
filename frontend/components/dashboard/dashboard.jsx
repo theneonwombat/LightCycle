@@ -154,7 +154,7 @@ class Dashboard extends React.Component {
                   <h2>OutFoxed</h2>
                   <p>
                     OutFoxed is a Javascript game 
-                    featureing adorable pixle animals eating other adorable pixle animals. 
+                    featuring adorable pixel animals eating other adorable pixel animals. 
                     This one is a work in progress, so be sure to check back now 
                     and then to see how the game will grow!
                   </p>

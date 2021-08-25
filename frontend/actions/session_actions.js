@@ -40,12 +40,10 @@ export const signup = player => dispatch => {
 };
 
 export const login = player => dispatch => {
-  debugger
   return APIUtil.login(player)
   .then(
     player  => dispatch(receiveCurrentPlayer(player)),
-    err => { debugger }
-    // err => { return dispatch(receiveErrors(err.responseJSON))}
+    err => { return dispatch(receiveErrors(err.responseJSON))}
   )
 };
 
